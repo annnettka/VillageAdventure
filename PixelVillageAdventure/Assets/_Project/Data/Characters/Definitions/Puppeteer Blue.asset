@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a7bc4b21364f659b1f2e98b8c7e015, type: 3}
+  m_Name: Puppeteer Blue
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDefinition
+  id: puppeteer_blue
+  displayName: Puppeteer Blue
+  characterPrefab: {fileID: 8520811115239770928, guid: 0ffccf8a3adfbb1419e3e6ae09d34b88, type: 3}
+  previewSprite: {fileID: 1708256290, guid: b11530df5ba7a764eab42e07facddb07, type: 3}
+  price: 25
+  unlockedByDefault: 0

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a7bc4b21364f659b1f2e98b8c7e015, type: 3}
+  m_Name: Speckle Turquoise
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDefinition
+  id: speckle_turquoise
+  displayName: Speckle Turquoise
+  characterPrefab: {fileID: 3639693825597085712, guid: 1803c32d5c3b5784cb6639b81834dfc1, type: 3}
+  previewSprite: {fileID: -974431293, guid: 89919de6bb3dc1d4790f8eab22e95cd1, type: 3}
+  price: 25
+  unlockedByDefault: 0

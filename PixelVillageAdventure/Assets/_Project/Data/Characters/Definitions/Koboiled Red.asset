@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a7bc4b21364f659b1f2e98b8c7e015, type: 3}
+  m_Name: Koboiled Red
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDefinition
+  id: koboiled_red
+  displayName: Koboiled Red
+  characterPrefab: {fileID: 7989525525870825896, guid: 279a87ba8d6555347bd31ce6a5b90f59, type: 3}
+  previewSprite: {fileID: 203956601, guid: 08fa7b09c4414aa49ba6ba33ffb41dee, type: 3}
+  price: 25
+  unlockedByDefault: 0

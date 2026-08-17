@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a7bc4b21364f659b1f2e98b8c7e015, type: 3}
+  m_Name: Speckle Green
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDefinition
+  id: speckle_green
+  displayName: Speckle Green
+  characterPrefab: {fileID: 6524984481513435068, guid: b2a6759662387e541b80de46ef7df283, type: 3}
+  previewSprite: {fileID: 887015444, guid: 6ee0ca78720e140469093a80cefc57d5, type: 3}
+  price: 25
+  unlockedByDefault: 0

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a7bc4b21364f659b1f2e98b8c7e015, type: 3}
+  m_Name: Puppeteer Purple
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDefinition
+  id: puppeteer_purple
+  displayName: Puppeteer Purple
+  characterPrefab: {fileID: 7036406532082007569, guid: 4344c492f61753246bdf7fa6977287ed, type: 3}
+  previewSprite: {fileID: -909994791, guid: bb51ed9e2fc6f2b44983e313054b419e, type: 3}
+  price: 25
+  unlockedByDefault: 0

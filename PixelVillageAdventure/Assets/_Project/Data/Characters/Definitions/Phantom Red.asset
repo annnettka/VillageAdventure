@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a7bc4b21364f659b1f2e98b8c7e015, type: 3}
+  m_Name: Phantom Red
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDefinition
+  id: phantom_red
+  displayName: Phantom Red
+  characterPrefab: {fileID: 6296972362399497634, guid: 20bd3cfc817c5bd41bbe2390774442bb, type: 3}
+  previewSprite: {fileID: -1633255449, guid: f340cb3cf78218643a202375c0b1a6bf, type: 3}
+  price: 25
+  unlockedByDefault: 0

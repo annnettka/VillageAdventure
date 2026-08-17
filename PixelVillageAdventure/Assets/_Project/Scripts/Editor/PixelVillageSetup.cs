@@ -23,6 +23,12 @@ public static class PixelVillageSetup
     private const string MenuAssetsFolder = "Assets/_Project/MenuAssets";
     private const string GameBackgroundPath = "Assets/_Project/Scenes/backgroundGAME.png";
     private const string FlowerCollectiblePrefabPath = "Assets/_Project/Prefabs/Gameplay/FlowerCollectible.prefab";
+    private const string CharacterSourceFolder = "Assets/_Project/Characters";
+    private const string EnemySourceFolder = "Assets/_Project/Characters/Enemies";
+    private const string CharacterDataFolder = "Assets/_Project/Data/Characters";
+    private const string CharacterDefinitionFolder = "Assets/_Project/Data/Characters/Definitions";
+    private const string CharacterDatabasePath = "Assets/_Project/Data/Characters/CharacterDatabase.asset";
+    private const string EnemyPrefabFolder = "Assets/_Project/Prefabs/Enemies";
     private const string PuppeteerFolder = "Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Grey";
 
     private static readonly Color ButtonColor = new Color(1f, 1f, 1f, 0.34f);
@@ -34,10 +40,12 @@ public static class PixelVillageSetup
     {
         EnsureProjectFolders();
         CreateOrUpdateFlowerCollectiblePrefab();
+        CharacterDatabase characterDatabase = CreateOrUpdateCharacterDatabase();
+        CreateOrUpdateEnemyPrefabs();
         PlayerAnimationFrames playerAnimationFrames = LoadPlayerAnimationFrames();
 
-        SetupGameScene(playerAnimationFrames);
-        SetupMainMenuScene();
+        SetupGameScene(playerAnimationFrames, characterDatabase);
+        SetupMainMenuScene(characterDatabase);
         ConfigureBuildSettings();
         ConfigureAndroidSettings();
 
@@ -45,6 +53,21 @@ public static class PixelVillageSetup
         AssetDatabase.Refresh();
 
         Debug.Log("Pixel Village setup complete. Game and MainMenu scenes were configured and saved.");
+    }
+
+    [MenuItem("Tools/Pixel Village/Add 100 Flowers")]
+    public static void Add100Flowers()
+    {
+        CharacterProgress.AddFlowers(100);
+        Debug.Log($"Added 100 flowers. TotalFlowers is now {CharacterProgress.TotalFlowers}.");
+    }
+
+    [MenuItem("Tools/Pixel Village/Reset Character Shop")]
+    public static void ResetCharacterShop()
+    {
+        CharacterDatabase characterDatabase = AssetDatabase.LoadAssetAtPath<CharacterDatabase>(CharacterDatabasePath);
+        CharacterProgress.ResetCharacterShop(characterDatabase);
+        Debug.Log("Character shop PlayerPrefs were reset. Default character remains unlocked.");
     }
 
     private static PlayerAnimationFrames LoadPlayerAnimationFrames()
@@ -134,7 +157,7 @@ public static class PixelVillageSetup
         return int.TryParse(spriteName.Substring(separatorIndex + 1), out int frameIndex) ? frameIndex : -1;
     }
 
-    private static void SetupGameScene(PlayerAnimationFrames playerAnimationFrames)
+    private static void SetupGameScene(PlayerAnimationFrames playerAnimationFrames, CharacterDatabase characterDatabase)
     {
         Scene scene = EditorSceneManager.OpenScene(GameScenePath, OpenSceneMode.Single);
 
@@ -160,7 +183,7 @@ public static class PixelVillageSetup
             MarkCreated(visualObject);
         }
 
-        ConfigurePlayer(playerObject, visualObject, playerAnimationFrames, playerLayer, groundLayer);
+        ConfigurePlayer(playerObject, visualObject, playerAnimationFrames, characterDatabase, playerLayer, groundLayer);
 
         PlayerController player = playerObject.GetComponent<PlayerController>();
         GameObject gameplayObject = FindOrCreateRoot(scene, "Gameplay");
@@ -189,6 +212,8 @@ public static class PixelVillageSetup
         SetString(gameManager, "mainMenuSceneName", "MainMenu");
         SetFloat(gameManager, "respawnDelay", 0.8f);
         SetInt(gameManager, "maxLives", 3);
+        SetFloat(gameManager, "damageInvulnerabilityDuration", 1f);
+        SetFloat(gameManager, "damageFlashInterval", 0.1f);
 
         SetObjectReference(deathZoneObject.GetComponent<DeathZone>(), "gameManager", gameManager);
 
@@ -201,7 +226,7 @@ public static class PixelVillageSetup
         EditorSceneManager.SaveScene(scene);
     }
 
-    private static void ConfigurePlayer(GameObject playerObject, GameObject visualObject, PlayerAnimationFrames playerAnimationFrames, int playerLayer, int groundLayer)
+    private static void ConfigurePlayer(GameObject playerObject, GameObject visualObject, PlayerAnimationFrames playerAnimationFrames, CharacterDatabase characterDatabase, int playerLayer, int groundLayer)
     {
         playerObject.layer = playerLayer >= 0 ? playerLayer : playerObject.layer;
 
@@ -289,6 +314,23 @@ public static class PixelVillageSetup
         SetFloat(playerRespawn, "safeGroundedSeconds", 0.16f);
         SetFloat(playerRespawn, "groundProbeDistance", 0.22f);
         SetFloat(playerRespawn, "respawnYOffset", 0.65f);
+
+        GameObject characterVisualRoot = FindChild(playerObject.transform, "CharacterVisualRoot");
+        if (characterVisualRoot == null)
+        {
+            characterVisualRoot = new GameObject("CharacterVisualRoot");
+            characterVisualRoot.transform.SetParent(playerObject.transform, false);
+            MarkCreated(characterVisualRoot);
+        }
+
+        RemoveChildren(characterVisualRoot.transform);
+
+        PlayerCharacterLoader characterLoader = GetOrAdd<PlayerCharacterLoader>(playerObject);
+        SetObjectReference(characterLoader, "characterDatabase", characterDatabase);
+        SetObjectReference(characterLoader, "player", controller);
+        SetObjectReference(characterLoader, "characterVisualRoot", characterVisualRoot.transform);
+        SetObjectReference(characterLoader, "fallbackVisual", visualObject);
+        SetInt(characterLoader, "sortingOrder", 20);
     }
 
     private static void ConfigureGround(GameObject groundObject, int groundLayer)
@@ -617,6 +659,296 @@ public static class PixelVillageSetup
         }
     }
 
+    private static CharacterDatabase CreateOrUpdateCharacterDatabase()
+    {
+        EnsureFolder(CharacterDataFolder);
+        EnsureFolder(CharacterDefinitionFolder);
+
+        List<CharacterDefinition> definitions = new List<CharacterDefinition>();
+        HashSet<string> usedIds = new HashSet<string>();
+        string[] guids = AssetDatabase.FindAssets("t:Prefab", new[] { CharacterSourceFolder });
+        List<string> prefabPaths = new List<string>();
+        foreach (string guid in guids)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            if (!path.StartsWith(CharacterSourceFolder + "/", System.StringComparison.OrdinalIgnoreCase))
+            {
+                continue;
+            }
+
+            if (path.StartsWith(EnemySourceFolder + "/", System.StringComparison.OrdinalIgnoreCase))
+            {
+                continue;
+            }
+
+            prefabPaths.Add(path);
+        }
+
+        prefabPaths.Sort(System.StringComparer.OrdinalIgnoreCase);
+
+        foreach (string prefabPath in prefabPaths)
+        {
+            GameObject characterPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
+            if (!IsCompatibleCharacterPrefab(characterPrefab))
+            {
+                continue;
+            }
+
+            string displayName = System.IO.Path.GetFileNameWithoutExtension(prefabPath);
+            string assetPath = $"{CharacterDefinitionFolder}/{SanitizeAssetName(displayName)}.asset";
+            CharacterDefinition definition = AssetDatabase.LoadAssetAtPath<CharacterDefinition>(assetPath);
+            bool created = definition == null;
+            if (created)
+            {
+                definition = ScriptableObject.CreateInstance<CharacterDefinition>();
+                AssetDatabase.CreateAsset(definition, assetPath);
+            }
+
+            string id = GetSerializedString(definition, "id");
+            if (string.IsNullOrWhiteSpace(id))
+            {
+                id = MakeUniqueId(MakeStableId(displayName), usedIds);
+                SetString(definition, "id", id);
+            }
+            else if (!usedIds.Add(id))
+            {
+                id = MakeUniqueId(MakeStableId(displayName), usedIds);
+                SetString(definition, "id", id);
+            }
+
+            if (string.IsNullOrWhiteSpace(GetSerializedString(definition, "displayName")))
+            {
+                SetString(definition, "displayName", displayName);
+            }
+
+            bool isDefaultCharacter = displayName.Equals("Puppeteer Grey", System.StringComparison.OrdinalIgnoreCase);
+            SetObjectReference(definition, "characterPrefab", characterPrefab);
+            SetObjectReference(definition, "previewSprite", GetPreviewSprite(characterPrefab));
+            if (isDefaultCharacter)
+            {
+                SetInt(definition, "price", 0);
+                SetBool(definition, "unlockedByDefault", true);
+            }
+            else if (created)
+            {
+                SetInt(definition, "price", 25);
+                SetBool(definition, "unlockedByDefault", false);
+            }
+
+            EditorUtility.SetDirty(definition);
+            definitions.Add(definition);
+        }
+
+        definitions.Sort((left, right) => string.Compare(left.DisplayName, right.DisplayName, System.StringComparison.OrdinalIgnoreCase));
+
+        CharacterDatabase database = AssetDatabase.LoadAssetAtPath<CharacterDatabase>(CharacterDatabasePath);
+        if (database == null)
+        {
+            database = ScriptableObject.CreateInstance<CharacterDatabase>();
+            AssetDatabase.CreateAsset(database, CharacterDatabasePath);
+        }
+
+        SetObjectArray(database, "characters", definitions.ToArray());
+        EditorUtility.SetDirty(database);
+        CharacterProgress.EnsureDefaults(database);
+        return database;
+    }
+
+    private static void CreateOrUpdateEnemyPrefabs()
+    {
+        EnsureFolder(EnemyPrefabFolder);
+
+        int groundLayer = EnsureLayer("Ground");
+        int enemyLayer = EnsureLayer("Enemy");
+        int groundMask = groundLayer >= 0 ? 1 << groundLayer : Physics2D.DefaultRaycastLayers;
+        string[] guids = AssetDatabase.FindAssets("t:Prefab", new[] { EnemySourceFolder });
+        List<string> enemySourcePaths = new List<string>();
+        foreach (string guid in guids)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            if (!path.StartsWith(EnemySourceFolder + "/", System.StringComparison.OrdinalIgnoreCase))
+            {
+                continue;
+            }
+
+            if (IsEnemyUtilityPrefab(path))
+            {
+                continue;
+            }
+
+            enemySourcePaths.Add(path);
+        }
+
+        enemySourcePaths.Sort(System.StringComparer.OrdinalIgnoreCase);
+        foreach (string sourcePath in enemySourcePaths)
+        {
+            GameObject sourcePrefab = AssetDatabase.LoadAssetAtPath<GameObject>(sourcePath);
+            if (sourcePrefab == null || sourcePrefab.GetComponentInChildren<SpriteRenderer>(true) == null)
+            {
+                continue;
+            }
+
+            CreateOrUpdateEnemyPrefab(sourcePrefab, sourcePath, enemyLayer, groundMask);
+        }
+    }
+
+    private static void CreateOrUpdateEnemyPrefab(GameObject sourcePrefab, string sourcePath, int enemyLayer, int groundMask)
+    {
+        string sourceName = System.IO.Path.GetFileNameWithoutExtension(sourcePath);
+        string prefabName = "Enemy_" + SanitizeIdentifier(sourceName);
+        string prefabPath = $"{EnemyPrefabFolder}/{prefabName}.prefab";
+
+        GameObject root = new GameObject(prefabName);
+        try
+        {
+            if (enemyLayer >= 0)
+            {
+                SetLayerRecursively(root, enemyLayer);
+            }
+
+            GameObject visual = PrefabUtility.InstantiatePrefab(sourcePrefab) as GameObject;
+            if (visual != null)
+            {
+                visual.name = "Visual";
+                visual.transform.SetParent(root.transform, false);
+                visual.transform.localPosition = Vector3.zero;
+                visual.transform.localRotation = Quaternion.identity;
+                visual.transform.localScale = Vector3.one;
+                StripGameplayComponents(visual);
+                ConfigureSpriteRenderers(visual, 12);
+                if (enemyLayer >= 0)
+                {
+                    SetLayerRecursively(visual, enemyLayer);
+                }
+            }
+
+            Rigidbody2D body = GetOrAdd<Rigidbody2D>(root);
+            body.bodyType = RigidbodyType2D.Kinematic;
+            body.gravityScale = 0f;
+            body.freezeRotation = true;
+            body.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+
+            BoxCollider2D trigger = GetOrAdd<BoxCollider2D>(root);
+            trigger.isTrigger = true;
+            FitBoxColliderToRenderers(root, trigger, new Vector2(0.62f, 0.86f), new Vector2(0f, 0.03f));
+
+            EnemyPatrol patrol = GetOrAdd<EnemyPatrol>(root);
+            SetFloat(patrol, "moveSpeed", 1.5f);
+            SetFloat(patrol, "patrolDistance", 3f);
+            SetInt(patrol, "groundLayers", groundMask);
+            SetObjectReference(patrol, "visualRoot", visual != null ? visual.transform : root.transform);
+            SetFloat(patrol, "edgeCheckDistance", 0.65f);
+
+            EnemyDamage damage = GetOrAdd<EnemyDamage>(root);
+            SetInt(damage, "damage", 1);
+            SetFloat(damage, "hitCooldown", 0.25f);
+
+            GameObject attackOrigin = new GameObject("AttackOrigin");
+            attackOrigin.transform.SetParent(root.transform, false);
+            attackOrigin.transform.localPosition = new Vector3(0.45f, 0.2f, 0f);
+            if (enemyLayer >= 0)
+            {
+                attackOrigin.layer = enemyLayer;
+            }
+
+            GameObject goopAttackSource = FindEnemyUtilityPrefab(sourceName, "Attack");
+            if (goopAttackSource != null)
+            {
+                GameObject projectilePrefab = CreateOrUpdateEnemyProjectilePrefab(sourceName, goopAttackSource, enemyLayer);
+                EnemyRangedAttack rangedAttack = GetOrAdd<EnemyRangedAttack>(root);
+                SetBool(rangedAttack, "attackEnabled", true);
+                SetFloat(rangedAttack, "attackRange", 5f);
+                SetFloat(rangedAttack, "attackCooldown", 2f);
+                SetFloat(rangedAttack, "projectileSpeed", 4f);
+                SetInt(rangedAttack, "damage", 1);
+                SetObjectReference(rangedAttack, "attackOrigin", attackOrigin.transform);
+                SetObjectReference(rangedAttack, "projectilePrefab", projectilePrefab);
+            }
+
+            GameObject weaponSource = FindEnemyUtilityPrefab(sourceName, "Weapon");
+            if (weaponSource != null)
+            {
+                GameObject weaponVisual = PrefabUtility.InstantiatePrefab(weaponSource) as GameObject;
+                if (weaponVisual != null)
+                {
+                    weaponVisual.name = "WeaponVisual";
+                    weaponVisual.transform.SetParent(root.transform, false);
+                    weaponVisual.transform.localPosition = new Vector3(0.42f, 0.15f, 0f);
+                    weaponVisual.transform.localRotation = Quaternion.identity;
+                    weaponVisual.transform.localScale = Vector3.one;
+                    StripGameplayComponents(weaponVisual);
+                    ConfigureSpriteRenderers(weaponVisual, 14);
+                    weaponVisual.SetActive(false);
+                    if (enemyLayer >= 0)
+                    {
+                        SetLayerRecursively(weaponVisual, enemyLayer);
+                    }
+
+                    EnemyMeleeAttack meleeAttack = GetOrAdd<EnemyMeleeAttack>(root);
+                    SetBool(meleeAttack, "attackEnabled", true);
+                    SetFloat(meleeAttack, "attackRange", 1.35f);
+                    SetFloat(meleeAttack, "attackCooldown", 1.8f);
+                    SetFloat(meleeAttack, "activeTime", 0.18f);
+                    SetInt(meleeAttack, "damage", 1);
+                    SetObjectReference(meleeAttack, "weaponVisual", weaponVisual);
+                }
+            }
+
+            PrefabUtility.SaveAsPrefabAsset(root, prefabPath);
+        }
+        finally
+        {
+            Object.DestroyImmediate(root);
+        }
+    }
+
+    private static GameObject CreateOrUpdateEnemyProjectilePrefab(string sourceEnemyName, GameObject attackSourcePrefab, int enemyLayer)
+    {
+        string prefabName = "Projectile_" + SanitizeIdentifier(sourceEnemyName) + "_Attack";
+        string prefabPath = $"{EnemyPrefabFolder}/{prefabName}.prefab";
+        GameObject root = new GameObject(prefabName);
+        try
+        {
+            if (enemyLayer >= 0)
+            {
+                SetLayerRecursively(root, enemyLayer);
+            }
+
+            GameObject visual = PrefabUtility.InstantiatePrefab(attackSourcePrefab) as GameObject;
+            if (visual != null)
+            {
+                visual.name = "Visual";
+                visual.transform.SetParent(root.transform, false);
+                visual.transform.localPosition = Vector3.zero;
+                visual.transform.localRotation = Quaternion.identity;
+                visual.transform.localScale = Vector3.one;
+                StripGameplayComponents(visual);
+                ConfigureSpriteRenderers(visual, 15);
+                if (enemyLayer >= 0)
+                {
+                    SetLayerRecursively(visual, enemyLayer);
+                }
+            }
+
+            CircleCollider2D trigger = GetOrAdd<CircleCollider2D>(root);
+            trigger.isTrigger = true;
+            FitCircleColliderToRenderers(root, trigger);
+
+            EnemyProjectile projectile = GetOrAdd<EnemyProjectile>(root);
+            SetFloat(projectile, "speed", 4f);
+            SetInt(projectile, "damage", 1);
+            SetFloat(projectile, "lifetime", 4f);
+
+            PrefabUtility.SaveAsPrefabAsset(root, prefabPath);
+        }
+        finally
+        {
+            Object.DestroyImmediate(root);
+        }
+
+        return AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
+    }
+
     private static GameObject FindHeartPrefab()
     {
         const string expectedPath = "Assets/JazzCreate/JazzCreateMultiUI/Prefabs/Pre_Made_Prefabs/Heart.prefab";
@@ -671,6 +1003,236 @@ public static class PixelVillageSetup
 
         SpriteRenderer renderer = flowerSource.GetComponentInChildren<SpriteRenderer>(true);
         return renderer != null ? renderer.sprite : null;
+    }
+
+    private static bool IsCompatibleCharacterPrefab(GameObject prefab)
+    {
+        if (prefab == null)
+        {
+            return false;
+        }
+
+        return prefab.GetComponentInChildren<SpriteRenderer>(true) != null
+            || prefab.GetComponentInChildren<Animator>(true) != null;
+    }
+
+    private static Sprite GetPreviewSprite(GameObject prefab)
+    {
+        if (prefab == null)
+        {
+            return null;
+        }
+
+        foreach (SpriteRenderer renderer in prefab.GetComponentsInChildren<SpriteRenderer>(true))
+        {
+            if (renderer.sprite != null)
+            {
+                return renderer.sprite;
+            }
+        }
+
+        return null;
+    }
+
+    private static bool IsEnemyUtilityPrefab(string path)
+    {
+        string fileName = System.IO.Path.GetFileNameWithoutExtension(path);
+        return fileName.EndsWith(" Attack", System.StringComparison.OrdinalIgnoreCase)
+            || fileName.EndsWith(" Weapon", System.StringComparison.OrdinalIgnoreCase);
+    }
+
+    private static GameObject FindEnemyUtilityPrefab(string sourceEnemyName, string suffix)
+    {
+        string expectedPath = $"{EnemySourceFolder}/{sourceEnemyName} {suffix}.prefab";
+        GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(expectedPath);
+        if (prefab != null)
+        {
+            return prefab;
+        }
+
+        string expectedName = $"{sourceEnemyName} {suffix}";
+        string[] guids = AssetDatabase.FindAssets($"{expectedName} t:Prefab", new[] { EnemySourceFolder });
+        foreach (string guid in guids)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            string fileName = System.IO.Path.GetFileNameWithoutExtension(path);
+            if (fileName.Equals(expectedName, System.StringComparison.OrdinalIgnoreCase))
+            {
+                return AssetDatabase.LoadAssetAtPath<GameObject>(path);
+            }
+        }
+
+        return null;
+    }
+
+    private static void StripGameplayComponents(GameObject visualRoot)
+    {
+        foreach (Rigidbody2D body in visualRoot.GetComponentsInChildren<Rigidbody2D>(true))
+        {
+            Object.DestroyImmediate(body);
+        }
+
+        foreach (Collider2D collider in visualRoot.GetComponentsInChildren<Collider2D>(true))
+        {
+            Object.DestroyImmediate(collider);
+        }
+
+        foreach (MonoBehaviour behaviour in visualRoot.GetComponentsInChildren<MonoBehaviour>(true))
+        {
+            Object.DestroyImmediate(behaviour);
+        }
+    }
+
+    private static void ConfigureSpriteRenderers(GameObject visualRoot, int sortingOrder)
+    {
+        foreach (SpriteRenderer renderer in visualRoot.GetComponentsInChildren<SpriteRenderer>(true))
+        {
+            renderer.sortingOrder = sortingOrder;
+        }
+    }
+
+    private static void FitBoxColliderToRenderers(GameObject root, BoxCollider2D collider, Vector2 sizeScale, Vector2 offsetPadding)
+    {
+        Bounds bounds = GetWorldBounds(root);
+        if (bounds.size.sqrMagnitude <= 0.0001f)
+        {
+            collider.size = new Vector2(0.75f, 0.9f);
+            collider.offset = new Vector2(0f, 0.45f);
+            return;
+        }
+
+        Vector3 localCenter = root.transform.InverseTransformPoint(bounds.center);
+        collider.size = new Vector2(
+            Mathf.Max(0.35f, bounds.size.x * sizeScale.x),
+            Mathf.Max(0.45f, bounds.size.y * sizeScale.y));
+        collider.offset = new Vector2(localCenter.x + offsetPadding.x, localCenter.y + offsetPadding.y);
+    }
+
+    private static void FitCircleColliderToRenderers(GameObject root, CircleCollider2D collider)
+    {
+        Bounds bounds = GetWorldBounds(root);
+        if (bounds.size.sqrMagnitude <= 0.0001f)
+        {
+            collider.radius = 0.2f;
+            collider.offset = Vector2.zero;
+            return;
+        }
+
+        Vector3 localCenter = root.transform.InverseTransformPoint(bounds.center);
+        collider.offset = new Vector2(localCenter.x, localCenter.y);
+        collider.radius = Mathf.Max(0.12f, Mathf.Max(bounds.size.x, bounds.size.y) * 0.42f);
+    }
+
+    private static void SetLayerRecursively(GameObject gameObject, int layer)
+    {
+        gameObject.layer = layer;
+        foreach (Transform child in gameObject.transform)
+        {
+            SetLayerRecursively(child.gameObject, layer);
+        }
+    }
+
+    private static string SanitizeAssetName(string rawName)
+    {
+        if (string.IsNullOrWhiteSpace(rawName))
+        {
+            return "Asset";
+        }
+
+        char[] invalidChars = System.IO.Path.GetInvalidFileNameChars();
+        List<char> characters = new List<char>(rawName.Length);
+        foreach (char character in rawName)
+        {
+            bool invalid = false;
+            for (int i = 0; i < invalidChars.Length; i++)
+            {
+                if (character == invalidChars[i])
+                {
+                    invalid = true;
+                    break;
+                }
+            }
+
+            characters.Add(invalid ? '_' : character);
+        }
+
+        string sanitized = new string(characters.ToArray()).Trim();
+        return string.IsNullOrEmpty(sanitized) ? "Asset" : sanitized;
+    }
+
+    private static string SanitizeIdentifier(string rawName)
+    {
+        if (string.IsNullOrWhiteSpace(rawName))
+        {
+            return "Generated";
+        }
+
+        List<char> characters = new List<char>(rawName.Length);
+        bool lastWasUnderscore = false;
+        foreach (char character in rawName.Trim())
+        {
+            if (char.IsLetterOrDigit(character))
+            {
+                characters.Add(character);
+                lastWasUnderscore = false;
+            }
+            else if (!lastWasUnderscore)
+            {
+                characters.Add('_');
+                lastWasUnderscore = true;
+            }
+        }
+
+        while (characters.Count > 0 && characters[characters.Count - 1] == '_')
+        {
+            characters.RemoveAt(characters.Count - 1);
+        }
+
+        return characters.Count > 0 ? new string(characters.ToArray()) : "Generated";
+    }
+
+    private static string MakeStableId(string rawName)
+    {
+        if (string.IsNullOrWhiteSpace(rawName))
+        {
+            return "character";
+        }
+
+        List<char> characters = new List<char>(rawName.Length);
+        bool lastWasUnderscore = false;
+        foreach (char character in rawName.Trim())
+        {
+            if (char.IsLetterOrDigit(character))
+            {
+                characters.Add(char.ToLowerInvariant(character));
+                lastWasUnderscore = false;
+            }
+            else if (!lastWasUnderscore)
+            {
+                characters.Add('_');
+                lastWasUnderscore = true;
+            }
+        }
+
+        while (characters.Count > 0 && characters[characters.Count - 1] == '_')
+        {
+            characters.RemoveAt(characters.Count - 1);
+        }
+
+        return characters.Count > 0 ? new string(characters.ToArray()) : "character";
+    }
+
+    private static string MakeUniqueId(string baseId, HashSet<string> usedIds)
+    {
+        string uniqueId = string.IsNullOrWhiteSpace(baseId) ? "character" : baseId;
+        int suffix = 2;
+        while (!usedIds.Add(uniqueId))
+        {
+            uniqueId = $"{baseId}_{suffix}";
+            suffix++;
+        }
+
+        return uniqueId;
     }
 
     private static void ConfigureMoveButton(Button button, PlayerController player, int direction)
@@ -766,7 +1328,7 @@ public static class PixelVillageSetup
         fitter.FitNow();
     }
 
-    private static void SetupMainMenuScene()
+    private static void SetupMainMenuScene(CharacterDatabase characterDatabase)
     {
         Scene scene = EditorSceneManager.OpenScene(MainMenuScenePath, OpenSceneMode.Single);
         MainMenuVisualAssets menuAssets = LoadMainMenuVisualAssets();
@@ -794,6 +1356,8 @@ public static class PixelVillageSetup
         MainMenuUI menuUi = GetOrAdd<MainMenuUI>(canvasObject);
         SetString(menuUi, "gameSceneName", "Game");
         MainMenuSettingsUI settingsUi = GetOrAdd<MainMenuSettingsUI>(canvasObject);
+        CharacterShopUI shopUi = GetOrAdd<CharacterShopUI>(canvasObject);
+        SetObjectReference(shopUi, "characterDatabase", characterDatabase);
 
         RectTransform safeArea = CreateRect("SafeArea", canvasObject.transform, Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero);
         GetOrAdd<SafeArea>(safeArea.gameObject);
@@ -821,17 +1385,27 @@ public static class PixelVillageSetup
         subtitleOutline.effectColor = new Color(0.22f, 0.12f, 0.05f, 0.9f);
         subtitleOutline.effectDistance = new Vector2(3f, -3f);
 
-        RectTransform buttonGroup = CreateRect("MenuButtons", safeArea, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(700f, 420f), new Vector2(0f, -188f));
-        Button playButton = CreateSpriteButton("PlayButton", buttonGroup, menuAssets.PlayButton, new Vector2(640f, 138f), new Vector2(0f, 128f));
-        Button settingsButton = CreateSpriteButton("SettingsButton", buttonGroup, menuAssets.SettingsButton, new Vector2(570f, 124f), new Vector2(0f, 0f));
-        Button quitButton = CreateSpriteButton("QuitButton", buttonGroup, menuAssets.QuitButton, new Vector2(540f, 116f), new Vector2(0f, -120f));
+        RectTransform buttonGroup = CreateRect("MenuButtons", safeArea, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(700f, 520f), new Vector2(0f, -188f));
+        Button playButton = CreateSpriteButton("PlayButton", buttonGroup, menuAssets.PlayButton, new Vector2(640f, 138f), new Vector2(0f, 182f));
+        Button charactersButton = CreateButton("CharactersButton", buttonGroup, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(570f, 96f), new Vector2(0f, 48f), "CHARACTERS", 34);
+        Button settingsButton = CreateSpriteButton("SettingsButton", buttonGroup, menuAssets.SettingsButton, new Vector2(570f, 124f), new Vector2(0f, -80f));
+        Button quitButton = CreateSpriteButton("QuitButton", buttonGroup, menuAssets.QuitButton, new Vector2(540f, 116f), new Vector2(0f, -204f));
         SetButtonListener(playButton, menuUi.Play);
+        SetButtonListener(charactersButton, shopUi.OpenCharacters);
         SetButtonListener(settingsButton, settingsUi.OpenSettings);
         SetButtonListener(quitButton, menuUi.Quit);
 
         GameObject settingsPanel = CreateSettingsPanel(canvasObject.transform, settingsUi);
         SetObjectReference(settingsUi, "settingsPanel", settingsPanel);
         settingsPanel.SetActive(false);
+
+        CharacterShopPanelRefs shopRefs = CreateCharactersPanel(canvasObject.transform, shopUi, GetFlowerSourceSprite(FindFlowerSourcePrefab()));
+        SetObjectReference(shopUi, "panel", shopRefs.Panel);
+        SetObjectReference(shopUi, "gridRoot", shopRefs.GridRoot);
+        SetObjectReference(shopUi, "cardTemplate", shopRefs.CardTemplate);
+        SetObjectReference(shopUi, "currencyText", shopRefs.CurrencyText);
+        SetObjectReference(shopUi, "feedbackText", shopRefs.FeedbackText);
+        shopRefs.Panel.SetActive(false);
 
         Text version = CreateLabel("VersionText", safeArea, new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(140f, 44f), new Vector2(-36f, 28f), "v1.0", 28);
         version.alignment = TextAnchor.LowerRight;
@@ -956,6 +1530,115 @@ public static class PixelVillageSetup
         SetObjectReference(settingsUi, "soundButtonText", soundButton.GetComponentInChildren<Text>(true));
 
         return overlay.gameObject;
+    }
+
+    private static CharacterShopPanelRefs CreateCharactersPanel(Transform parent, CharacterShopUI shopUi, Sprite flowerSprite)
+    {
+        RectTransform overlay = CreateRect("CharactersPanel", parent, Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero);
+        Image overlayImage = GetOrAdd<Image>(overlay.gameObject);
+        overlayImage.color = new Color(0f, 0f, 0f, 0.68f);
+        overlayImage.raycastTarget = true;
+
+        CreateTMPLabel("Title", overlay, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(620f, 76f), new Vector2(0f, -42f), "CHARACTERS", 46f, TextAlignmentOptions.Center);
+
+        RectTransform currency = CreateRect("Currency", overlay, new Vector2(1f, 1f), new Vector2(1f, 1f), new Vector2(1f, 1f), new Vector2(230f, 68f), new Vector2(-54f, -42f));
+        RectTransform currencyIconRect = CreateRect("FlowerIcon", currency, new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), new Vector2(48f, 48f), new Vector2(0f, 0f));
+        Image currencyIcon = GetOrAdd<Image>(currencyIconRect.gameObject);
+        currencyIcon.sprite = flowerSprite;
+        currencyIcon.preserveAspect = true;
+        currencyIcon.color = flowerSprite != null ? Color.white : new Color(1f, 0.84f, 0.18f, 1f);
+        currencyIcon.raycastTarget = false;
+        TMP_Text currencyText = CreateTMPLabel("CurrencyText", currency, new Vector2(0f, 0f), Vector2.one, new Vector2(0f, 0.5f), new Vector2(-62f, 0f), new Vector2(62f, 0f), "x 0", 34f, TextAlignmentOptions.Left);
+
+        RectTransform scrollRoot = CreateRect("CharacterScroll", overlay, new Vector2(0.06f, 0.16f), new Vector2(0.94f, 0.80f), new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero);
+        Image scrollImage = GetOrAdd<Image>(scrollRoot.gameObject);
+        scrollImage.color = new Color(0.08f, 0.06f, 0.04f, 0.56f);
+        ScrollRect scrollRect = GetOrAdd<ScrollRect>(scrollRoot.gameObject);
+        scrollRect.horizontal = false;
+        scrollRect.vertical = true;
+        scrollRect.movementType = ScrollRect.MovementType.Clamped;
+
+        RectTransform viewport = CreateRect("Viewport", scrollRoot, Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero);
+        Image viewportImage = GetOrAdd<Image>(viewport.gameObject);
+        viewportImage.color = new Color(0f, 0f, 0f, 0.01f);
+        Mask mask = GetOrAdd<Mask>(viewport.gameObject);
+        mask.showMaskGraphic = false;
+
+        RectTransform content = CreateRect("Content", viewport, new Vector2(0f, 1f), new Vector2(1f, 1f), new Vector2(0.5f, 1f), Vector2.zero, Vector2.zero);
+        GridLayoutGroup grid = GetOrAdd<GridLayoutGroup>(content.gameObject);
+        grid.padding = new RectOffset(26, 26, 26, 26);
+        grid.cellSize = new Vector2(220f, 282f);
+        grid.spacing = new Vector2(24f, 24f);
+        grid.startCorner = GridLayoutGroup.Corner.UpperLeft;
+        grid.startAxis = GridLayoutGroup.Axis.Horizontal;
+        grid.childAlignment = TextAnchor.UpperCenter;
+        grid.constraint = GridLayoutGroup.Constraint.Flexible;
+        ContentSizeFitter fitter = GetOrAdd<ContentSizeFitter>(content.gameObject);
+        fitter.horizontalFit = ContentSizeFitter.FitMode.Unconstrained;
+        fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+        scrollRect.viewport = viewport;
+        scrollRect.content = content;
+
+        CharacterShopCard cardTemplate = CreateCharacterCardTemplate(content, flowerSprite);
+        cardTemplate.gameObject.SetActive(false);
+
+        Button backButton = CreateButton("BackButton", overlay, new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(300f, 72f), new Vector2(0f, 42f), "BACK", 28);
+        SetButtonListener(backButton, shopUi.CloseCharacters);
+        TMP_Text feedbackText = CreateTMPLabel("FeedbackText", overlay, new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(620f, 48f), new Vector2(0f, 120f), string.Empty, 24f, TextAlignmentOptions.Center);
+
+        return new CharacterShopPanelRefs
+        {
+            Panel = overlay.gameObject,
+            GridRoot = content,
+            CardTemplate = cardTemplate,
+            CurrencyText = currencyText,
+            FeedbackText = feedbackText
+        };
+    }
+
+    private static CharacterShopCard CreateCharacterCardTemplate(Transform parent, Sprite flowerSprite)
+    {
+        RectTransform card = CreateRect("CharacterCardTemplate", parent, new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(220f, 282f), Vector2.zero);
+        Image background = GetOrAdd<Image>(card.gameObject);
+        background.color = new Color(0.09f, 0.08f, 0.08f, 0.88f);
+        Outline outline = GetOrAdd<Outline>(card.gameObject);
+        outline.effectColor = new Color(1f, 0.82f, 0.45f, 0.42f);
+        outline.effectDistance = new Vector2(2f, -2f);
+
+        RectTransform previewRect = CreateRect("Preview", card, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(140f, 116f), new Vector2(0f, -20f));
+        Image previewImage = GetOrAdd<Image>(previewRect.gameObject);
+        previewImage.preserveAspect = true;
+        previewImage.raycastTarget = false;
+
+        TMP_Text nameText = CreateTMPLabel("NameText", card, new Vector2(0f, 1f), new Vector2(1f, 1f), new Vector2(0.5f, 1f), new Vector2(-24f, 46f), new Vector2(0f, -142f), "Character", 23f, TextAlignmentOptions.Center);
+
+        RectTransform priceRow = CreateRect("PriceRow", card, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(130f, 34f), new Vector2(0f, -190f));
+        RectTransform priceIconRect = CreateRect("FlowerIcon", priceRow, new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), new Vector2(28f, 28f), Vector2.zero);
+        Image priceIcon = GetOrAdd<Image>(priceIconRect.gameObject);
+        priceIcon.sprite = flowerSprite;
+        priceIcon.preserveAspect = true;
+        priceIcon.color = flowerSprite != null ? Color.white : new Color(1f, 0.84f, 0.18f, 1f);
+        priceIcon.raycastTarget = false;
+        TMP_Text priceText = CreateTMPLabel("PriceText", priceRow, new Vector2(0f, 0f), Vector2.one, new Vector2(0f, 0.5f), new Vector2(-36f, 0f), new Vector2(36f, 0f), "x 25", 22f, TextAlignmentOptions.Left);
+
+        RectTransform actionRect = CreateRect("ActionButton", card, new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(160f, 48f), new Vector2(0f, 24f));
+        Image actionImage = GetOrAdd<Image>(actionRect.gameObject);
+        actionImage.color = ButtonColor;
+        Button actionButton = GetOrAdd<Button>(actionRect.gameObject);
+        actionButton.targetGraphic = actionImage;
+        actionButton.transition = Selectable.Transition.ColorTint;
+        ConfigureSpriteButtonColors(actionButton);
+        TMP_Text actionText = CreateTMPLabel("ActionText", actionRect, Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero, "BUY", 22f, TextAlignmentOptions.Center);
+        actionText.raycastTarget = false;
+
+        CharacterShopCard shopCard = GetOrAdd<CharacterShopCard>(card.gameObject);
+        SetObjectReference(shopCard, "background", background);
+        SetObjectReference(shopCard, "previewImage", previewImage);
+        SetObjectReference(shopCard, "nameText", nameText);
+        SetObjectReference(shopCard, "priceText", priceText);
+        SetObjectReference(shopCard, "actionText", actionText);
+        SetObjectReference(shopCard, "actionButton", actionButton);
+        return shopCard;
     }
 
     private static Button CreateSpriteButton(string name, Transform parent, Sprite sprite, Vector2 maxSize, Vector2 position)
@@ -1136,6 +1819,22 @@ public static class PixelVillageSetup
         return text;
     }
 
+    private static TextMeshProUGUI CreateTMPLabel(string name, Transform parent, Vector2 anchorMin, Vector2 anchorMax, Vector2 pivot, Vector2 size, Vector2 position, string textValue, float fontSize, TextAlignmentOptions alignment)
+    {
+        RectTransform rect = CreateRect(name, parent, anchorMin, anchorMax, pivot, size, position);
+        TextMeshProUGUI text = GetOrAdd<TextMeshProUGUI>(rect.gameObject);
+        text.text = textValue;
+        text.fontSize = fontSize;
+        text.enableAutoSizing = true;
+        text.fontSizeMin = Mathf.Max(10f, fontSize - 10f);
+        text.fontSizeMax = fontSize;
+        text.alignment = alignment;
+        text.color = TextColor;
+        text.characterSpacing = 0f;
+        text.raycastTarget = false;
+        return text;
+    }
+
     private static RectTransform CreateRect(string name, Transform parent, Vector2 anchorMin, Vector2 anchorMax, Vector2 pivot, Vector2 size, Vector2 position)
     {
         GameObject gameObject = new GameObject(name, typeof(RectTransform));
@@ -1195,8 +1894,12 @@ public static class PixelVillageSetup
         EnsureFolder("Assets/_Project/Scripts/UI");
         EnsureFolder("Assets/_Project/Scripts/Camera");
         EnsureFolder("Assets/_Project/Scripts/Editor");
+        EnsureFolder("Assets/_Project/Data");
+        EnsureFolder(CharacterDataFolder);
+        EnsureFolder(CharacterDefinitionFolder);
         EnsureFolder("Assets/_Project/Prefabs");
         EnsureFolder("Assets/_Project/Prefabs/Gameplay");
+        EnsureFolder(EnemyPrefabFolder);
         EnsureFolder("Assets/_Project/Art");
         EnsureFolder("Assets/_Project/Art/Animations");
     }
@@ -1436,6 +2139,12 @@ public static class PixelVillageSetup
         property.serializedObject.ApplyModifiedProperties();
     }
 
+    private static string GetSerializedString(Object target, string propertyName)
+    {
+        SerializedProperty property = GetProperty(target, propertyName);
+        return property != null ? property.stringValue : string.Empty;
+    }
+
     private static void SetVector3(Object target, string propertyName, Vector3 value)
     {
         SerializedProperty property = GetProperty(target, propertyName);
@@ -1502,6 +2211,15 @@ public static class PixelVillageSetup
         public Text WinTimeText;
         public Text WinBestTimeText;
         public GameObject GameOverPanel;
+    }
+
+    private struct CharacterShopPanelRefs
+    {
+        public GameObject Panel;
+        public Transform GridRoot;
+        public CharacterShopCard CardTemplate;
+        public TMP_Text CurrencyText;
+        public TMP_Text FeedbackText;
     }
 
     private struct PlayerAnimationFrames

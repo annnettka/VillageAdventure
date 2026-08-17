@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a7bc4b21364f659b1f2e98b8c7e015, type: 3}
+  m_Name: Koboiled Orange
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDefinition
+  id: koboiled_orange
+  displayName: Koboiled Orange
+  characterPrefab: {fileID: 7380934592228848438, guid: 457c865c0f37737439c6f0e448011fe3, type: 3}
+  previewSprite: {fileID: -183284647, guid: a21f3801ba8c67b498e47b63644556e2, type: 3}
+  price: 25
+  unlockedByDefault: 0

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a7bc4b21364f659b1f2e98b8c7e015, type: 3}
+  m_Name: Frank Orange
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDefinition
+  id: frank_orange
+  displayName: Frank Orange
+  characterPrefab: {fileID: 4383549214348215437, guid: 28aa9b4a3a3e2a2438bf0c67bc8b9798, type: 3}
+  previewSprite: {fileID: 1599355259, guid: 9a9b74ed49bf7144cb3ccf15711ca208, type: 3}
+  price: 25
+  unlockedByDefault: 0

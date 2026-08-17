@@ -33,12 +33,16 @@ public sealed class GameManager : MonoBehaviour
 
     [Header("Lives")]
     [SerializeField] private int maxLives = 3;
+    [SerializeField] private float damageInvulnerabilityDuration = 1f;
+    [SerializeField] private float damageFlashInterval = 0.1f;
 
     private GameState currentState = GameState.Playing;
     private float elapsedTime;
     private Coroutine deathRoutine;
+    private Coroutine damageInvulnerabilityRoutine;
     private int currentLives;
     private int collectedFlowers;
+    private bool damageInvulnerable;
 
     public GameState State => currentState;
     public bool IsPlaying => currentState == GameState.Playing;
@@ -184,7 +188,40 @@ public sealed class GameManager : MonoBehaviour
         }
 
         collectedFlowers++;
+        CharacterProgress.AddFlowers(1);
         OnFlowerCountChanged?.Invoke(collectedFlowers);
+        return true;
+    }
+
+    public bool TryDamagePlayer(PlayerController damagedPlayer, int damage, Vector2 sourcePosition)
+    {
+        if (!IsPlaying || deathRoutine != null || damageInvulnerable || damagedPlayer == null)
+        {
+            return false;
+        }
+
+        if (player == null)
+        {
+            player = damagedPlayer;
+        }
+
+        currentLives = Mathf.Max(0, currentLives - Mathf.Max(1, damage));
+        OnLivesChanged?.Invoke(currentLives, maxLives);
+
+        if (currentLives <= 0)
+        {
+            deathRoutine = StartCoroutine(GameOverRoutine());
+        }
+        else
+        {
+            if (damageInvulnerabilityRoutine != null)
+            {
+                StopCoroutine(damageInvulnerabilityRoutine);
+            }
+
+            damageInvulnerabilityRoutine = StartCoroutine(DamageInvulnerabilityRoutine());
+        }
+
         return true;
     }
 
@@ -269,6 +306,7 @@ public sealed class GameManager : MonoBehaviour
     private IEnumerator GameOverRoutine()
     {
         SetState(GameState.GameOver);
+        damageInvulnerable = true;
 
         if (player != null)
         {
@@ -279,6 +317,27 @@ public sealed class GameManager : MonoBehaviour
 
         SetPanelActive(gameOverPanel, true);
         deathRoutine = null;
+    }
+
+    private IEnumerator DamageInvulnerabilityRoutine()
+    {
+        damageInvulnerable = true;
+        SpriteRenderer[] renderers = player != null ? player.GetComponentsInChildren<SpriteRenderer>(true) : new SpriteRenderer[0];
+        float elapsed = 0f;
+        bool visible = true;
+
+        while (elapsed < damageInvulnerabilityDuration)
+        {
+            visible = !visible;
+            SetRenderersVisible(renderers, visible);
+            float wait = Mathf.Max(0.02f, damageFlashInterval);
+            elapsed += wait;
+            yield return new WaitForSeconds(wait);
+        }
+
+        SetRenderersVisible(renderers, true);
+        damageInvulnerable = false;
+        damageInvulnerabilityRoutine = null;
     }
 
     private void SetState(GameState state)
@@ -305,6 +364,17 @@ public sealed class GameManager : MonoBehaviour
     {
         OnLivesChanged?.Invoke(currentLives, maxLives);
         OnFlowerCountChanged?.Invoke(collectedFlowers);
+    }
+
+    private static void SetRenderersVisible(SpriteRenderer[] renderers, bool visible)
+    {
+        foreach (SpriteRenderer renderer in renderers)
+        {
+            if (renderer != null)
+            {
+                renderer.enabled = visible;
+            }
+        }
     }
 
     private void UpdateTimerText()

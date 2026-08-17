@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8a7bc4b21364f659b1f2e98b8c7e015, type: 3}
+  m_Name: Rattles Red
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterDefinition
+  id: rattles_red
+  displayName: Rattles Red
+  characterPrefab: {fileID: 7526970268595516376, guid: f295eb92029fe4a4abddddd94cd06da9, type: 3}
+  previewSprite: {fileID: 824485865, guid: 131c644bc8eea9842adee16638e3a775, type: 3}
+  price: 25
+  unlockedByDefault: 0

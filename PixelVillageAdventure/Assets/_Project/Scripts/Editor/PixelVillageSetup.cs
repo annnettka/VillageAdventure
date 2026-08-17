@@ -1,6 +1,5 @@
 #if UNITY_EDITOR
 using System.Collections.Generic;
-using System.IO;
 using UnityEditor;
 using UnityEditor.Animations;
 using UnityEditor.Build;
@@ -24,6 +23,7 @@ public static class PixelVillageSetup
     private const string AnimationFolder = "Assets/_Project/Art/Animations/Player";
     private const string PlayerControllerPath = AnimationFolder + "/PlayerAnimator.controller";
     private const string PuppeteerFolder = "Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Grey";
+    private const float PlayerAnimationSampleRate = 12f;
 
     private static readonly Color ButtonColor = new Color(1f, 1f, 1f, 0.34f);
     private static readonly Color PanelColor = new Color(0f, 0f, 0f, 0.72f);
@@ -33,9 +33,9 @@ public static class PixelVillageSetup
     public static void SetupCompleteGame()
     {
         EnsureProjectFolders();
-        AnimatorController playerAnimator = BuildPlayerAnimationAssets();
+        PlayerAnimationAssets playerAnimationAssets = BuildPlayerAnimationAssets();
 
-        SetupGameScene(playerAnimator);
+        SetupGameScene(playerAnimationAssets);
         SetupMainMenuScene();
         ConfigureBuildSettings();
         ConfigureAndroidSettings();
@@ -46,12 +46,17 @@ public static class PixelVillageSetup
         Debug.Log("Pixel Village setup complete. Game and MainMenu scenes were configured and saved.");
     }
 
-    private static AnimatorController BuildPlayerAnimationAssets()
+    private static PlayerAnimationAssets BuildPlayerAnimationAssets()
     {
-        AnimationClip idle = CopyClip(PuppeteerFolder + "/Idle.anim", AnimationFolder + "/Player_Idle.anim", true);
-        AnimationClip run = CopyClip(PuppeteerFolder + "/Run.anim", AnimationFolder + "/Player_Run.anim", true);
-        AnimationClip air = CopyClip(PuppeteerFolder + "/Air.anim", AnimationFolder + "/Player_Air.anim", true);
-        AnimationClip death = CopyClip(PuppeteerFolder + "/Death.anim", AnimationFolder + "/Player_Death.anim", false);
+        Sprite[] idleSprites = LoadOrderedSprites(PuppeteerFolder + "/the_puppet_idle-Sheet.png");
+        Sprite[] runSprites = LoadOrderedSprites(PuppeteerFolder + "/the_puppet_run-Sheet.png");
+        Sprite[] airSprites = LoadOrderedSprites(PuppeteerFolder + "/the_puppet_air-Sheet.png");
+        Sprite[] deathSprites = LoadOrderedSprites(PuppeteerFolder + "/the_puppet_death-Sheet.png");
+
+        AnimationClip idle = RebuildSpriteClip(AnimationFolder + "/Player_Idle.anim", "Player_Idle", idleSprites, true);
+        AnimationClip run = RebuildSpriteClip(AnimationFolder + "/Player_Run.anim", "Player_Run", runSprites, true);
+        AnimationClip air = RebuildSpriteClip(AnimationFolder + "/Player_Air.anim", "Player_Air", airSprites, true);
+        AnimationClip death = RebuildSpriteClip(AnimationFolder + "/Player_Death.anim", "Player_Death", deathSprites, false);
 
         AssetDatabase.DeleteAsset(PlayerControllerPath);
         AnimatorController controller = AnimatorController.CreateAnimatorControllerAtPath(PlayerControllerPath);
@@ -85,37 +90,113 @@ public static class PixelVillageSetup
         AddTransition(deathState, idleState, false, ("Dead", AnimatorConditionMode.IfNot, 0f));
 
         EditorUtility.SetDirty(controller);
-        return controller;
+        return new PlayerAnimationAssets
+        {
+            Controller = controller,
+            FirstIdleSprite = idleSprites.Length > 0 ? idleSprites[0] : null
+        };
     }
 
-    private static AnimationClip CopyClip(string sourcePath, string targetPath, bool loop)
+    private static Sprite[] LoadOrderedSprites(string sheetPath)
     {
-        AnimationClip source = AssetDatabase.LoadAssetAtPath<AnimationClip>(sourcePath);
-        if (source == null)
+        Object[] assets = AssetDatabase.LoadAllAssetsAtPath(sheetPath);
+        List<Sprite> sprites = new List<Sprite>();
+        foreach (Object asset in assets)
         {
-            Debug.LogError($"Missing Puppeteer animation clip: {sourcePath}");
-            return null;
+            if (asset is Sprite sprite)
+            {
+                sprites.Add(sprite);
+            }
         }
 
-        AnimationClip target = AssetDatabase.LoadAssetAtPath<AnimationClip>(targetPath);
-        if (target == null)
+        sprites.Sort(CompareSpritesByFrameOrder);
+
+        if (sprites.Count == 0)
         {
-            target = new AnimationClip();
-            AssetDatabase.CreateAsset(target, targetPath);
+            Debug.LogError($"No Sprite sub-assets were found in Puppeteer sheet: {sheetPath}");
         }
 
-        EditorUtility.CopySerialized(source, target);
-        target.name = Path.GetFileNameWithoutExtension(targetPath);
-
-        AnimationClipSettings settings = AnimationUtility.GetAnimationClipSettings(target);
-        settings.loopTime = loop;
-        AnimationUtility.SetAnimationClipSettings(target, settings);
-
-        EditorUtility.SetDirty(target);
-        return target;
+        return sprites.ToArray();
     }
 
-    private static void SetupGameScene(RuntimeAnimatorController playerAnimator)
+    private static AnimationClip RebuildSpriteClip(string clipPath, string clipName, Sprite[] sprites, bool loop)
+    {
+        AnimationClip clip = AssetDatabase.LoadAssetAtPath<AnimationClip>(clipPath);
+        if (clip == null)
+        {
+            clip = new AnimationClip();
+            AssetDatabase.CreateAsset(clip, clipPath);
+        }
+
+        clip.name = clipName;
+        clip.frameRate = PlayerAnimationSampleRate;
+        clip.ClearCurves();
+
+        foreach (EditorCurveBinding binding in AnimationUtility.GetObjectReferenceCurveBindings(clip))
+        {
+            AnimationUtility.SetObjectReferenceCurve(clip, binding, null);
+        }
+
+        if (sprites.Length > 0)
+        {
+            ObjectReferenceKeyframe[] keyframes = new ObjectReferenceKeyframe[sprites.Length];
+            for (int i = 0; i < sprites.Length; i++)
+            {
+                keyframes[i] = new ObjectReferenceKeyframe
+                {
+                    time = i / PlayerAnimationSampleRate,
+                    value = sprites[i]
+                };
+            }
+
+            EditorCurveBinding spriteBinding = new EditorCurveBinding
+            {
+                path = "",
+                type = typeof(SpriteRenderer),
+                propertyName = "m_Sprite"
+            };
+            AnimationUtility.SetObjectReferenceCurve(clip, spriteBinding, keyframes);
+        }
+
+        AnimationClipSettings settings = AnimationUtility.GetAnimationClipSettings(clip);
+        settings.loopTime = loop;
+        settings.stopTime = sprites.Length > 0 ? sprites.Length / PlayerAnimationSampleRate : 1f / PlayerAnimationSampleRate;
+        AnimationUtility.SetAnimationClipSettings(clip, settings);
+
+        EditorUtility.SetDirty(clip);
+        return clip;
+    }
+
+    private static int CompareSpritesByFrameOrder(Sprite left, Sprite right)
+    {
+        int leftIndex = ExtractTrailingFrameIndex(left.name);
+        int rightIndex = ExtractTrailingFrameIndex(right.name);
+        if (leftIndex >= 0 && rightIndex >= 0 && leftIndex != rightIndex)
+        {
+            return leftIndex.CompareTo(rightIndex);
+        }
+
+        int xComparison = left.rect.x.CompareTo(right.rect.x);
+        if (xComparison != 0)
+        {
+            return xComparison;
+        }
+
+        return string.CompareOrdinal(left.name, right.name);
+    }
+
+    private static int ExtractTrailingFrameIndex(string spriteName)
+    {
+        int separatorIndex = spriteName.LastIndexOf('_');
+        if (separatorIndex < 0 || separatorIndex == spriteName.Length - 1)
+        {
+            return -1;
+        }
+
+        return int.TryParse(spriteName.Substring(separatorIndex + 1), out int frameIndex) ? frameIndex : -1;
+    }
+
+    private static void SetupGameScene(PlayerAnimationAssets playerAnimationAssets)
     {
         Scene scene = EditorSceneManager.OpenScene(GameScenePath, OpenSceneMode.Single);
 
@@ -141,7 +222,7 @@ public static class PixelVillageSetup
             MarkCreated(visualObject);
         }
 
-        ConfigurePlayer(playerObject, visualObject, playerAnimator, playerLayer, groundLayer);
+        ConfigurePlayer(playerObject, visualObject, playerAnimationAssets, playerLayer, groundLayer);
 
         PlayerController player = playerObject.GetComponent<PlayerController>();
         GameObject gameplayObject = FindOrCreateRoot(scene, "Gameplay");
@@ -177,7 +258,7 @@ public static class PixelVillageSetup
         EditorSceneManager.SaveScene(scene);
     }
 
-    private static void ConfigurePlayer(GameObject playerObject, GameObject visualObject, RuntimeAnimatorController animatorController, int playerLayer, int groundLayer)
+    private static void ConfigurePlayer(GameObject playerObject, GameObject visualObject, PlayerAnimationAssets playerAnimationAssets, int playerLayer, int groundLayer)
     {
         playerObject.layer = playerLayer >= 0 ? playerLayer : playerObject.layer;
 
@@ -194,6 +275,10 @@ public static class PixelVillageSetup
 
         SpriteRenderer spriteRenderer = GetOrAdd<SpriteRenderer>(visualObject);
         spriteRenderer.sortingOrder = Mathf.Max(spriteRenderer.sortingOrder, 20);
+        if (playerAnimationAssets.FirstIdleSprite != null)
+        {
+            spriteRenderer.sprite = playerAnimationAssets.FirstIdleSprite;
+        }
 
         Bounds visualBounds = spriteRenderer.sprite != null
             ? spriteRenderer.bounds
@@ -209,7 +294,7 @@ public static class PixelVillageSetup
         capsule.offset = new Vector2(localCenter.x, localBottom.y + colliderSize.y * 0.5f + 0.03f);
 
         Animator animator = GetOrAdd<Animator>(visualObject);
-        animator.runtimeAnimatorController = animatorController;
+        animator.runtimeAnimatorController = playerAnimationAssets.Controller;
         animator.applyRootMotion = false;
 
         PlayerController controller = GetOrAdd<PlayerController>(playerObject);
@@ -932,6 +1017,12 @@ public static class PixelVillageSetup
         public GameObject WinPanel;
         public Text WinTimeText;
         public Text WinBestTimeText;
+    }
+
+    private struct PlayerAnimationAssets
+    {
+        public RuntimeAnimatorController Controller;
+        public Sprite FirstIdleSprite;
     }
 }
 #endif

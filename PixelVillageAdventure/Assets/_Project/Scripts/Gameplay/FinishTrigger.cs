@@ -37,6 +37,12 @@ public sealed class FinishTrigger : MonoBehaviour
             return;
         }
 
+        GameManager targetManager = gameManager != null ? gameManager : GameManager.Instance;
+        if (targetManager == null || !targetManager.IsPlaying)
+        {
+            return;
+        }
+
         completed = true;
 
         if (openChest)
@@ -44,11 +50,7 @@ public sealed class FinishTrigger : MonoBehaviour
             OpenChest();
         }
 
-        GameManager targetManager = gameManager != null ? gameManager : GameManager.Instance;
-        if (targetManager != null)
-        {
-            targetManager.CompleteLevel();
-        }
+        targetManager.CompleteLevel();
     }
 
     private void OpenChest()

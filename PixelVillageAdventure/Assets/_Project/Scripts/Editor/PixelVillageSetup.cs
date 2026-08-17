@@ -10,6 +10,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
+using TMPro;
 
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem.UI;
@@ -21,6 +22,7 @@ public static class PixelVillageSetup
     private const string MainMenuScenePath = "Assets/_Project/Scenes/MainMenu.unity";
     private const string MenuAssetsFolder = "Assets/_Project/MenuAssets";
     private const string GameBackgroundPath = "Assets/_Project/Scenes/backgroundGAME.png";
+    private const string FlowerCollectiblePrefabPath = "Assets/_Project/Prefabs/Gameplay/FlowerCollectible.prefab";
     private const string PuppeteerFolder = "Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Grey";
 
     private static readonly Color ButtonColor = new Color(1f, 1f, 1f, 0.34f);
@@ -31,6 +33,7 @@ public static class PixelVillageSetup
     public static void SetupCompleteGame()
     {
         EnsureProjectFolders();
+        CreateOrUpdateFlowerCollectiblePrefab();
         PlayerAnimationFrames playerAnimationFrames = LoadPlayerAnimationFrames();
 
         SetupGameScene(playerAnimationFrames);
@@ -173,15 +176,19 @@ public static class PixelVillageSetup
         EnsureSingleEventSystem(scene);
 
         SetObjectReference(gameManager, "player", player);
+        SetObjectReference(gameManager, "playerRespawn", playerObject.GetComponent<PlayerRespawn>());
         SetObjectReference(gameManager, "playerSpawn", playerSpawn);
+        SetObjectReference(gameManager, "gameHUD", hudRefs.GameHUD);
         SetObjectReference(gameManager, "timerText", hudRefs.TimerText);
         SetObjectReference(gameManager, "pausePanel", hudRefs.PausePanel);
         SetObjectReference(gameManager, "winPanel", hudRefs.WinPanel);
         SetObjectReference(gameManager, "winTimeText", hudRefs.WinTimeText);
         SetObjectReference(gameManager, "winBestTimeText", hudRefs.WinBestTimeText);
+        SetObjectReference(gameManager, "gameOverPanel", hudRefs.GameOverPanel);
         SetString(gameManager, "gameSceneName", "Game");
         SetString(gameManager, "mainMenuSceneName", "MainMenu");
         SetFloat(gameManager, "respawnDelay", 0.8f);
+        SetInt(gameManager, "maxLives", 3);
 
         SetObjectReference(deathZoneObject.GetComponent<DeathZone>(), "gameManager", gameManager);
 
@@ -273,6 +280,15 @@ public static class PixelVillageSetup
         SetFloat(spriteFrameAnimator, "airFPS", 12f);
         SetFloat(spriteFrameAnimator, "deathFPS", 12f);
         SetFloat(spriteFrameAnimator, "runSpeedThreshold", 0.05f);
+
+        PlayerRespawn playerRespawn = GetOrAdd<PlayerRespawn>(playerObject);
+        SetObjectReference(playerRespawn, "player", controller);
+        SetObjectReference(playerRespawn, "body", body);
+        SetObjectReference(playerRespawn, "bodyCollider", capsule);
+        SetInt(playerRespawn, "groundLayers", groundLayer >= 0 ? 1 << groundLayer : Physics2D.DefaultRaycastLayers);
+        SetFloat(playerRespawn, "safeGroundedSeconds", 0.16f);
+        SetFloat(playerRespawn, "groundProbeDistance", 0.22f);
+        SetFloat(playerRespawn, "respawnYOffset", 0.65f);
     }
 
     private static void ConfigureGround(GameObject groundObject, int groundLayer)
@@ -375,6 +391,9 @@ public static class PixelVillageSetup
 
     private static GameHudRefs SetupGameHud(Scene scene, GameManager gameManager, PlayerController player)
     {
+        GameObject heartPrefab = FindHeartPrefab();
+        Sprite flowerSprite = GetFlowerSourceSprite(FindFlowerSourcePrefab());
+
         Transform uiMarker = FindInScene(scene, "--- UI ---")?.transform;
         GameObject hud = FindChild(uiMarker, "GameHUD");
         if (hud == null)
@@ -408,14 +427,24 @@ public static class PixelVillageSetup
         scaler.matchWidthOrHeight = 0.5f;
 
         GetOrAdd<GraphicRaycaster>(hud);
+        GameHUD gameHud = GetOrAdd<GameHUD>(hud);
+        SetObjectReference(gameHud, "gameManager", gameManager);
 
         RectTransform safeArea = CreateRect("SafeArea", hud.transform, Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero);
         GetOrAdd<SafeArea>(safeArea.gameObject);
 
-        Button pauseButton = CreateButton("PauseButton", safeArea, new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(110f, 78f), new Vector2(36f, -36f), "II", 34);
+        RectTransform header = CreateRect("HUD", safeArea, Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero);
+
+        Button pauseButton = CreateButton("PauseButton", header, new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(110f, 78f), new Vector2(36f, -36f), "II", 34);
         SetButtonListener(pauseButton, gameManager.PauseGame);
 
-        Text timerText = CreateLabel("TimerText", safeArea, new Vector2(1f, 1f), new Vector2(1f, 1f), new Vector2(1f, 1f), new Vector2(340f, 74f), new Vector2(-38f, -38f), "Time: 00:00", 34);
+        GameObject[] hearts = CreateHeartIcons(header, heartPrefab);
+        SetObjectArray(gameHud, "hearts", hearts);
+
+        TMP_Text flowerCountText = CreateFlowerCounter(header, flowerSprite);
+        SetObjectReference(gameHud, "flowerCountText", flowerCountText);
+
+        Text timerText = CreateLabel("TimerText", header, new Vector2(1f, 1f), new Vector2(1f, 1f), new Vector2(1f, 1f), new Vector2(250f, 74f), new Vector2(-38f, -38f), "Time: 00:00", 34);
         timerText.alignment = TextAnchor.MiddleRight;
 
         RectTransform moveGroup = CreateRect("MoveControls", safeArea, Vector2.zero, Vector2.zero, Vector2.zero, new Vector2(430f, 170f), new Vector2(52f, 52f));
@@ -446,14 +475,202 @@ public static class PixelVillageSetup
         SetButtonListener(winMenuButton, gameManager.GoToMainMenu);
         winPanel.SetActive(false);
 
+        GameObject gameOverPanel = CreateOverlayPanel("GameOverPanel", safeArea, "YOU LOST");
+        Button tryAgainButton = CreateButton("TryAgainButton", gameOverPanel.transform, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(360f, 88f), new Vector2(0f, -38f), "TRY AGAIN", 28);
+        Button lostMenuButton = CreateButton("LostMainMenuButton", gameOverPanel.transform, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(360f, 88f), new Vector2(0f, -148f), "MAIN MENU", 28);
+        SetButtonListener(tryAgainButton, gameManager.RestartLevel);
+        SetButtonListener(lostMenuButton, gameManager.GoToMainMenu);
+        gameOverPanel.SetActive(false);
+
         return new GameHudRefs
         {
+            GameHUD = gameHud,
             TimerText = timerText,
             PausePanel = pausePanel,
             WinPanel = winPanel,
             WinTimeText = winTimeText,
-            WinBestTimeText = winBestText
+            WinBestTimeText = winBestText,
+            GameOverPanel = gameOverPanel
         };
+    }
+
+    private static GameObject[] CreateHeartIcons(Transform parent, GameObject heartPrefab)
+    {
+        RectTransform container = CreateRect("LivesContainer", parent, new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(0f, 1f), new Vector2(240f, 78f), new Vector2(168f, -36f));
+        GameObject[] hearts = new GameObject[3];
+        for (int i = 0; i < hearts.Length; i++)
+        {
+            GameObject heartObject = null;
+            if (heartPrefab != null)
+            {
+                heartObject = PrefabUtility.InstantiatePrefab(heartPrefab) as GameObject;
+            }
+
+            if (heartObject == null)
+            {
+                RectTransform fallbackRect = CreateRect($"Heart_{i + 1}", container, new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), new Vector2(56f, 56f), new Vector2(i * 62f, 0f));
+                Image fallbackImage = GetOrAdd<Image>(fallbackRect.gameObject);
+                fallbackImage.color = new Color(1f, 0.08f, 0.12f, 1f);
+                heartObject = fallbackRect.gameObject;
+            }
+            else
+            {
+                heartObject.name = $"Heart_{i + 1}";
+                heartObject.transform.SetParent(container, false);
+            }
+
+            RectTransform rect = GetOrAdd<RectTransform>(heartObject);
+            rect.anchorMin = new Vector2(0f, 0.5f);
+            rect.anchorMax = new Vector2(0f, 0.5f);
+            rect.pivot = new Vector2(0f, 0.5f);
+            rect.sizeDelta = new Vector2(56f, 56f);
+            rect.anchoredPosition = new Vector2(i * 62f, 0f);
+            rect.localScale = Vector3.one;
+            rect.localRotation = Quaternion.identity;
+
+            foreach (Graphic graphic in heartObject.GetComponentsInChildren<Graphic>(true))
+            {
+                graphic.raycastTarget = false;
+            }
+
+            hearts[i] = heartObject;
+        }
+
+        return hearts;
+    }
+
+    private static TMP_Text CreateFlowerCounter(Transform parent, Sprite flowerSprite)
+    {
+        RectTransform counter = CreateRect("FlowerCounter", parent, new Vector2(1f, 1f), new Vector2(1f, 1f), new Vector2(1f, 1f), new Vector2(210f, 74f), new Vector2(-312f, -38f));
+
+        RectTransform iconRect = CreateRect("FlowerIcon", counter, new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), new Vector2(48f, 48f), new Vector2(0f, 0f));
+        Image icon = GetOrAdd<Image>(iconRect.gameObject);
+        icon.sprite = flowerSprite;
+        icon.preserveAspect = true;
+        icon.raycastTarget = false;
+        icon.color = flowerSprite != null ? Color.white : new Color(1f, 0.84f, 0.18f, 1f);
+
+        RectTransform countRect = CreateRect("CountText", counter, new Vector2(0f, 0f), Vector2.one, new Vector2(0f, 0.5f), new Vector2(-64f, 0f), new Vector2(64f, 0f));
+        TextMeshProUGUI countText = GetOrAdd<TextMeshProUGUI>(countRect.gameObject);
+        countText.text = "x 0";
+        countText.fontSize = 34f;
+        countText.enableAutoSizing = true;
+        countText.fontSizeMin = 20f;
+        countText.fontSizeMax = 34f;
+        countText.alignment = TextAlignmentOptions.Left;
+        countText.color = TextColor;
+        countText.raycastTarget = false;
+        return countText;
+    }
+
+    private static void CreateOrUpdateFlowerCollectiblePrefab()
+    {
+        GameObject flowerSource = FindFlowerSourcePrefab();
+        if (flowerSource == null)
+        {
+            Debug.LogWarning("Could not find Cainos PF Village Props - Flower 01 prefab. FlowerCollectible prefab was not created.");
+            return;
+        }
+
+        GameObject root = new GameObject("FlowerCollectible");
+        try
+        {
+            GameObject visual = PrefabUtility.InstantiatePrefab(flowerSource) as GameObject;
+            if (visual != null)
+            {
+                visual.name = "Visual";
+                visual.transform.SetParent(root.transform, false);
+                visual.transform.localPosition = Vector3.zero;
+                visual.transform.localRotation = Quaternion.identity;
+                visual.transform.localScale = Vector3.one;
+            }
+
+            BoxCollider2D trigger = GetOrAdd<BoxCollider2D>(root);
+            trigger.isTrigger = true;
+            CollectibleFlower collectible = GetOrAdd<CollectibleFlower>(root);
+
+            SpriteRenderer renderer = root.GetComponentInChildren<SpriteRenderer>(true);
+            if (renderer != null && renderer.sprite != null)
+            {
+                Vector2 spriteSize = renderer.sprite.bounds.size;
+                trigger.size = new Vector2(Mathf.Max(0.35f, spriteSize.x * 0.9f), Mathf.Max(0.38f, spriteSize.y * 1.25f));
+                trigger.offset = new Vector2(0f, trigger.size.y * 0.38f);
+                renderer.sortingOrder = Mathf.Max(renderer.sortingOrder, 5);
+            }
+            else
+            {
+                trigger.size = new Vector2(0.45f, 0.55f);
+                trigger.offset = new Vector2(0f, 0.2f);
+            }
+
+            foreach (Rigidbody2D body in root.GetComponentsInChildren<Rigidbody2D>(true))
+            {
+                Object.DestroyImmediate(body);
+            }
+
+            PrefabUtility.SaveAsPrefabAsset(root, FlowerCollectiblePrefabPath);
+            EditorUtility.SetDirty(collectible);
+        }
+        finally
+        {
+            Object.DestroyImmediate(root);
+        }
+    }
+
+    private static GameObject FindHeartPrefab()
+    {
+        const string expectedPath = "Assets/JazzCreate/JazzCreateMultiUI/Prefabs/Pre_Made_Prefabs/Heart.prefab";
+        GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(expectedPath);
+        if (prefab != null)
+        {
+            return prefab;
+        }
+
+        string[] guids = AssetDatabase.FindAssets("Heart t:Prefab", new[] { "Assets/JazzCreate" });
+        foreach (string guid in guids)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            if (System.IO.Path.GetFileNameWithoutExtension(path) == "Heart")
+            {
+                return AssetDatabase.LoadAssetAtPath<GameObject>(path);
+            }
+        }
+
+        Debug.LogWarning("Could not locate the JazzCreate Heart prefab. HUD will use a simple fallback heart marker.");
+        return null;
+    }
+
+    private static GameObject FindFlowerSourcePrefab()
+    {
+        const string expectedPath = "Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Flower 01.prefab";
+        GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(expectedPath);
+        if (prefab != null)
+        {
+            return prefab;
+        }
+
+        string[] guids = AssetDatabase.FindAssets("Flower 01 t:Prefab", new[] { "Assets/Cainos" });
+        foreach (string guid in guids)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            if (System.IO.Path.GetFileNameWithoutExtension(path).Contains("Flower 01"))
+            {
+                return AssetDatabase.LoadAssetAtPath<GameObject>(path);
+            }
+        }
+
+        return null;
+    }
+
+    private static Sprite GetFlowerSourceSprite(GameObject flowerSource)
+    {
+        if (flowerSource == null)
+        {
+            return null;
+        }
+
+        SpriteRenderer renderer = flowerSource.GetComponentInChildren<SpriteRenderer>(true);
+        return renderer != null ? renderer.sprite : null;
     }
 
     private static void ConfigureMoveButton(Button button, PlayerController player, int direction)
@@ -978,6 +1195,8 @@ public static class PixelVillageSetup
         EnsureFolder("Assets/_Project/Scripts/UI");
         EnsureFolder("Assets/_Project/Scripts/Camera");
         EnsureFolder("Assets/_Project/Scripts/Editor");
+        EnsureFolder("Assets/_Project/Prefabs");
+        EnsureFolder("Assets/_Project/Prefabs/Gameplay");
         EnsureFolder("Assets/_Project/Art");
         EnsureFolder("Assets/_Project/Art/Animations");
     }
@@ -1246,6 +1465,23 @@ public static class PixelVillageSetup
         property.serializedObject.ApplyModifiedProperties();
     }
 
+    private static void SetObjectArray(Object target, string propertyName, Object[] objects)
+    {
+        SerializedProperty property = GetProperty(target, propertyName);
+        if (property == null)
+        {
+            return;
+        }
+
+        property.arraySize = objects != null ? objects.Length : 0;
+        for (int i = 0; i < property.arraySize; i++)
+        {
+            property.GetArrayElementAtIndex(i).objectReferenceValue = objects[i];
+        }
+
+        property.serializedObject.ApplyModifiedProperties();
+    }
+
     private static SerializedProperty GetProperty(Object target, string propertyName)
     {
         if (target == null)
@@ -1259,11 +1495,13 @@ public static class PixelVillageSetup
 
     private struct GameHudRefs
     {
+        public GameHUD GameHUD;
         public Text TimerText;
         public GameObject PausePanel;
         public GameObject WinPanel;
         public Text WinTimeText;
         public Text WinBestTimeText;
+        public GameObject GameOverPanel;
     }
 
     private struct PlayerAnimationFrames

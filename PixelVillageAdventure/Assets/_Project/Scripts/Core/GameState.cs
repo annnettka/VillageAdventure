@@ -2,6 +2,8 @@ public enum GameState
 {
     Playing,
     Dead,
+    Respawning,
     Won,
-    Paused
+    Paused,
+    GameOver
 }

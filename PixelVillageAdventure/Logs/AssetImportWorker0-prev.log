@@ -1,0 +1,1507 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.3/staging' branch; Version is '6000.3.13f1 (8c4f11e4fb20) revision 9195281'; Using compiler version '194234433'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'ru' Physical Memory: 32597 MB
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-annne" at "2026-08-16T18:40:40.3329419Z"
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-08-16T18:40:40Z
+
+COMMAND LINE ARGUMENTS:
+D:\ProgramFiles\6000.3.13f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+E:/unitygames/TEST/Rep/VillageAdventure/PixelVillageAdventure
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+25933
+-licensingIpc
+LicenseClient-annne
+-job-worker-count
+9
+-background-job-worker-count
+8
+-gc-helper-count
+1
+-name
+AssetImport
+Successfully changed project path to: E:/unitygames/TEST/Rep/VillageAdventure/PixelVillageAdventure
+E:/unitygames/TEST/Rep/VillageAdventure/PixelVillageAdventure
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+Player connection [25620]  Target information:
+
+Player connection [25620]  * "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 3356279320 [EditorId] 3356279320 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BESUJVN) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [25620]  * "[IP] 192.168.96.1 [Port] 0 [Flags] 2 [Guid] 3356279320 [EditorId] 3356279320 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BESUJVN) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [25620]  * "[IP] 192.168.113.1 [Port] 0 [Flags] 2 [Guid] 3356279320 [EditorId] 3356279320 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BESUJVN) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [25620]  * "[IP] 192.168.1.104 [Port] 0 [Flags] 2 [Guid] 3356279320 [EditorId] 3356279320 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BESUJVN) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [25620] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [25620] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 9
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 6.83 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.3.13f1 (8c4f11e4fb20)
+[Subsystems] Discovering subsystems at path D:/ProgramFiles/6000.3.13f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path E:/unitygames/TEST/Rep/VillageAdventure/PixelVillageAdventure/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 4060 Ti (ID=0x2803)
+    Vendor:   NVIDIA
+    VRAM:     7949 MB
+    Driver:   32.0.15.6614
+Initialize mono
+Mono path[0] = 'D:/ProgramFiles/6000.3.13f1/Editor/Data/Managed'
+Mono path[1] = 'D:/ProgramFiles/6000.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/ProgramFiles/6000.3.13f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56328
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/ProgramFiles/6000.3.13f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: D:/ProgramFiles/6000.3.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Module] Licensing is not yet initialized.
+[Licensing::Client] Error: HandshakeResponse reported an error:
+	ResponseCode: 505
+	ResponseStatus: Unsupported protocol version '1.18.1'.
+[Licensing::Module] Error: Failed to handshake to channel: "LicenseClient-annne"
+[Licensing::IpcConnector] LicenseClient-annne channel disconnected successfully.
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-annne-6000.3.13" at "2026-08-16T18:40:41.6442963Z"
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.1+9fbee8e
+  Session Id:              b5fb95b7e7a6416aa09ce058fecafa04
+  Correlation Id:          1b21e80abeb84646f74247c5aa0bde12
+  External correlation Id: 3926805095576539595
+  Machine Id:              IDPt3QV2HiQNdt/8ISWN6CMV7UQ=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-annne-6000.3.13" (connect: 0.00s, validation: 0.00s, handshake: 1.20s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-annne-6000.3.13-notifications" at "2026-08-16T18:40:42.8503358Z"
+[Licensing::Module] Licensing Background thread has ended after 2.52s
+[Licensing::Module] Licensing is initialized (took 1.45s).
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-FDX7-899P-3D7X-9PB8-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 7972062332293-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Register platform support module: D:/ProgramFiles/6000.3.13f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Registered in 1.450530 seconds.
+- Loaded All Assemblies, in  2.021 seconds
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Package Manager log level set to [2]
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.578 seconds
+Domain Reload Profiling: 2598ms
+	BeginReloadAssembly (195ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (50ms)
+	RebuildNativeTypeToScriptingClass (19ms)
+	initialDomainReloadingComplete (1507ms)
+	LoadAllAssembliesAndSetupDomain (249ms)
+		LoadAssemblies (195ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (243ms)
+			TypeCache.Refresh (241ms)
+				TypeCache.ScanAssembly (223ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (578ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (510ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (83ms)
+			SetLoadedEditorAssemblies (6ms)
+			BeforeProcessingInitializeOnLoad (125ms)
+			ProcessInitializeOnLoadAttributes (185ms)
+			ProcessInitializeOnLoadMethodAttributes (111ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-FDX7-899P-3D7X-9PB8-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 7972062332293-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+- Loaded All Assemblies, in  1.306 seconds
+Refreshing native plugins compatible for Editor in 3.51 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Refreshing native plugins compatible for Editor in 3.99 ms, found 5 plugins.
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.287 seconds
+Domain Reload Profiling: 2591ms
+	BeginReloadAssembly (247ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (34ms)
+	RebuildCommonClasses (49ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (49ms)
+	LoadAllAssembliesAndSetupDomain (939ms)
+		LoadAssemblies (633ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (457ms)
+			TypeCache.Refresh (299ms)
+				TypeCache.ScanAssembly (275ms)
+			BuildScriptInfoCaches (136ms)
+			ResolveRequiredComponents (16ms)
+	FinalizeReload (1288ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1083ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (13ms)
+			SetLoadedEditorAssemblies (7ms)
+			BeforeProcessingInitializeOnLoad (290ms)
+			ProcessInitializeOnLoadAttributes (588ms)
+			ProcessInitializeOnLoadMethodAttributes (181ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.02 seconds
+Refreshing native plugins compatible for Editor in 1.51 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 16 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7263 unused Assets / (4.3 MB). Loaded Objects now: 8073.
+Memory consumption went from 154.7 MB to 150.4 MB.
+Total: 7.363600 ms (FindLiveObjects: 0.485700 ms CreateObjectMapping: 0.468000 ms MarkObjects: 4.075900 ms  DeleteObjects: 2.332900 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 42162.334270 seconds.
+  path: Assets/_Project/Scenes/Game.unity
+  artifactKey: Guid(1a1bf560bde45b04b87733b04905133f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/_Project/Scenes/Game.unity using Guid(1a1bf560bde45b04b87733b04905133f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '16be48d91dcb96f76304a343044a3f6e') in 0.0794094 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.696473 seconds.
+  path: Assets/_Project/Scenes/Game.unity
+  artifactKey: Guid(1a1bf560bde45b04b87733b04905133f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/_Project/Scenes/Game.unity using Guid(1a1bf560bde45b04b87733b04905133f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '29d7dfd6b7f83409a521d541b08a470b') in 0.0106249 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.550528 seconds.
+  path: Assets/_Project/Scenes/Game.unity
+  artifactKey: Guid(1a1bf560bde45b04b87733b04905133f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/_Project/Scenes/Game.unity using Guid(1a1bf560bde45b04b87733b04905133f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'cfaeb98dcea761a0b2dfc7092b5f7576') in 0.0098401 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 401.693574 seconds.
+  path: Assets/_Project/Scenes/Game.unity
+  artifactKey: Guid(1a1bf560bde45b04b87733b04905133f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/_Project/Scenes/Game.unity using Guid(1a1bf560bde45b04b87733b04905133f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'aad79d468373b2fb7d04c3045ca86174') in 0.0132687 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.024965 seconds.
+  path: Assets/_Project/Scenes/Game.unity
+  artifactKey: Guid(1a1bf560bde45b04b87733b04905133f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/_Project/Scenes/Game.unity using Guid(1a1bf560bde45b04b87733b04905133f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '1a7644c0a8e2261ad4114ac94ff26f65') in 0.0106218 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 201.557368 seconds.
+  path: Assets/_Project/Art/TilePalettes
+  artifactKey: Guid(e38cac9079a741044bc90b20b3ed3355) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/_Project/Art/TilePalettes using Guid(e38cac9079a741044bc90b20b3ed3355) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ad176bc28d3c8248d87c6ee72026c836') in 0.0108978 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 1143.653304 seconds.
+  path: Assets/Cainos
+  artifactKey: Guid(33a01e42851e7b346b31a05ded519448) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos using Guid(33a01e42851e7b346b31a05ded519448) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8e5e4fa4aa4e9863fac041dfbe370ce4') in 0.0007693 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.604316 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props
+  artifactKey: Guid(1f08d781702466b438d35aa7938d8030) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props using Guid(1f08d781702466b438d35aa7938d8030) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5a788bbca3d378cfd0b426066034170c') in 0.0006994 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.313840 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Grass 01.prefab
+  artifactKey: Guid(70e4f80265d902443a6249697d613d81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Grass 01.prefab using Guid(70e4f80265d902443a6249697d613d81) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4027ea5ee2755217654843064965f215') in 0.91898 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Village Props.png
+  artifactKey: Guid(7810966f0f690954c87305933cabf2b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Texture/TX Village Props.png using Guid(7810966f0f690954c87305933cabf2b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter)[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-FDX7-899P-3D7X-9PB8-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 7972062332293-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+ -> (artifact id: '325ad3ef1d3f1e52ec763ce24f6cf642') in 0.7312158 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 193
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Grass 07.prefab
+  artifactKey: Guid(91aebb278b095f843a6d4213d7df47fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Grass 07.prefab using Guid(91aebb278b095f843a6d4213d7df47fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '17c26a7b01f08dc94f86637a6a7584e4') in 0.0422602 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Grass 05.prefab
+  artifactKey: Guid(72a905bcc22e3e443be6f48bfb173c00) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Grass 05.prefab using Guid(72a905bcc22e3e443be6f48bfb173c00) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '67ae5fa088aae0854bcef06c1e26fb47') in 0.0233274 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 34.690891 seconds.
+  path: Packages/com.unity.inputsystem/InputSystem/Editor/AssetEditor/PackageResources/personal/actionTreeBackgroundWithoutBorder.png
+  artifactKey: Guid(cf632ed80bf1f46c980de6b1b8b903ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.inputsystem/InputSystem/Editor/AssetEditor/PackageResources/personal/actionTreeBackgroundWithoutBorder.png using Guid(cf632ed80bf1f46c980de6b1b8b903ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c4ec055d9b453f5cf718fab35264d454') in 0.0208982 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000097 seconds.
+  path: Packages/com.unity.shadergraph/Editor/Resources/GraphView/Nodes/BlackboardFieldPillBackground.png
+  artifactKey: Guid(56603bbe7a2b54640bbd90104bea4981) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.shadergraph/Editor/Resources/GraphView/Nodes/BlackboardFieldPillBackground.png using Guid(56603bbe7a2b54640bbd90104bea4981) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5a9f4ae4e488158c66678f74fd8842cb') in 0.018151 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Packages/com.unity.render-pipelines.universal/Editor/SceneTemplates/Materials/Ground.mat
+  artifactKey: Guid(761d8e1f988ed2345a28312145c79c6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.universal/Editor/SceneTemplates/Materials/Ground.mat using Guid(761d8e1f988ed2345a28312145c79c6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd2a974747e54bd2312a9f15d997dc7b0') in 0.0567298 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_5.asset
+  artifactKey: Guid(e73be8d24f17223439bf92f55178abe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_5.asset using Guid(e73be8d24f17223439bf92f55178abe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4d6269944fe04bd07fb95ddb00a7ed6b') in 0.021302 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_16.asset
+  artifactKey: Guid(219c56611456eb4439f93a31a07abe72) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_16.asset using Guid(219c56611456eb4439f93a31a07abe72) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '76439da01a114ce793995212920db27b') in 0.02005 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Packages/com.unity.timeline/Editor/StyleSheets/Images/Shared/TimelineGroupBackground.png
+  artifactKey: Guid(6ca5daa3415451940921fa7e2c3db9e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.timeline/Editor/StyleSheets/Images/Shared/TimelineGroupBackground.png using Guid(6ca5daa3415451940921fa7e2c3db9e8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '14b6ef881157db04e702ca500589be71') in 0.0119678 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_10.asset
+  artifactKey: Guid(8c0583c4997af29459616893182f1c61) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_10.asset using Guid(8c0583c4997af29459616893182f1c61) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '07c657dc13afeceee6188a3b647a6001') in 0.0133611 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_3.asset
+  artifactKey: Guid(d6573f5efa2fa8048b202304dac39c9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_3.asset using Guid(d6573f5efa2fa8048b202304dac39c9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '07dc2160e59d18279699ed6b6ad9f84c') in 0.0189111 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_11.asset
+  artifactKey: Guid(8613d5b86ea5e7841912b99d6710d83e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_11.asset using Guid(8613d5b86ea5e7841912b99d6710d83e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f38d9d6aa5646c6faadcb6670bb7c147') in 0.0141499 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.377558 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_19.asset
+  artifactKey: Guid(bdd69271e040f454b996aab78da22ef3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_19.asset using Guid(bdd69271e040f454b996aab78da22ef3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd8b8cc469e7a5de799a4ce1598aa17af') in 0.0168533 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.330048 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_25.asset
+  artifactKey: Guid(73c5b22808f037a4fbd826a0086cbbf1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_25.asset using Guid(73c5b22808f037a4fbd826a0086cbbf1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3a9711e63967ad413eb1f74a6042c9af') in 0.0179491 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_30.asset
+  artifactKey: Guid(36df7a307fa03dd4e947b2d5a8996ee0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_30.asset using Guid(36df7a307fa03dd4e947b2d5a8996ee0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '20c199caba6c496af98c3bec034d40a6') in 0.0137936 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_40.asset
+  artifactKey: Guid(29754a49515e60e468307ef7c2b97507) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_40.asset using Guid(29754a49515e60e468307ef7c2b97507) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ab928b17b5c183f748f87c8a6ae6d769') in 0.0128739 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_43.asset
+  artifactKey: Guid(334c42904e466434c806626daa6b87d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_43.asset using Guid(334c42904e466434c806626daa6b87d3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5811c61f02ac1aaecd7379970458582f') in 0.0164882 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_35.asset
+  artifactKey: Guid(0ba9a9a782147074f8a089b2bb2e6be5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_35.asset using Guid(0ba9a9a782147074f8a089b2bb2e6be5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0f38fedf043d53da80870fd92da17a19') in 0.0166514 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.010471 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_49.asset
+  artifactKey: Guid(9018b88ca7c5848419d8b7321c7bc734) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_49.asset using Guid(9018b88ca7c5848419d8b7321c7bc734) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e516ce827cc89e028a38c383c4a65f39') in 0.0134889 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.223754 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_55.asset
+  artifactKey: Guid(421626d2e0c20134aab91c55b4ce632b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_55.asset using Guid(421626d2e0c20134aab91c55b4ce632b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '48ebc04a2953ea42ff908d2b45516284') in 0.0139328 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_62.asset
+  artifactKey: Guid(33440b304d4cb2f4299bdcdb72409317) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_62.asset using Guid(33440b304d4cb2f4299bdcdb72409317) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '48e1095101983388cbf1d8c8dcd90dbd') in 0.0204542 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_65.asset
+  artifactKey: Guid(308e50ac3a88d83439648e519b1b0f8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_65.asset using Guid(308e50ac3a88d83439648e519b1b0f8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '81caaf4f291c84c95b51865b8ce2a80e') in 0.0135946 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_71.asset
+  artifactKey: Guid(11575183a6bcbaa40b9061c460cc1b52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_71.asset using Guid(11575183a6bcbaa40b9061c460cc1b52) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '206a4c6a42db7e5385f01966b37fa518') in 0.0137542 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_76.asset
+  artifactKey: Guid(04a9c0c6cb39cc34d94c811890690efb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_76.asset using Guid(04a9c0c6cb39cc34d94c811890690efb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '790e2cdb7a9db70651aa3f39f39d2c10') in 0.012534 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.527984 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_79.asset
+  artifactKey: Guid(3351485ef98fe2c4a94887c4792aa4b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_79.asset using Guid(3351485ef98fe2c4a94887c4792aa4b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e8323b69ecaf20f2ebfdf56b215cd2d1') in 0.0081514 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_82.asset
+  artifactKey: Guid(edd2564588bdeb14cb720c738cd3bd63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_82.asset using Guid(edd2564588bdeb14cb720c738cd3bd63) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5d18bad44d576fb5f19f8a7fe8fe3ce5') in 0.0124846 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.317879 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_85.asset
+  artifactKey: Guid(f3e660f6b5676434189b7c32454e6677) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_85.asset using Guid(f3e660f6b5676434189b7c32454e6677) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '663dd7bec9670449a3c9908c8ed42e5d') in 0.0132529 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_91.asset
+  artifactKey: Guid(2bb4a6cb95a9598429c087579047b1b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_91.asset using Guid(2bb4a6cb95a9598429c087579047b1b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3f4ddcb1065bfa567e4f3933d4c2ed73') in 0.0116617 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_96.asset
+  artifactKey: Guid(2cfcb4859b7ca3e4ea80a318e3668302) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_96.asset using Guid(2cfcb4859b7ca3e4ea80a318e3668302) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3255fea6e644f358101462a470162572') in 0.0181638 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_100.asset
+  artifactKey: Guid(2e6a403417fe9e742a8fbab3eda7214b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_100.asset using Guid(2e6a403417fe9e742a8fbab3eda7214b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fae4de58fd47b71d7d4897956a699208') in 0.0182298 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_103.asset
+  artifactKey: Guid(e02cb1d48886e2049af78183d9b488e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_103.asset using Guid(e02cb1d48886e2049af78183d9b488e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fae9bff9cb9e08b0fed5173d4b45ac24') in 0.0175476 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_112.asset
+  artifactKey: Guid(64121964f25b88642b06f4c1d385c717) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_112.asset using Guid(64121964f25b88642b06f4c1d385c717) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fd63c91f5163fc217fab594d45c2ae9d') in 0.0138573 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.056609 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_115.asset
+  artifactKey: Guid(6e364f0b28336ea42813b955064b593d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_115.asset using Guid(6e364f0b28336ea42813b955064b593d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0f9e5cb19dc924d62ade16499bf67dc2') in 0.0191854 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_120.asset
+  artifactKey: Guid(0c227ba438fc9e542832d6dbb3d993dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_120.asset using Guid(0c227ba438fc9e542832d6dbb3d993dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4111bfe3c578863d42d152aa7fcd4c43') in 0.0229635 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.194795 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_127.asset
+  artifactKey: Guid(2099a6162d75a34489acc97102351bb4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_127.asset using Guid(2099a6162d75a34489acc97102351bb4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f8be25e4943b93ca15fcaccfa6faedaf') in 0.0218572 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.224204 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_133.asset
+  artifactKey: Guid(87f93412d493ce84f8e2008a58c88eb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_133.asset using Guid(87f93412d493ce84f8e2008a58c88eb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '10ed8d9a4d60503fea282490bfe75f7d') in 0.0152467 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_138.asset
+  artifactKey: Guid(db6e4bc129edf2047a13aac4708007a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_138.asset using Guid(db6e4bc129edf2047a13aac4708007a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '67301c8be6866d1c24fe8b40ec38e38c') in 0.0230034 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.079431 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_145.asset
+  artifactKey: Guid(9ef3eff934c5d09409320d8cc2474f2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_145.asset using Guid(9ef3eff934c5d09409320d8cc2474f2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3b85126c6c77a86be3db5d9a148995ea') in 0.0140792 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_150.asset
+  artifactKey: Guid(5bb3379432363d940bb1376f0436e164) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_150.asset using Guid(5bb3379432363d940bb1376f0436e164) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '21523b9ce9928589d29b13e0e1d7f248') in 0.0193725 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_154.asset
+  artifactKey: Guid(fe0118b3577988f43b9becf37509efa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_154.asset using Guid(fe0118b3577988f43b9becf37509efa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '54647fb590ff3f5e444957b25a917878') in 0.0114804 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.026299 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_157.asset
+  artifactKey: Guid(bf01fe4370e249a4cb0e32acd7919282) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_157.asset using Guid(bf01fe4370e249a4cb0e32acd7919282) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c573e9f12370945a5c3db792a35adcdb') in 0.011761 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_160.asset
+  artifactKey: Guid(9389084c40cf59045bebe9e340f50130) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Tileset Palette/TP Ground/TX Tileset Ground_160.asset using Guid(9389084c40cf59045bebe9e340f50130) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f25f95f2b0c9861066654ae98a08c23a') in 0.0145197 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-FDX7-899P-3D7X-9PB8-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 7972062332293-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+- Loaded All Assemblies, in  1.185 seconds
+Refreshing native plugins compatible for Editor in 3.83 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.232 seconds
+Domain Reload Profiling: 2418ms
+	BeginReloadAssembly (319ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (39ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (74ms)
+	RebuildCommonClasses (47ms)
+	RebuildNativeTypeToScriptingClass (19ms)
+	initialDomainReloadingComplete (37ms)
+	LoadAllAssembliesAndSetupDomain (764ms)
+		LoadAssemblies (589ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (312ms)
+			TypeCache.Refresh (15ms)
+				TypeCache.ScanAssembly (2ms)
+			BuildScriptInfoCaches (276ms)
+			ResolveRequiredComponents (14ms)
+	FinalizeReload (1232ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1012ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (11ms)
+			SetLoadedEditorAssemblies (7ms)
+			BeforeProcessingInitializeOnLoad (296ms)
+			ProcessInitializeOnLoadAttributes (569ms)
+			ProcessInitializeOnLoadMethodAttributes (124ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (24ms)
+Refreshing native plugins compatible for Editor in 4.26 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 16 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7263 unused Assets / (4.4 MB). Loaded Objects now: 8452.
+Memory consumption went from 160.6 MB to 156.2 MB.
+Total: 11.073600 ms (FindLiveObjects: 1.104700 ms CreateObjectMapping: 0.805300 ms MarkObjects: 6.303500 ms  DeleteObjects: 2.858100 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 526.426706 seconds.
+  path: Assets/GDD - Quinnipiac
+  artifactKey: Guid(25b5cc2436e47cb4f9f632a91e5aec8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac using Guid(25b5cc2436e47cb4f9f632a91e5aec8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '035e2cb230b8cdd40c61c08b4fcddb00') in 0.0079388 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.644067 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package
+  artifactKey: Guid(07b5ee9b164b1fd4c96edd44210d6db9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package using Guid(07b5ee9b164b1fd4c96edd44210d6db9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4e8be406f9b9e4ef5bc121eef60fa9f6') in 0.0006308 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.005345 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters
+  artifactKey: Guid(b65e2e450acb3664c9645e6735941efe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters using Guid(b65e2e450acb3664c9645e6735941efe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '87ea1f8863771034cf7d5f95db23b573') in 0.0007064 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.272926 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul
+  artifactKey: Guid(7346880511484a14382b597cd87ecdf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul using Guid(7346880511484a14382b597cd87ecdf2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '29dcc2a79d5160482ed4aca7139e192b') in 0.0006476 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.079176 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Dark Blue
+  artifactKey: Guid(ca60212e2c6c1814b895e6e4f6d4e53e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Dark Blue using Guid(ca60212e2c6c1814b895e6e4f6d4e53e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0e1cd38e364a7b134a2925db12080d17') in 0.0007793 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.026990 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Dark Blue/Addergul air 2-Sheet.png
+  artifactKey: Guid(56c2ec3074b42e144a0cab83ade65363) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Dark Blue/Addergul air 2-Sheet.png using Guid(56c2ec3074b42e144a0cab83ade65363) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8772edf497f4f0afa834475ee0610fe8') in 0.1122276 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Dark Blue/Addergul death 2-Sheet.png
+  artifactKey: Guid(ab5b3862b04b7004498775000b716299) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Dark Blue/Addergul death 2-Sheet.png using Guid(ab5b3862b04b7004498775000b716299) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6062affe539d188725808f1800c4ff66') in 0.0450305 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Dark Blue/Addergul turn 2-Sheet.png
+  artifactKey: Guid(cffae96a702e3ed4eb8ccd65d5343742) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Dark Blue/Addergul turn 2-Sheet.png using Guid(cffae96a702e3ed4eb8ccd65d5343742) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9bc6621b1f76dbbc97081f10c3f26367') in 0.0570953 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Dark Blue/Addergul run 2-Sheet.png
+  artifactKey: Guid(d81173211fa026d4f89ca7cfe5bfd48d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Dark Blue/Addergul run 2-Sheet.png using Guid(d81173211fa026d4f89ca7cfe5bfd48d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ce839445e61e7d202e3d735977470923') in 0.0353999 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.440874 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Orange
+  artifactKey: Guid(3ae04ccec7c04694c84f68e065621728) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Orange using Guid(3ae04ccec7c04694c84f68e065621728) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a117a50ddaa0d0a2dbdf6543c3627202') in 0.0006812 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.008527 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Orange/Addergul air 4-Sheet.png
+  artifactKey: Guid(8fb2a9392442fd64c95590a662356cbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Orange/Addergul air 4-Sheet.png using Guid(8fb2a9392442fd64c95590a662356cbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4f6230adb23057f475a0db4adf86af67') in 0.0306475 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Orange/Addergul walk 4-Sheet.png
+  artifactKey: Guid(ef161e13def62ea4ba2ba7f08f97e62a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Orange/Addergul walk 4-Sheet.png using Guid(ef161e13def62ea4ba2ba7f08f97e62a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1b4a7e25e19eb11457d40ce30de8e9e4') in 0.0305699 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Orange/Addergul turn 4-Sheet.png
+  artifactKey: Guid(7dac40cc9dfc1fb4b99c5eeff35ffe68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Orange/Addergul turn 4-Sheet.png using Guid(7dac40cc9dfc1fb4b99c5eeff35ffe68) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '714e4683d9942209cf94594887d67f46') in 0.0270672 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Orange/Addergul idle 4-Sheet.png
+  artifactKey: Guid(3b77beb1853a530459453dab203a6d1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Orange/Addergul idle 4-Sheet.png using Guid(3b77beb1853a530459453dab203a6d1e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '21b099983de913ab0605ed79b82b6410') in 0.0249502 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.721655 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink
+  artifactKey: Guid(66a65d870cefb7941a8faf091b6d8219) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink using Guid(66a65d870cefb7941a8faf091b6d8219) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c88a67a7d647a96314e0ebf60ebafbc6') in 0.0007239 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.012364 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink/Addergul air 3-Sheet.png
+  artifactKey: Guid(7ff60c0b764787c4d9cb379c2535c5ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink/Addergul air 3-Sheet.png using Guid(7ff60c0b764787c4d9cb379c2535c5ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f1e2489ad5595ccf0b82faa7d2d4f82e') in 0.0467869 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink/Addergul hit 3-Sheet.png
+  artifactKey: Guid(185a35a280f23c54ba00efe2db864999) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink/Addergul hit 3-Sheet.png using Guid(185a35a280f23c54ba00efe2db864999) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '418acf508e163354b4d4190b70739b18') in 0.0300623 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink/Addergul run 3-Sheet.png
+  artifactKey: Guid(522be609a6768b947ab2c94ba8cd8316) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink/Addergul run 3-Sheet.png using Guid(522be609a6768b947ab2c94ba8cd8316) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '69e7acf7ddfbe73546986ae430a17e92') in 0.026024 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink/Addergul turn 3-Sheet.png
+  artifactKey: Guid(3eef7e2b47671304dbe5c74568703269) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink/Addergul turn 3-Sheet.png using Guid(3eef7e2b47671304dbe5c74568703269) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '219bf4804e6faf52deebf4b43cdf4cb6') in 0.04398 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.203989 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop
+  artifactKey: Guid(64425b8bcc26a7c47b0cd6224bdb409b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop using Guid(64425b8bcc26a7c47b0cd6224bdb409b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6d1518f4fd2b2b87a9c23317a1aa489d') in 0.0006814 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.871974 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Orange
+  artifactKey: Guid(91e638779491fef49a7aa4cae78ed177) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Orange using Guid(91e638779491fef49a7aa4cae78ed177) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '25bcae1f43689e9965e288f3e6fd094f') in 0.000689 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.015918 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Orange/goop air 2-Sheet.png
+  artifactKey: Guid(cb4676b550b0de342892411bf6585b38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Orange/goop air 2-Sheet.png using Guid(cb4676b550b0de342892411bf6585b38) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '65b35f72bf4b6faec3c9ab2b27b61bda') in 0.0508004 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Orange/goop walk 2-Sheet.png
+  artifactKey: Guid(dc66c049ee8abbc47b4e83f919342092) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Orange/goop walk 2-Sheet.png using Guid(dc66c049ee8abbc47b4e83f919342092) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'db2c0c1e78b18b3341ea500bc9158eca') in 0.0394705 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Orange/goop turn 2-Sheet.png
+  artifactKey: Guid(fc6fabe30690eb741b0a26ad21889583) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Orange/goop turn 2-Sheet.png using Guid(fc6fabe30690eb741b0a26ad21889583) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd9396db6d2dbdde9fbd5be6cc99425ae') in 0.0324744 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.055645 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom
+  artifactKey: Guid(20856249dc3808348ad725353dee28e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom using Guid(20856249dc3808348ad725353dee28e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '20adc6ac8cd2de43f6276d4d890d8cc4') in 0.0007398 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.824450 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Pink
+  artifactKey: Guid(11a2f5509ca61044486040788b60564f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Pink using Guid(11a2f5509ca61044486040788b60564f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e8f4538ce052d1d8943e76eeb4d01792') in 0.000685 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.009863 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Pink/Phantom air 2-Sheet.png
+  artifactKey: Guid(a71910509893be04ba0b3dcb721599dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Pink/Phantom air 2-Sheet.png using Guid(a71910509893be04ba0b3dcb721599dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '08c04b28dd99a5dc818c5a8ca8178cfc') in 0.055474 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Pink/Phantom walk 2-Sheet.png
+  artifactKey: Guid(8b272368bfc34e643b537b40467ce24e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Pink/Phantom walk 2-Sheet.png using Guid(8b272368bfc34e643b537b40467ce24e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1341312cfbce2ef6170a6a2554a85a81') in 0.0283075 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.751461 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles
+  artifactKey: Guid(272915f1fdd5a7c4bb6bb94f61818e5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles using Guid(272915f1fdd5a7c4bb6bb94f61818e5a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3f11c6ffbe15f4ec17a0bbc69c8d88a7') in 0.0006945 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.707385 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Red
+  artifactKey: Guid(dd0a28f938503ed4ca1ec65b71c95f8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Red using Guid(dd0a28f938503ed4ca1ec65b71c95f8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ec5a2945dd7161c0c56ac36f3cae3b48') in 0.0006898 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.015480 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Red/Rattles air 2-Sheet.png
+  artifactKey: Guid(4223ae47d5848c14aa70a5d984f7733f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Red/Rattles air 2-Sheet.png using Guid(4223ae47d5848c14aa70a5d984f7733f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '47132058feef6dbcc4ba7bcff0132d0d') in 0.054258 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Red/Rattles idle 2-Sheet.png
+  artifactKey: Guid(4a350331c4bf2fd4bb8994072e7c1c85) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Red/Rattles idle 2-Sheet.png using Guid(4a350331c4bf2fd4bb8994072e7c1c85) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ba262b10f168e8d7e0f329d340d81212') in 0.033223 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Red/Rattles walk 2-sheet.png
+  artifactKey: Guid(131c644bc8eea9842adee16638e3a775) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Red/Rattles walk 2-sheet.png using Guid(131c644bc8eea9842adee16638e3a775) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd32fd963c85c6b62277262f7d6600722') in 0.0221498 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.441193 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie
+  artifactKey: Guid(742be175fe00252438d5c64689102e89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie using Guid(742be175fe00252438d5c64689102e89) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c5216112aa6f77b9d4eb9d5e5876c421') in 0.0009595 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.857234 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Pink
+  artifactKey: Guid(3fe28aee38e7ea0498a224bf9679dbef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Pink using Guid(3fe28aee38e7ea0498a224bf9679dbef) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e9df01c5332abb4a8f7ce0adb0d0eaf6') in 0.0006698 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Pink/Valkyrie Air 4-Sheet.png
+  artifactKey: Guid(e31c2f994d756b6408c893905552220c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Pink/Valkyrie Air 4-Sheet.png using Guid(e31c2f994d756b6408c893905552220c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '882cfce03dfc62a1d9c66d72ec3e151e') in 0.0538694 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Pink/Valkyrie Run 4-Sheet.png
+  artifactKey: Guid(a5375cfe2eae490498eac46bbb90ed46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Pink/Valkyrie Run 4-Sheet.png using Guid(a5375cfe2eae490498eac46bbb90ed46) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd09ded92545428c5ac4507cc79108b28') in 0.0725974 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.123082 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Red
+  artifactKey: Guid(56f81990e3715234f8cdf520e4337e63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Red using Guid(56f81990e3715234f8cdf520e4337e63) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9d9362e3b516b4621f6328d98e651ad7') in 0.0010702 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.181270 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Red/Valkyrie_Air-Sheet.png
+  artifactKey: Guid(4890a6b8432f99b4eb6ee50654a76b10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Red/Valkyrie_Air-Sheet.png using Guid(4890a6b8432f99b4eb6ee50654a76b10) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fed78f32dfa382855c2afc8f65793d5f') in 0.0643894 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Red/Valkyrie_Turn-Sheet.png
+  artifactKey: Guid(1c3e8f3938007ac448820330c7f29865) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Red/Valkyrie_Turn-Sheet.png using Guid(1c3e8f3938007ac448820330c7f29865) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cd03caa97f761e3ae4d888f0d67cb8a6') in 0.0600474 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.779148 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton
+  artifactKey: Guid(e6ebe1408c598714980667ee327a9cd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton using Guid(e6ebe1408c598714980667ee327a9cd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a5a7c28588fdc2b1a6e00c2857834679') in 0.0006638 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.486496 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Green
+  artifactKey: Guid(1839dba67acf49147bbbc92c140247f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Green using Guid(1839dba67acf49147bbbc92c140247f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'fd310698541b8d4385c1924352151671') in 0.0007154 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Green/Deton Air 2-Sheet.png
+  artifactKey: Guid(59f8134711f3d1b46be8282102212db7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Green/Deton Air 2-Sheet.png using Guid(59f8134711f3d1b46be8282102212db7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '07330e66d4f8c02c176e15df5a6d3d7e') in 0.05137 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Green/Deton Turn 2-Sheet.png
+  artifactKey: Guid(541c8ad76210a364dbe778cd84f604c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Green/Deton Turn 2-Sheet.png using Guid(541c8ad76210a364dbe778cd84f604c9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7e0c6a4b80bc016e6dd35e8490b232fd') in 0.04931 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.747205 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Grey
+  artifactKey: Guid(b333f3f6233f1774a94022f7e8514cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Grey using Guid(b333f3f6233f1774a94022f7e8514cde) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a382e6202046b23c0ed21ab0e333c523') in 0.0010341 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.321333 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank
+  artifactKey: Guid(fc1b74904d622b944ad90b05728fe20e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank using Guid(fc1b74904d622b944ad90b05728fe20e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b60815fe6a088ad91ca4d6cc56530b61') in 0.0006753 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.580376 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Orange
+  artifactKey: Guid(7c568980ecb75524da1c12e219cb6f4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Orange using Guid(7c568980ecb75524da1c12e219cb6f4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '37e1dc0ead4aee4e3ad4908dbf564347') in 0.0007338 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.005069 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Orange/Frank air 2-Sheet.png
+  artifactKey: Guid(507664c7ca8a0e744b9735c2a2ae1732) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Orange/Frank air 2-Sheet.png using Guid(507664c7ca8a0e744b9735c2a2ae1732) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '71da62ecb4b5d6eb76e659606c722368') in 0.0695879 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Orange/Frank turn 2-Sheet.png
+  artifactKey: Guid(068b05dcdb540fc4ba423c6e12b72536) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Orange/Frank turn 2-Sheet.png using Guid(068b05dcdb540fc4ba423c6e12b72536) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '93e29aaf81d4b75c31e6a37b630b0740') in 0.0401941 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.926804 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled
+  artifactKey: Guid(175a1499002e6124b84e91b20cc4f245) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled using Guid(175a1499002e6124b84e91b20cc4f245) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cd17dbce7da8808d619ae38b236c0faa') in 0.0006862 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.599042 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Pink
+  artifactKey: Guid(d79d8ab88eb1e0f42a253ad7badc8a60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Pink using Guid(d79d8ab88eb1e0f42a253ad7badc8a60) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6a8a64f79dbf63871faccbd6c624a24a') in 0.0008279 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Pink/Koboiled death full 2-Sheet.png
+  artifactKey: Guid(be2aa8ae5fade874b8129cb12dcb00ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Pink/Koboiled death full 2-Sheet.png using Guid(be2aa8ae5fade874b8129cb12dcb00ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'af13e6d4e10ff81ebfa5a0baa32ab3e2') in 0.1096284 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.245869 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer
+  artifactKey: Guid(79d8c69e3c4308f468d405b1de9f1e84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer using Guid(79d8c69e3c4308f468d405b1de9f1e84) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '3aeba344055367fb17c9c8a260b6a87b') in 0.0007056 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.678095 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Grey
+  artifactKey: Guid(a566811baf290fd4289629ac652ec208) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Grey using Guid(a566811baf290fd4289629ac652ec208) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5f22751b2e85be8cab38790088125a4b') in 0.0007248 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.026588 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Grey/the puppet turn-Sheet.png
+  artifactKey: Guid(6662ab0e04586e748815b9999d51587f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Grey/the puppet turn-Sheet.png using Guid(6662ab0e04586e748815b9999d51587f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2f38d6e2db2ea6eea31dd26fb6499061') in 0.0958772 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.745204 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Purple
+  artifactKey: Guid(9c2f88c16de221e4d93ad9b9377684d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Purple using Guid(9c2f88c16de221e4d93ad9b9377684d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7a1b6faa3c3b0881a5850bc2637e5bed') in 0.000841 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Purple/the puppet air 3-Sheet.png
+  artifactKey: Guid(bc46ab9f6dd48104d8ecd41a6a86b301) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Purple/the puppet air 3-Sheet.png using Guid(bc46ab9f6dd48104d8ecd41a6a86b301) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '53306607339639afad68317f098dff99') in 0.087545 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.065246 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Black
+  artifactKey: Guid(4c1576709e4d06b43ab5e843145db1db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Black using Guid(4c1576709e4d06b43ab5e843145db1db) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '24e6ed142b851159421b120edb2b2e1e') in 0.0006645 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.021247 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Black/the puppet air 4-Sheet.png
+  artifactKey: Guid(4c404c05cdee3ff4392514f3e9be1210) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Black/the puppet air 4-Sheet.png using Guid(4c404c05cdee3ff4392514f3e9be1210) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f906c643eda64925898352d4d739d6a1') in 0.0708686 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Black/the puppet run 4-Sheet.png
+  artifactKey: Guid(dd2da79f3aaf9e04faf6018209a72901) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Black/the puppet run 4-Sheet.png using Guid(dd2da79f3aaf9e04faf6018209a72901) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0033c780b062d33d39f3111face0b4ba') in 0.0473624 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.390868 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Blue
+  artifactKey: Guid(ef649d6bf00565a4a9bc0896f40c9ac5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Blue using Guid(ef649d6bf00565a4a9bc0896f40c9ac5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'babe9a345f0b882142dc39f09f849112') in 0.0007189 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.024656 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Blue/the puppet air 2-Sheet.png
+  artifactKey: Guid(af7611f552c78c045b1cf7e17c8d9789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Blue/the puppet air 2-Sheet.png using Guid(af7611f552c78c045b1cf7e17c8d9789) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '065be7b90576073a2d459956e1230969') in 0.0385673 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Blue/the puppet walk 2-Sheet.png
+  artifactKey: Guid(7f4d10f6840e569448f1784762eabdf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Blue/the puppet walk 2-Sheet.png using Guid(7f4d10f6840e569448f1784762eabdf0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6d4b4df700eac62cfd4bf475049da03a') in 0.034095 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 51.514844 seconds.
+  path: Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIObjectPopupField.prefab
+  artifactKey: Guid(48fb043c850cadc4a883b53785e14c6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIObjectPopupField.prefab using Guid(48fb043c850cadc4a883b53785e14c6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9aaeef818ec65d2f2a6b5fddbe1491f4') in 0.0322341 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 27
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.369256 seconds.
+  path: Packages/com.unity.2d.spriteshape/Editor/ObjectMenuCreation/DefaultAssets/Sprite Shapes/Closed Sprite Shape.prefab
+  artifactKey: Guid(c0583b4e855c74b8c82e7b9b5efb5ce9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.spriteshape/Editor/ObjectMenuCreation/DefaultAssets/Sprite Shapes/Closed Sprite Shape.prefab using Guid(c0583b4e855c74b8c82e7b9b5efb5ce9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c840eb4f081dd4d3291809de0c5e2d24') in 0.8036835 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 14
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Bucket 01.prefab
+  artifactKey: Guid(75e84fbdb66ab5647a06b786c6662307) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Bucket 01.prefab using Guid(75e84fbdb66ab5647a06b786c6662307) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cd5cb11154f5fa12f70dedcc62c2af51') in 0.0309102 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIEnumHistory.prefab
+  artifactKey: Guid(b2da6b27df236b144b3516ed8e7d36ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIEnumHistory.prefab using Guid(b2da6b27df236b144b3516ed8e7d36ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c8c2344a708d0d8368e1e89b78ab8797') in 0.0037269 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 15
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIMessageBox.prefab
+  artifactKey: Guid(10a25524b0986f9488b430e2829bbbe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIMessageBox.prefab using Guid(10a25524b0986f9488b430e2829bbbe8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '062aba7abb84d8247bf5cee070196696') in 0.0072809 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 15
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIUIntField.prefab
+  artifactKey: Guid(f22bcc84a5f4a1944b075a2c4ac71493) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIUIntField.prefab using Guid(f22bcc84a5f4a1944b075a2c4ac71493) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ef8ce5dcbec7bf2c32dedc30f2951376') in 0.0051064 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 37
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIButton.prefab
+  artifactKey: Guid(f6ce33b91f6ffe54cadacbf4bb112440) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIButton.prefab using Guid(f6ce33b91f6ffe54cadacbf4bb112440) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f9d2de317691dcd68ca85aa01a04af95') in 0.0044546 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 15
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Billboard.prefab
+  artifactKey: Guid(6ecf5bcec20adfa429a788f660f29ff5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Billboard.prefab using Guid(6ecf5bcec20adfa429a788f660f29ff5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '31928868c7e66d5812cca1f3041ee922') in 0.0202218 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 26
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Archery Target 01.prefab
+  artifactKey: Guid(55e220e9324021f4aba5a837610ec52e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Archery Target 01.prefab using Guid(55e220e9324021f4aba5a837610ec52e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2248ff34c77f0cdfd8f4db94d06b78fc') in 0.0198502 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 12
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIVector3.prefab
+  artifactKey: Guid(94afea5f242d72547979595ba963f335) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIVector3.prefab using Guid(94afea5f242d72547979595ba963f335) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f0857f07ee3419f66be91663442c61f6') in 0.0127738 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 67
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIObject.prefab
+  artifactKey: Guid(a87cfaef648f17c41b568e842e068c51) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIObject.prefab using Guid(a87cfaef648f17c41b568e842e068c51) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '708b7723b98c958faf6d37e2b5a9ce97') in 0.0089864 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 15
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Chest Wooden.prefab
+  artifactKey: Guid(f98d0f39fcc67a34f844abd8a50f2c03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Chest Wooden.prefab using Guid(f98d0f39fcc67a34f844abd8a50f2c03) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6e90008afb4f946bdb5cede2ee88bab4') in 0.0832189 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 32
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Fence B.prefab
+  artifactKey: Guid(366bd147d3b568843ab9463d10b7fb98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Fence B.prefab using Guid(366bd147d3b568843ab9463d10b7fb98) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1d0690d0b03f9a69117ee7db9d108929') in 0.0195122 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 35
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIVBox.prefab
+  artifactKey: Guid(ca3e294656861a64b8aeeb9f916da0a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.render-pipelines.core/Runtime/Debugging/Prefabs/Widgets/DebugUIVBox.prefab using Guid(ca3e294656861a64b8aeeb9f916da0a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f7d313a0392a8329c0847bef1ab14f14') in 0.0027813 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Chair.prefab
+  artifactKey: Guid(bb67ae3035abce24aa87122c96acac22) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Chair.prefab using Guid(bb67ae3035abce24aa87122c96acac22) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e3000c8d6318711379fde4ceef3b731c') in 0.0224555 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.059342 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Gravestone 01.prefab
+  artifactKey: Guid(050d9e84d8de61d41ac16ebab39e64a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Gravestone 01.prefab using Guid(050d9e84d8de61d41ac16ebab39e64a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ae32c86249722a21cb83c9a9c24c0543') in 0.0176646 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Gravestone 04.prefab
+  artifactKey: Guid(5105ccaacad8d714b94dfb93084fa936) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Gravestone 04.prefab using Guid(5105ccaacad8d714b94dfb93084fa936) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '79bc3e183ac2b50e018c3ac98e525e2e') in 0.0267444 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Ladder 01.prefab
+  artifactKey: Guid(f41211a6e39d8ab42a846d7622cabd05) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Ladder 01.prefab using Guid(f41211a6e39d8ab42a846d7622cabd05) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b1a61a0ae04a264295c351c55e72fc3e') in 0.0210325 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 17
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Obstacle Platform Large 01.prefab
+  artifactKey: Guid(bef830e91c1190b4c9d6e834ace51fe4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Obstacle Platform Large 01.prefab using Guid(bef830e91c1190b4c9d6e834ace51fe4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2302fba79ab414fda03e9885d926b5f4') in 0.045375 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Obstacle Platform X40.prefab
+  artifactKey: Guid(19c814d7a6d59b74686e74ddb900f806) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Obstacle Platform X40.prefab using Guid(19c814d7a6d59b74686e74ddb900f806) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2a3cb21729b576310662b545445594f2') in 0.0175202 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Platform 02 X4.prefab
+  artifactKey: Guid(5e8d23661846f4140b8492397ab54a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Platform 02 X4.prefab using Guid(5e8d23661846f4140b8492397ab54a94) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dbeb857be08cc69992329dbf6209afd5') in 0.0229256 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 23
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Spike.prefab
+  artifactKey: Guid(c4728654af6c1b84fb5102e3f29ffb8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Spike.prefab using Guid(c4728654af6c1b84fb5102e3f29ffb8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1e8b39cb3bcd77030ff473f55f498c7b') in 0.0281449 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Rock 02.prefab
+  artifactKey: Guid(b076c268235cb7348a5d9a036ec254c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Rock 02.prefab using Guid(b076c268235cb7348a5d9a036ec254c4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '534af2876693134dcd8f8fc4bab676d6') in 0.0162147 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Platform 02 X3.prefab
+  artifactKey: Guid(8f0b414806fcbda47b9f242883104bb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Platform 02 X3.prefab using Guid(8f0b414806fcbda47b9f242883104bb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6f6e052a65f8e44fe30bb9c7b39f273c') in 0.0172711 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 20
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - White Bottle.prefab
+  artifactKey: Guid(af37d6137b6748f4dbfe059a86aad627) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - White Bottle.prefab using Guid(af37d6137b6748f4dbfe059a86aad627) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c47502485a2148381dc6d7d2245a2618') in 0.0227438 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Wood Logs.prefab
+  artifactKey: Guid(d0bde9a42898be64ab7372c560194d8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Wood Logs.prefab using Guid(d0bde9a42898be64ab7372c560194d8d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e90fdf637ab212810cd5cc3f4df74de2') in 0.0264719 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Wheat 05.prefab
+  artifactKey: Guid(0cde5280cb0df5240bf5cc2866248e08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Wheat 05.prefab using Guid(0cde5280cb0df5240bf5cc2866248e08) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6741192126079d4723ead7c31eb59852') in 0.0171926 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Statue.prefab
+  artifactKey: Guid(92a08448cd3527a4aaf11bc404e0f1a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Statue.prefab using Guid(92a08448cd3527a4aaf11bc404e0f1a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '57eb9ce6037059f63d52698567c7c48d') in 0.0177918 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 12
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Torch.prefab
+  artifactKey: Guid(c759bb922e42eda4eb6f7e6e4e2fbe63) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Torch.prefab using Guid(c759bb922e42eda4eb6f7e6e4e2fbe63) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c7dee0640e7d425bed6b2281c4a4d611') in 0.0870605 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 24
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Sword.prefab
+  artifactKey: Guid(b8fd7e9f16def9745b8b8b4c3928d52d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Sword.prefab using Guid(b8fd7e9f16def9745b8b8b4c3928d52d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '340095e4ba15e27a01546d30a8c06791') in 0.0260941 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Slope Platform 01.prefab
+  artifactKey: Guid(49437f4ad0b44f5438b6216b787c82c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Slope Platform 01.prefab using Guid(49437f4ad0b44f5438b6216b787c82c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e0a2fd80cd8ba622277ea8a8854a61fc') in 0.015627 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 9
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Pumpkin B.prefab
+  artifactKey: Guid(c733f14e73fac4e4cbcdf3c827225214) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Cainos/Pixel Art Platformer - Village Props/Prefab/PF Village Props - Pumpkin B.prefab using Guid(c733f14e73fac4e4cbcdf3c827225214) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'abe974e0ec844f962467031855169f58') in 0.0320241 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

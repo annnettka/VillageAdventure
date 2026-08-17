@@ -1,0 +1,1142 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.3/staging' branch; Version is '6000.3.13f1 (8c4f11e4fb20) revision 9195281'; Using compiler version '194234433'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'ru' Physical Memory: 32597 MB
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-annne" at "2026-08-16T20:02:40.5122298Z"
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-08-16T20:02:40Z
+
+COMMAND LINE ARGUMENTS:
+D:\ProgramFiles\6000.3.13f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker10
+-projectPath
+E:/unitygames/TEST/Rep/VillageAdventure/PixelVillageAdventure
+-logFile
+Logs/AssetImportWorker10.log
+-srvPort
+25933
+-licensingIpc
+LicenseClient-annne
+-job-worker-count
+9
+-background-job-worker-count
+8
+-gc-helper-count
+1
+-name
+AssetImport
+Successfully changed project path to: E:/unitygames/TEST/Rep/VillageAdventure/PixelVillageAdventure
+E:/unitygames/TEST/Rep/VillageAdventure/PixelVillageAdventure
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-gfx=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+Player connection [20088]  Target information:
+
+Player connection [20088]  * "[IP] 192.168.56.1 [Port] 0 [Flags] 2 [Guid] 3966715092 [EditorId] 3966715092 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BESUJVN) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [20088]  * "[IP] 192.168.96.1 [Port] 0 [Flags] 2 [Guid] 3966715092 [EditorId] 3966715092 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BESUJVN) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [20088]  * "[IP] 192.168.113.1 [Port] 0 [Flags] 2 [Guid] 3966715092 [EditorId] 3966715092 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BESUJVN) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [20088]  * "[IP] 192.168.1.104 [Port] 0 [Flags] 2 [Guid] 3966715092 [EditorId] 3966715092 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-BESUJVN) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [20088] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [20088] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 9
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 6.63 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.3.13f1 (8c4f11e4fb20)
+[Subsystems] Discovering subsystems at path D:/ProgramFiles/6000.3.13f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path E:/unitygames/TEST/Rep/VillageAdventure/PixelVillageAdventure/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 4060 Ti (ID=0x2803)
+    Vendor:   NVIDIA
+    VRAM:     7949 MB
+    Driver:   32.0.15.6614
+Initialize mono
+Mono path[0] = 'D:/ProgramFiles/6000.3.13f1/Editor/Data/Managed'
+Mono path[1] = 'D:/ProgramFiles/6000.3.13f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'D:/ProgramFiles/6000.3.13f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56976
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/ProgramFiles/6000.3.13f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: D:/ProgramFiles/6000.3.13f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+[Licensing::Module] Licensing is not yet initialized.
+[Licensing::Client] Error: HandshakeResponse reported an error:
+	ResponseCode: 505
+	ResponseStatus: Unsupported protocol version '1.18.1'.
+[Licensing::Module] Error: Failed to handshake to channel: "LicenseClient-annne"
+[Licensing::IpcConnector] LicenseClient-annne channel disconnected successfully.
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-annne-6000.3.13" at "2026-08-16T20:02:42.5161779Z"
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.1+9fbee8e
+  Session Id:              3e31e365b296474b807ec905406adc1a
+  Correlation Id:          1b21e80abeb84646f74247c5aa0bde12
+  External correlation Id: 6072053342567728112
+  Machine Id:              IDPt3QV2HiQNdt/8ISWN6CMV7UQ=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-annne-6000.3.13" (connect: 0.00s, validation: 0.00s, handshake: 1.33s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-annne-6000.3.13-notifications" at "2026-08-16T20:02:43.8507811Z"
+[Licensing::Module] Licensing Background thread has ended after 3.34s
+[Licensing::Module] Licensing is initialized (took 1.68s).
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-FDX7-899P-3D7X-9PB8-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 7972062332293-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+Register platform support module: D:/ProgramFiles/6000.3.13f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Registered in 1.689443 seconds.
+- Loaded All Assemblies, in  2.476 seconds
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Package Manager log level set to [2]
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.613 seconds
+Domain Reload Profiling: 3089ms
+	BeginReloadAssembly (310ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (5ms)
+	RebuildCommonClasses (59ms)
+	RebuildNativeTypeToScriptingClass (24ms)
+	initialDomainReloadingComplete (1754ms)
+	LoadAllAssembliesAndSetupDomain (328ms)
+		LoadAssemblies (307ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (321ms)
+			TypeCache.Refresh (319ms)
+				TypeCache.ScanAssembly (297ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (614ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (539ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (91ms)
+			SetLoadedEditorAssemblies (7ms)
+			BeforeProcessingInitializeOnLoad (130ms)
+			ProcessInitializeOnLoadAttributes (196ms)
+			ProcessInitializeOnLoadMethodAttributes (115ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-FDX7-899P-3D7X-9PB8-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: Unlimited
+[Licensing::Module] License group:
+  Id: 7972062332293-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+- Loaded All Assemblies, in  1.421 seconds
+Refreshing native plugins compatible for Editor in 4.23 ms, found 5 plugins.
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Refreshing native plugins compatible for Editor in 4.12 ms, found 5 plugins.
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+ScheduleIndexationOnStartup MainProcess:False IndexOnStartup:True
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.539 seconds
+Domain Reload Profiling: 2958ms
+	BeginReloadAssembly (274ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (9ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (37ms)
+	RebuildCommonClasses (57ms)
+	RebuildNativeTypeToScriptingClass (33ms)
+	initialDomainReloadingComplete (65ms)
+	LoadAllAssembliesAndSetupDomain (989ms)
+		LoadAssemblies (670ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (487ms)
+			TypeCache.Refresh (311ms)
+				TypeCache.ScanAssembly (286ms)
+			BuildScriptInfoCaches (154ms)
+			ResolveRequiredComponents (16ms)
+	FinalizeReload (1540ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1267ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (14ms)
+			SetLoadedEditorAssemblies (11ms)
+			BeforeProcessingInitializeOnLoad (338ms)
+			ProcessInitializeOnLoadAttributes (689ms)
+			ProcessInitializeOnLoadMethodAttributes (212ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (11ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 3.97 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 16 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 7264 unused Assets / (2.0 MB). Loaded Objects now: 8074.
+Memory consumption went from 157.6 MB to 155.6 MB.
+Total: 10.709400 ms (FindLiveObjects: 1.045500 ms CreateObjectMapping: 0.658100 ms MarkObjects: 6.724200 ms  DeleteObjects: 2.279800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 47084.732358 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Grey/Valkyrie Air 2-Sheet.png
+  artifactKey: Guid(9d3d87cf6c3432d47b61e800b8d4a34a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Grey/Valkyrie Air 2-Sheet.png using Guid(9d3d87cf6c3432d47b61e800b8d4a34a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '010c76ef8fb07380bb478523e376ade2') in 0.2073747 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.610437 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Blue/Turn.anim
+  artifactKey: Guid(a3d5b601664746641a9319a3850a84c9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Blue/Turn.anim using Guid(a3d5b601664746641a9319a3850a84c9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ac0494284e3f0e3b6812884132ccde31') in 0.0298809 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Pink/Valkyrie Run 4-Sheet.png
+  artifactKey: Guid(a5375cfe2eae490498eac46bbb90ed46) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Pink/Valkyrie Run 4-Sheet.png using Guid(a5375cfe2eae490498eac46bbb90ed46) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '0ac1fd1905db94572d709134645d8646') in 0.036583 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Phantom Weapons/Spritesheets/Phantom Red Attack.png
+  artifactKey: Guid(2db3a2f5c724e0c41bb50e95d20d92fe) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Phantom Weapons/Spritesheets/Phantom Red Attack.png using Guid(2db3a2f5c724e0c41bb50e95d20d92fe) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3547613fb3451b08c5d09d79317a2a68') in 0.0417345 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Blue/the puppet run 2-Sheet.png
+  artifactKey: Guid(f3918c479d53dd948bb053f86ae2b6df) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Blue/the puppet run 2-Sheet.png using Guid(f3918c479d53dd948bb053f86ae2b6df) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8dd0a6dcac5547290145845d85a2aec0') in 0.0384694 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Orange/Speckle hit-Sheet(1).png
+  artifactKey: Guid(a391b2f298bed0a41a75c1cb317ba8c0) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Orange/Speckle hit-Sheet(1).png using Guid(a391b2f298bed0a41a75c1cb317ba8c0) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '715a9329669119e55d3121a6b6365e02') in 0.0390201 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Green/Phantom death 4-Sheet.png
+  artifactKey: Guid(f8f26cefec249b540b055a5e985d1f73) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Green/Phantom death 4-Sheet.png using Guid(f8f26cefec249b540b055a5e985d1f73) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7b7a29755262567d503aa97c03162741') in 0.0988595 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Green/Idle.anim
+  artifactKey: Guid(eb881155d935839469ffe8911c7608f3) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Green/Idle.anim using Guid(eb881155d935839469ffe8911c7608f3) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '89f323f2d791f8706ddbfb4ecfb00541') in 0.0225986 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Purple/Rattles run no sword 4-Sheet.png
+  artifactKey: Guid(470de8ac7c5f13d4ba0b9511010622d6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Purple/Rattles run no sword 4-Sheet.png using Guid(470de8ac7c5f13d4ba0b9511010622d6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'fcb26e468d5eb9ed3c3a256f6d8f1e88') in 0.0450107 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Blue/Walk.anim
+  artifactKey: Guid(f08d813d510cb0e4690a2f1b24d0aae8) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Blue/Walk.anim using Guid(f08d813d510cb0e4690a2f1b24d0aae8) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'b7ff6c74736c3d997d54ec9b8f4e6bdf') in 0.0171006 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Grey/Air.anim
+  artifactKey: Guid(e0af5dbf92876144a90f6100129e660b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Grey/Air.anim using Guid(e0af5dbf92876144a90f6100129e660b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3a9bddacbc77118db47fcb678d98101c') in 0.0264492 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Red/Phantom death 3-Sheet.png
+  artifactKey: Guid(edebc702a96c7cf47bdd7038b3d743d9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Red/Phantom death 3-Sheet.png using Guid(edebc702a96c7cf47bdd7038b3d743d9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'c5401261ad44fda4b7f0d8b3b1f9848b') in 0.0606128 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Valktrie Weapons/Animations/Valkyrie Blue Weapon Animation.anim
+  artifactKey: Guid(48b4ec1f82004bf45b82f0a85802f27c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Valktrie Weapons/Animations/Valkyrie Blue Weapon Animation.anim using Guid(48b4ec1f82004bf45b82f0a85802f27c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'c18dafec25d38b7560c3618a6a4ecb80') in 0.0416217 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Green/Run.anim
+  artifactKey: Guid(6522eddb84e4af04398879671411f882) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Green/Run.anim using Guid(6522eddb84e4af04398879671411f882) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '06113291c24f0e43d8b288e9a5289078') in 0.0140134 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Red/Phantom run 3-Sheet.png
+  artifactKey: Guid(04d6fd5d6ca49aa4ebe41951a94e68fa) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Red/Phantom run 3-Sheet.png using Guid(04d6fd5d6ca49aa4ebe41951a94e68fa) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '287a162131d78522d6b94377c8145903') in 0.0395901 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Purple/the puppet crouch 3-Sheet.png
+  artifactKey: Guid(eb87e2191bc78e54b840d95a844d1407) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Purple/the puppet crouch 3-Sheet.png using Guid(eb87e2191bc78e54b840d95a844d1407) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '2323e93f58a40c17276eca18e00f97d4') in 0.0819183 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Black/the puppet death 4-Sheet.png
+  artifactKey: Guid(df21a574c28d70f48be01cf22e9caea0) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Black/the puppet death 4-Sheet.png using Guid(df21a574c28d70f48be01cf22e9caea0) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '4fa7d464807a42aeeca1d237734eec56') in 0.0584276 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Blue/Deton Run 3-Sheet.png
+  artifactKey: Guid(03f8623f1174abf40b1c4c7e05e147e1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Blue/Deton Run 3-Sheet.png using Guid(03f8623f1174abf40b1c4c7e05e147e1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '45fb0d6dda26260e872a3431799ad9af') in 0.0375572 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Red/Koboiled_crouch_full-Sheet.png
+  artifactKey: Guid(503bdec8c5a90c541b5d41da785e1677) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Red/Koboiled_crouch_full-Sheet.png using Guid(503bdec8c5a90c541b5d41da785e1677) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '358e4a48d89bbd6b8d29b6fd0b1cedfc') in 0.036568 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Dark Blue/Idle.anim
+  artifactKey: Guid(5428c51602627fa44b69b05095efecba) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Dark Blue/Idle.anim using Guid(5428c51602627fa44b69b05095efecba) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'b614fe01a179a1d42968e471b010966b') in 0.0166462 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Phantom Weapons/Animation Controllers/Phantom Green Attack.controller
+  artifactKey: Guid(def03b60af3a81f4ba6d43d0ed45bb41) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Phantom Weapons/Animation Controllers/Phantom Green Attack.controller using Guid(def03b60af3a81f4ba6d43d0ed45bb41) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '27488a1c5de47edee6e74d6112aa5dc4') in 0.0182804 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Grey/the_puppet_run-Sheet.png
+  artifactKey: Guid(204f9127491988d41bf92099c44085af) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Grey/the_puppet_run-Sheet.png using Guid(204f9127491988d41bf92099c44085af) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '75d4c41a96eda69191efa24d83ae5e8d') in 0.0430488 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Dark Blue/Addergul idle 2-Sheet.png
+  artifactKey: Guid(1841f87f4ad040d4a849161724122d4b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Dark Blue/Addergul idle 2-Sheet.png using Guid(1841f87f4ad040d4a849161724122d4b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'b4090e8284e2b9ce3efa18692600aee4') in 0.0505303 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Pink/Hit.anim
+  artifactKey: Guid(531229165de68c148a2dc5b52df945da) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Pink/Hit.anim using Guid(531229165de68c148a2dc5b52df945da) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '6dcd7d08d8c293998e241c9a2fdcaf82') in 0.029928 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Blue/Valkyrie Idle 3-Sheet.png
+  artifactKey: Guid(a104535298e36084f9050790c8aab3a4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Blue/Valkyrie Idle 3-Sheet.png using Guid(a104535298e36084f9050790c8aab3a4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a4af253017382fe9d9ed93c583bc264b') in 0.0470942 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Puppeteer Weapon/Animations/Puppeteer Attack Animation.anim
+  artifactKey: Guid(045f559a58a4729488c76d397d079683) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Puppeteer Weapon/Animations/Puppeteer Attack Animation.anim using Guid(045f559a58a4729488c76d397d079683) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ecbd45ea042f835660d5700c98925699') in 0.029113 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Orange/Crouch.anim
+  artifactKey: Guid(c6ac503a53383084ea409760c1003467) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Orange/Crouch.anim using Guid(c6ac503a53383084ea409760c1003467) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '54676a7042ed7343b5daa6b5fc6727e5') in 0.0353405 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Blue/Walk.anim
+  artifactKey: Guid(cfaade8c70ba57245a635c7cf517f191) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Blue/Walk.anim using Guid(cfaade8c70ba57245a635c7cf517f191) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '242c3de58d90681f355483bbdadb135a') in 0.0233924 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Turquoise/Turn.anim
+  artifactKey: Guid(72d75f0001c6e6e4b968da4f439f0466) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Turquoise/Turn.anim using Guid(72d75f0001c6e6e4b968da4f439f0466) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '81d3ac614045bae772c306edd9f59aef') in 0.0136477 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Red/Phantom hit 3-Sheet.png
+  artifactKey: Guid(55a4ff788a4710f41b2ab76f5095e334) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Red/Phantom hit 3-Sheet.png using Guid(55a4ff788a4710f41b2ab76f5095e334) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'c3392b2005f19e303215e9ca30a5a712') in 0.0520163 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Red/goop crouch-Sheet.png
+  artifactKey: Guid(ea69753e6093b3145837ad4356dc4cdc) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Red/goop crouch-Sheet.png using Guid(ea69753e6093b3145837ad4356dc4cdc) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'fa06f51c5416b10fb8bb70ef27c98f4e') in 0.059295 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Green/Hit.anim
+  artifactKey: Guid(53571a2a09048e848b9117483c957db6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Green/Hit.anim using Guid(53571a2a09048e848b9117483c957db6) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8b42a069e9176b74d0140b2e08ba8364') in 0.0235029 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Orange
+  artifactKey: Guid(3ae04ccec7c04694c84f68e065621728) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Orange using Guid(3ae04ccec7c04694c84f68e065621728) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '1769e8881c61eaec7d935a9e7ab8c02d') in 0.0208356 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Pink
+  artifactKey: Guid(11a2f5509ca61044486040788b60564f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Pink using Guid(11a2f5509ca61044486040788b60564f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'df0cf8a90d42bb6a4115c72f88d8e552') in 0.0140651 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Koboiled Weapons/Spritesheets/Koboiled Weapon.png
+  artifactKey: Guid(dba16fc38331c3b4e9d4a1ee0b0627bd) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Koboiled Weapons/Spritesheets/Koboiled Weapon.png using Guid(dba16fc38331c3b4e9d4a1ee0b0627bd) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '00190e18a1e9e46bfb4ac72dc7d1f6ce') in 0.0344394 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Black/the puppet run 4-Sheet.png
+  artifactKey: Guid(dd2da79f3aaf9e04faf6018209a72901) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Black/the puppet run 4-Sheet.png using Guid(dd2da79f3aaf9e04faf6018209a72901) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'b73163ffb2d325ed150b6958c5a5b383') in 0.0546646 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Pink/Crouch.anim
+  artifactKey: Guid(eb54183399ee10f498fd8a6faec6c553) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Pink/Crouch.anim using Guid(eb54183399ee10f498fd8a6faec6c553) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7ef650dbdf75aada429151bfb88e6564') in 0.0153013 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Purple/Rattles hit 4-Sheet.png
+  artifactKey: Guid(f3534750c5f607f4987f02cf28672e98) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Purple/Rattles hit 4-Sheet.png using Guid(f3534750c5f607f4987f02cf28672e98) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '11c95053abcb35121e0c01150954aa09') in 0.038943 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Green/Idle.anim
+  artifactKey: Guid(47a7b393b37432c4dbecdf3064a2131b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Green/Idle.anim using Guid(47a7b393b37432c4dbecdf3064a2131b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '29f7bbe7f872166b0f73d1ceb2dc0f89') in 0.0197457 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Orange/Death.anim
+  artifactKey: Guid(f3a852d79bf03d442b0178a48734231e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Orange/Death.anim using Guid(f3a852d79bf03d442b0178a48734231e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9d5d866ef3aa94eec488b5c2c719c790') in 0.0260605 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Pink
+  artifactKey: Guid(d79d8ab88eb1e0f42a253ad7badc8a60) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Pink using Guid(d79d8ab88eb1e0f42a253ad7badc8a60) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8031e2a9ba243e6e43a5d1a36ab943d9') in 0.0136669 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink/Addergul air 3-Sheet.png
+  artifactKey: Guid(7ff60c0b764787c4d9cb379c2535c5ea) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink/Addergul air 3-Sheet.png using Guid(7ff60c0b764787c4d9cb379c2535c5ea) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'e2ed5a17c639ed8fa1fc87c84af2fbc1') in 0.0489416 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000083 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul White/Walk.png
+  artifactKey: Guid(8c7ef5028660a7d4b9b2447daf72d1b9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul White/Walk.png using Guid(8c7ef5028660a7d4b9b2447daf72d1b9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '07e90e4fd35fcabcbe13c24c777c8af4') in 0.0464934 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Speckles Weapons/Animation Controllers/Speckle Turquoise Projectile.controller
+  artifactKey: Guid(398dcc88a919aef4c925e70faf87905a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Speckles Weapons/Animation Controllers/Speckle Turquoise Projectile.controller using Guid(398dcc88a919aef4c925e70faf87905a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'c5f09cfdb8cfda0ce99dfaa4d76b1d95') in 0.0317008 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Blue/goop walk 3-Sheet.png
+  artifactKey: Guid(f4d6f940c34fbc64190abf1193f8cdd7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Blue/goop walk 3-Sheet.png using Guid(f4d6f940c34fbc64190abf1193f8cdd7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9145f140f7dc340fde1c469a398b98dc') in 0.0419132 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Blue/goop idle 3-Sheet.png
+  artifactKey: Guid(8e9dd114ee0abfa4bb3fd433a5c3d3d8) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Blue/goop idle 3-Sheet.png using Guid(8e9dd114ee0abfa4bb3fd433a5c3d3d8) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8f5730cc2170bbef99c2454f562e3399') in 0.0330257 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Grey/Turn.anim
+  artifactKey: Guid(8df2eb696a02e5a4c8064ef93c5cfaf9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Grey/Turn.anim using Guid(8df2eb696a02e5a4c8064ef93c5cfaf9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'b0f8460b28c2a9016173251817f70be1') in 0.0261753 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Grey/Death.anim
+  artifactKey: Guid(458e67b06a8043e408f124ab3acfb415) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Grey/Death.anim using Guid(458e67b06a8043e408f124ab3acfb415) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'c623cd4fb07d3ecbb2064fd8a4f38bec') in 0.0366446 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Frank Weapons/Frank_attack-Sheet.png
+  artifactKey: Guid(a5beec071d3dfc741b221ba18ccb729d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Frank Weapons/Frank_attack-Sheet.png using Guid(a5beec071d3dfc741b221ba18ccb729d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a99502417783e4edcf881dd03c4966fc') in 0.0388372 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Dark Blue/Frank idle 3-Sheet.png
+  artifactKey: Guid(c6b701f6cf9206e4fb6244a2e645f7a4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Dark Blue/Frank idle 3-Sheet.png using Guid(c6b701f6cf9206e4fb6244a2e645f7a4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8bc8165e990bf13c2397566dac273ff2') in 0.0377647 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Blue/Rattles run 3-Sheet.png
+  artifactKey: Guid(d56ab9c6dc12faf41a98601a77227e13) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Blue/Rattles run 3-Sheet.png using Guid(d56ab9c6dc12faf41a98601a77227e13) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '6d4224cfdfd0965a709e66e697c5735c') in 0.045234 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Dark Blue/Walk.anim
+  artifactKey: Guid(35c58a42cadb8104897460e85d0f230c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Dark Blue/Walk.anim using Guid(35c58a42cadb8104897460e85d0f230c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '747f4737b5adb74e43b6fa40ee85fa87') in 0.0155313 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Goop Weapons/Spritesheets/Goop Blue Projectile.png
+  artifactKey: Guid(128d8abffaa5ccc43ac11b732bbf901f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Goop Weapons/Spritesheets/Goop Blue Projectile.png using Guid(128d8abffaa5ccc43ac11b732bbf901f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ee54cffe9c269bef2d902e1d59a10d4b') in 0.0414136 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Blue/Turn.anim
+  artifactKey: Guid(e044c061673e21c4283c077e60bd2e6b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Blue/Turn.anim using Guid(e044c061673e21c4283c077e60bd2e6b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '572a6a520e1058d12bd8b06ca08e9b1a') in 0.0132847 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Red
+  artifactKey: Guid(c729187208aadae4e9b702a6d882f27c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Red using Guid(c729187208aadae4e9b702a6d882f27c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8782c496b902255bbf725a514b0cdb1c') in 0.0127476 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Grey/Speckle crouch 2-Sheet.png
+  artifactKey: Guid(358bdd5489d9a5849be4a3844b707562) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Grey/Speckle crouch 2-Sheet.png using Guid(358bdd5489d9a5849be4a3844b707562) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '60af6aff33e99ab78fb6c8024c46597a') in 0.0644831 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer
+  artifactKey: Guid(79d8c69e3c4308f468d405b1de9f1e84) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer using Guid(79d8c69e3c4308f468d405b1de9f1e84) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '2eef6a083329e19111d1f49693060792') in 0.0185709 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Orange/Run.anim
+  artifactKey: Guid(f50f69ff858d24444b4dc1718ec4ca89) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Orange/Run.anim using Guid(f50f69ff858d24444b4dc1718ec4ca89) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f8181547639ec475f5bb049e2f7fca09') in 0.0228024 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Phantom Weapons/Spritesheets/Phantom Grey Weapon.png
+  artifactKey: Guid(6c3565042a879e24890c446b942e6c74) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Phantom Weapons/Spritesheets/Phantom Grey Weapon.png using Guid(6c3565042a879e24890c446b942e6c74) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8b9ce87780a972ff13f3974b78ca01b1') in 0.0365127 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul White/Addergul White.controller
+  artifactKey: Guid(2a4c43f7acf9b9e4c9b58842ed59fe1b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul White/Addergul White.controller using Guid(2a4c43f7acf9b9e4c9b58842ed59fe1b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '362aa29ce2d79787e340978aa9e5b27c') in 0.0131141 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 18
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Orange/Frank hit 2-Sheet.png
+  artifactKey: Guid(f80cb12025abfca4eb33230f54414bcf) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Orange/Frank hit 2-Sheet.png using Guid(f80cb12025abfca4eb33230f54414bcf) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '0ffc2dc58dd060c76e71dc4658ed18b6') in 0.051842 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Grey/Speckle Grey.controller
+  artifactKey: Guid(7f2400b3f2bf7c147af0fde03246c92a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Grey/Speckle Grey.controller using Guid(7f2400b3f2bf7c147af0fde03246c92a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '87eabae75d3cc04eae80270e40ef22c0') in 0.012726 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 18
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Dark Blue/Hit.anim
+  artifactKey: Guid(44f5548f16fbc5142ad6572dac2b7ead) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Dark Blue/Hit.anim using Guid(44f5548f16fbc5142ad6572dac2b7ead) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '376ff1c457f8c9d9d52c7f8f58b76219') in 0.0167361 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Purple/Crouch.anim
+  artifactKey: Guid(3a7944f832d7678468332a51a3327865) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Purple/Crouch.anim using Guid(3a7944f832d7678468332a51a3327865) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '8e05aeebfe011031ebac96710867b072') in 0.0298152 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Turquoise/Run.anim
+  artifactKey: Guid(b53e16e1e40a3d949a60c21810390074) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Turquoise/Run.anim using Guid(b53e16e1e40a3d949a60c21810390074) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ea6959353b6dc54e4bedea9b2362cc82') in 0.0143533 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Dark Blue
+  artifactKey: Guid(bb07a6934b20e514189fd80e4ea25e0d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Dark Blue using Guid(bb07a6934b20e514189fd80e4ea25e0d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9889461ee6d5333ab916bf1655455fa3') in 0.0233335 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Green/Hit.anim
+  artifactKey: Guid(a5e5634383aa74a4b8e7894dab635257) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Green/Hit.anim using Guid(a5e5634383aa74a4b8e7894dab635257) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '35c7860f5ce6a92f889c242b8cb84dd9') in 0.0137554 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink/Addergul idle 3-Sheet.png
+  artifactKey: Guid(17ea363849f51794e9fac0c9c4bdd48a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink/Addergul idle 3-Sheet.png using Guid(17ea363849f51794e9fac0c9c4bdd48a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '94ed24b21c0859373b1dde53a0126158') in 0.0463406 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Orange/Air.anim
+  artifactKey: Guid(0867ff1b8ea0ea04aac211e15003fb3d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Orange/Air.anim using Guid(0867ff1b8ea0ea04aac211e15003fb3d) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '90530c0969c58f1a9d09126deacee3bb') in 0.014495 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Blue/Frank_hit-Sheet.png
+  artifactKey: Guid(acf32aa0e9ea4b740a19fbd803c4a90c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Blue/Frank_hit-Sheet.png using Guid(acf32aa0e9ea4b740a19fbd803c4a90c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '54d87c7d25b26713a253076a68e34922') in 0.0413504 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Turquoise/Speckle_death-Sheet.png
+  artifactKey: Guid(5b2045b132eccbc4fac7225c0d9ee168) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Turquoise/Speckle_death-Sheet.png using Guid(5b2045b132eccbc4fac7225c0d9ee168) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '5ae9f42d4a6aec857acd203fc86a4916') in 0.0534969 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Pink/Koboiled death full 2-Sheet.png
+  artifactKey: Guid(be2aa8ae5fade874b8129cb12dcb00ba) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Pink/Koboiled death full 2-Sheet.png using Guid(be2aa8ae5fade874b8129cb12dcb00ba) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '4b26ec002378f01cf62c4d146b3cfefa') in 0.0705765 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 13
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Red/Rattles death 2-sheet.png
+  artifactKey: Guid(92445a452d22fe146a6a6c4fcac8aaa7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Red/Rattles death 2-sheet.png using Guid(92445a452d22fe146a6a6c4fcac8aaa7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '88a9bd315057a4986f8604b14d7a1a13') in 0.0541628 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 11
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Red/Idle.anim
+  artifactKey: Guid(fb5ef75a2cd769c4ca4711d1a7b79d27) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Red/Idle.anim using Guid(fb5ef75a2cd769c4ca4711d1a7b79d27) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3696cc2e5a941d9a8c48cab5a33b37cc') in 0.0128287 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Pink/Idle.anim
+  artifactKey: Guid(2e514e35afff74d42ae437fdb4444d86) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Pink/Idle.anim using Guid(2e514e35afff74d42ae437fdb4444d86) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '75c9bd6c3604d68bb6b595b3c35c434d') in 0.0276668 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Purple/Rattles air 4-Sheet.png
+  artifactKey: Guid(871eb977057c6c2458efd685c55f1b36) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Rattles/Rattles Purple/Rattles air 4-Sheet.png using Guid(871eb977057c6c2458efd685c55f1b36) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'f3458cf0ffa217d95dffe0d4210dd1b9') in 0.0386842 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000067 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Green/Idle.anim
+  artifactKey: Guid(40acdc95c6339aa498028e7c05ea5b8b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Green/Idle.anim using Guid(40acdc95c6339aa498028e7c05ea5b8b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'fd0e84dcadd7c9a94d4416ed86ec643b') in 0.0219609 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Red/Crouch.anim
+  artifactKey: Guid(6136985de3e0d074d92f0ed3ac712ee3) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Red/Crouch.anim using Guid(6136985de3e0d074d92f0ed3ac712ee3) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'aef39a15aa30e9aacb1d325b3125f80e') in 0.0156386 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package
+  artifactKey: Guid(07b5ee9b164b1fd4c96edd44210d6db9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package using Guid(07b5ee9b164b1fd4c96edd44210d6db9) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a138415d1a05ed3001a5fd04541c4e1d') in 0.0103361 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Blue/the puppet idle 2-Sheet.png
+  artifactKey: Guid(b11530df5ba7a764eab42e07facddb07) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Blue/the puppet idle 2-Sheet.png using Guid(b11530df5ba7a764eab42e07facddb07) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '309fedb0d5164cb0f5ff6d18f24f1cde') in 0.0477635 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Pink/Koboiled Pink.controller
+  artifactKey: Guid(6e26ac1e90c8db84e9ed9c0b03d97c1e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Pink/Koboiled Pink.controller using Guid(6e26ac1e90c8db84e9ed9c0b03d97c1e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '4a7a8389bdfbf894f912d9e7760ba2c5') in 0.012116 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 18
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Addergul Weapons/Spritesheets/Addergul blue bullet-Sheet.png
+  artifactKey: Guid(663d5c7d2c6af404898404d20929c5d4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Addergul Weapons/Spritesheets/Addergul blue bullet-Sheet.png using Guid(663d5c7d2c6af404898404d20929c5d4) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'b5ea4df85b97fde49168a0a9037831fd') in 0.080306 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Orange/Air.anim
+  artifactKey: Guid(4106c11ce3b309246bd47c283b0c5846) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Orange/Air.anim using Guid(4106c11ce3b309246bd47c283b0c5846) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '922b2ecc76981896787de433d636a905') in 0.022497 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Grey/Run.anim
+  artifactKey: Guid(eb00035dc97affe45b5b75b239f4027e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Deton/Deton Grey/Run.anim using Guid(eb00035dc97affe45b5b75b239f4027e) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7971663e3a77d1cc4d186a56056cefd8') in 0.0284153 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Grey/Phantom air-Sheet.png
+  artifactKey: Guid(ed6291901b3b34144b9f798cf73851ca) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Phantom/Phantom Grey/Phantom air-Sheet.png using Guid(ed6291901b3b34144b9f798cf73851ca) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'bdd81f77292a210711a42428b470d2b8') in 0.0528295 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Speckles Weapons/Spritesheets/Green Speckle Projectile.png
+  artifactKey: Guid(3241e59b0b0030442a3b0c404042a53a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Speckles Weapons/Spritesheets/Green Speckle Projectile.png using Guid(3241e59b0b0030442a3b0c404042a53a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '56087e43d646b6ed22bb6d5cf805299e') in 0.0666648 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Grey/the_puppet_hit-Sheet.png
+  artifactKey: Guid(a7a0ada1e4629d04cb22b0724526bfab) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Grey/the_puppet_hit-Sheet.png using Guid(a7a0ada1e4629d04cb22b0724526bfab) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'a7547369be43b63be51783d8c9cd5cb7') in 0.0453935 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Orange
+  artifactKey: Guid(7c568980ecb75524da1c12e219cb6f4c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Orange using Guid(7c568980ecb75524da1c12e219cb6f4c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ce880f786b8f4167754ca8cc1289d986') in 0.0140427 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Grey/Valkyrie Turn 2-Sheet.png
+  artifactKey: Guid(f3fea71322e6c4d4f97a47f34acc015f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Grey/Valkyrie Turn 2-Sheet.png using Guid(f3fea71322e6c4d4f97a47f34acc015f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '2647705ac3aa7fec326128b4cfcebb62') in 0.0506432 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 7
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Koboiled Weapons/Animation Controllers/koboiled Projectile.controller
+  artifactKey: Guid(0a2c5a3b6c3acf946ad71dbb3380b726) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Koboiled Weapons/Animation Controllers/koboiled Projectile.controller using Guid(0a2c5a3b6c3acf946ad71dbb3380b726) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '646b0523100e5313e4d4e5b8f942c7ec') in 0.0113104 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Green/Koboiled Green.controller
+  artifactKey: Guid(3415815dd68b2f344807fbca4f749b8b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Green/Koboiled Green.controller using Guid(3415815dd68b2f344807fbca4f749b8b) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '9f8d527a4fdf808380c3351ff4b8f42e') in 0.0289374 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 18
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Blue/Death.anim
+  artifactKey: Guid(d4e537c13a6919b4cadcf4358366d667) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Blue/Death.anim using Guid(d4e537c13a6919b4cadcf4358366d667) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'd507902eee32020066299a75cd5abbe3') in 0.0214676 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Red/Idle.anim
+  artifactKey: Guid(86d5328f33930374a9fbc09b9a8be870) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Red/Idle.anim using Guid(86d5328f33930374a9fbc09b9a8be870) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '397faa62ed9dac0df9cee02f65937c6f') in 0.085071 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Orange/Frank run 2-Sheet.png
+  artifactKey: Guid(c2e36120d6b1a27468a022aec8cade72) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Orange/Frank run 2-Sheet.png using Guid(c2e36120d6b1a27468a022aec8cade72) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'e13d1cdee26651c4512d8c5bb9727206') in 0.0403896 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Orange/Frank idle 2-Sheet.png
+  artifactKey: Guid(f7da9810ba3ec4b42868d4d1470aa4a1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Orange/Frank idle 2-Sheet.png using Guid(f7da9810ba3ec4b42868d4d1470aa4a1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '807c68fb236e92e60b9cf66c3bf2cf65') in 0.0396487 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Black/the puppet idle 4-Sheet.png
+  artifactKey: Guid(8e7df9313eb0cc74d827dc3d375ee116) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Black/the puppet idle 4-Sheet.png using Guid(8e7df9313eb0cc74d827dc3d375ee116) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '75647bc1cb218077129b2b81aa1c5fe9') in 0.0403963 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Blue/Crouch.anim
+  artifactKey: Guid(ce6b7a4ae87d4e046a1a991629723871) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank Blue/Crouch.anim using Guid(ce6b7a4ae87d4e046a1a991629723871) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'ad017f66c1f6235514fb137cea678dec') in 0.0217216 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank White/Frank run 4-Sheet.png
+  artifactKey: Guid(6155f4aca7a302b488dbc976ef07e54f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Frank/Frank White/Frank run 4-Sheet.png using Guid(6155f4aca7a302b488dbc976ef07e54f) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '1514705fc9b8a41b263e305947975287') in 0.0410742 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Red/Valkyrie_Idle-Sheet.png
+  artifactKey: Guid(6f0ef010d484dbe4fac3416462ea0340) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Red/Valkyrie_Idle-Sheet.png using Guid(6f0ef010d484dbe4fac3416462ea0340) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '10f08ef14ff1e1ed8edbc8d110d98dd0') in 0.0491696 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Pink/Valkyrie Air 4-Sheet.png
+  artifactKey: Guid(e31c2f994d756b6408c893905552220c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Valkyrie/Valkyrie Pink/Valkyrie Air 4-Sheet.png using Guid(e31c2f994d756b6408c893905552220c) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'b0407d99275a747d0efaa56b429ea801') in 0.0457825 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Blue/Crouch.anim
+  artifactKey: Guid(727e69a86ddadc744b42e5468256a9a7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Goop/Goop Blue/Crouch.anim using Guid(727e69a86ddadc744b42e5468256a9a7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '49cc31a29d7befd1d3a8cc45d65b16dd') in 0.0130698 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink/Addergul death 3-Sheet.png
+  artifactKey: Guid(f0cc135859b1aff41a6ad9c732aa93e1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink/Addergul death 3-Sheet.png using Guid(f0cc135859b1aff41a6ad9c732aa93e1) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7a860744a389c57b9269e3aff883c85d') in 0.0497049 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 8
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Pink/Walk.anim
+  artifactKey: Guid(57fafb9971a80274da7f6dad273166a2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Koboiled/Koboiled Pink/Walk.anim using Guid(57fafb9971a80274da7f6dad273166a2) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '3ac52807b7cdccda5376456dba9d8bb5') in 0.0273904 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Rattles Weapon/Spritesheets/Rattles Turquoise Projectile.png
+  artifactKey: Guid(5f145e6952bc4ef40889f9ab87561977) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Rattles Weapon/Spritesheets/Rattles Turquoise Projectile.png using Guid(5f145e6952bc4ef40889f9ab87561977) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'bd67ab3ea04d1c2e931b15357be06661') in 0.0392915 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Puppeteer Weapon/Animations/Puppeteer Projectile Animation.anim
+  artifactKey: Guid(ab8f38487506f5445a4cffbc5569cdff) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Puppeteer Weapon/Animations/Puppeteer Projectile Animation.anim using Guid(ab8f38487506f5445a4cffbc5569cdff) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '59eca33328871a15dd8a82f5d9c0f949') in 0.0229401 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Grey/Speckle hit 2-Sheet.png
+  artifactKey: Guid(d1f07a9f9fae7d04b94c1bfebba419e7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Speckle/Speckle Grey/Speckle hit 2-Sheet.png using Guid(d1f07a9f9fae7d04b94c1bfebba419e7) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '321ffc0b35730c799511666e7e980dba') in 0.043156 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Black/the puppet hit 4-Sheet.png
+  artifactKey: Guid(f0ccd28ede5bcb6438c400469948e68a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Black/the puppet hit 4-Sheet.png using Guid(f0ccd28ede5bcb6438c400469948e68a) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '88df6a4e394b9349c623aa244c4b3933') in 0.0415634 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Blue/Puppeteer Blue.controller
+  artifactKey: Guid(b6813e6506bd2884a834d78c549f8977) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Blue/Puppeteer Blue.controller using Guid(b6813e6506bd2884a834d78c549f8977) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '5550ea02b8700f9e2f9449ab56370b89') in 0.0101733 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 18
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink/Addergul Pink.controller
+  artifactKey: Guid(3489b79a94536cd4a95cf498cf7c2bfb) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink/Addergul Pink.controller using Guid(3489b79a94536cd4a95cf498cf7c2bfb) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: 'dfab1f1915fa1cc6dbaec98faa89ed99') in 0.0195372 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 18
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink/Addergul hit 3-Sheet.png
+  artifactKey: Guid(185a35a280f23c54ba00efe2db864999) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Addergul/Addergul Pink/Addergul hit 3-Sheet.png using Guid(185a35a280f23c54ba00efe2db864999) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '7f792f2bb0eb07d5975e3e2a5b3cd193') in 0.0401917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 6
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Rattles Weapon/Animations/Rattles Turquoise Projectile.anim
+  artifactKey: Guid(e66a77569a361ba4e8d80241318c9958) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d)
+Start importing Assets/GDD - Quinnipiac/Pixel Art Character Package/Weapons/Rattles Weapon/Animations/Rattles Turquoise Projectile.anim using Guid(e66a77569a361ba4e8d80241318c9958) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter)

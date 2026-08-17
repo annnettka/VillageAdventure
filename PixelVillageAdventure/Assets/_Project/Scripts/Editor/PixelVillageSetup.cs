@@ -19,6 +19,8 @@ public static class PixelVillageSetup
 {
     private const string GameScenePath = "Assets/_Project/Scenes/Game.unity";
     private const string MainMenuScenePath = "Assets/_Project/Scenes/MainMenu.unity";
+    private const string MenuAssetsFolder = "Assets/_Project/MenuAssets";
+    private const string GameBackgroundPath = "Assets/_Project/Scenes/backgroundGAME.png";
     private const string PuppeteerFolder = "Assets/GDD - Quinnipiac/Pixel Art Character Package/Characters/Puppeteer/Puppeteer Grey";
 
     private static readonly Color ButtonColor = new Color(1f, 1f, 1f, 0.34f);
@@ -167,6 +169,7 @@ public static class PixelVillageSetup
 
         GameHudRefs hudRefs = SetupGameHud(scene, gameManager, player);
         ConfigureCamera(scene, playerObject.transform);
+        ConfigureGameBackground(scene);
         EnsureSingleEventSystem(scene);
 
         SetObjectReference(gameManager, "player", player);
@@ -496,9 +499,60 @@ public static class PixelVillageSetup
         cameraObject.transform.position = player.position + new Vector3(1.8f, 1.2f, -10f);
     }
 
+    private static void ConfigureGameBackground(Scene scene)
+    {
+        Sprite backgroundSprite = LoadFirstSpriteAtPath(GameBackgroundPath);
+        if (backgroundSprite == null)
+        {
+            Debug.LogWarning($"Could not locate the game background sprite at {GameBackgroundPath}.");
+            return;
+        }
+
+        GameObject environment = FindInScene(scene, "Environment");
+        if (environment == null)
+        {
+            environment = FindOrCreateRoot(scene, "Environment");
+        }
+
+        GameObject backgroundObject = FindChild(environment.transform, "GameBackground");
+        if (backgroundObject == null)
+        {
+            backgroundObject = new GameObject("GameBackground", typeof(SpriteRenderer));
+            backgroundObject.transform.SetParent(environment.transform, false);
+            MarkCreated(backgroundObject);
+        }
+
+        SpriteRenderer spriteRenderer = GetOrAdd<SpriteRenderer>(backgroundObject);
+        spriteRenderer.sprite = backgroundSprite;
+        spriteRenderer.sortingOrder = -100;
+        spriteRenderer.color = Color.white;
+
+        foreach (Collider2D collider in backgroundObject.GetComponents<Collider2D>())
+        {
+            Object.DestroyImmediate(collider);
+        }
+
+        Camera camera = FindInScene(scene, "Main Camera")?.GetComponent<Camera>();
+        if (camera != null)
+        {
+            backgroundObject.transform.position = new Vector3(camera.transform.position.x, camera.transform.position.y, camera.transform.position.z + 10f);
+        }
+
+        backgroundObject.transform.localRotation = Quaternion.identity;
+
+        GameBackgroundFitter fitter = GetOrAdd<GameBackgroundFitter>(backgroundObject);
+        SetObjectReference(fitter, "targetCamera", camera);
+        SetObjectReference(fitter, "spriteRenderer", spriteRenderer);
+        SetFloat(fitter, "parallaxStrength", 0f);
+        SetFloat(fitter, "coverPadding", 1.08f);
+        SetFloat(fitter, "cameraZOffset", 10f);
+        fitter.FitNow();
+    }
+
     private static void SetupMainMenuScene()
     {
         Scene scene = EditorSceneManager.OpenScene(MainMenuScenePath, OpenSceneMode.Single);
+        MainMenuVisualAssets menuAssets = LoadMainMenuVisualAssets();
 
         GameObject canvasObject = FindInScene(scene, "MainMenuCanvas");
         if (canvasObject == null)
@@ -512,6 +566,7 @@ public static class PixelVillageSetup
 
         Canvas canvas = GetOrAdd<Canvas>(canvasObject);
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.sortingOrder = 0;
 
         CanvasScaler scaler = GetOrAdd<CanvasScaler>(canvasObject);
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
@@ -521,20 +576,49 @@ public static class PixelVillageSetup
         GetOrAdd<GraphicRaycaster>(canvasObject);
         MainMenuUI menuUi = GetOrAdd<MainMenuUI>(canvasObject);
         SetString(menuUi, "gameSceneName", "Game");
+        MainMenuSettingsUI settingsUi = GetOrAdd<MainMenuSettingsUI>(canvasObject);
 
         RectTransform safeArea = CreateRect("SafeArea", canvasObject.transform, Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero);
         GetOrAdd<SafeArea>(safeArea.gameObject);
 
-        Image background = GetOrAdd<Image>(safeArea.gameObject);
-        background.color = new Color(0.09f, 0.12f, 0.17f, 1f);
+        RectTransform backgroundRect = CreateRect("Background", safeArea, Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero);
+        Image background = GetOrAdd<Image>(backgroundRect.gameObject);
+        background.sprite = menuAssets.Background;
+        background.type = Image.Type.Simple;
+        background.preserveAspect = true;
+        background.color = menuAssets.Background != null ? Color.white : new Color(0.19f, 0.55f, 0.82f, 1f);
         background.raycastTarget = false;
+        AspectRatioFitter backgroundFitter = GetOrAdd<AspectRatioFitter>(backgroundRect.gameObject);
+        backgroundFitter.aspectMode = AspectRatioFitter.AspectMode.EnvelopeParent;
+        backgroundFitter.aspectRatio = GetSpriteAspect(menuAssets.Background, 16f / 9f);
+        backgroundRect.SetAsFirstSibling();
 
-        CreateLabel("Title", safeArea, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(1100f, 110f), new Vector2(0f, 210f), "PIXEL VILLAGE ADVENTURE", 58);
-        CreateLabel("Subtitle", safeArea, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(700f, 70f), new Vector2(0f, 122f), "Reach the chest!", 30);
-        Button playButton = CreateButton("PlayButton", safeArea, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(360f, 94f), new Vector2(0f, -10f), "PLAY", 34);
-        Button quitButton = CreateButton("QuitButton", safeArea, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(360f, 94f), new Vector2(0f, -130f), "QUIT", 34);
+        RectTransform logoContainer = CreateRect("LogoContainer", safeArea, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(1080f, 380f), new Vector2(0f, -34f));
+        CreateSpriteStrip("PIXEL", logoContainer, menuAssets.Pixel, new Vector2(0f, -4f), 520f, 130f);
+        CreateSpriteStrip("VILLAGE", logoContainer, menuAssets.Village, new Vector2(0f, -114f), 960f, 170f);
+        CreateSpriteStrip("ADVENTURE", logoContainer, menuAssets.Adventure, new Vector2(0f, -264f), 700f, 86f);
+
+        Text subtitle = CreateLabel("Subtitle", safeArea, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(620f, 58f), new Vector2(0f, -438f), "Reach the chest!", 34);
+        subtitle.color = new Color(1f, 0.95f, 0.72f, 1f);
+        Outline subtitleOutline = GetOrAdd<Outline>(subtitle.gameObject);
+        subtitleOutline.effectColor = new Color(0.22f, 0.12f, 0.05f, 0.9f);
+        subtitleOutline.effectDistance = new Vector2(3f, -3f);
+
+        RectTransform buttonGroup = CreateRect("MenuButtons", safeArea, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(700f, 420f), new Vector2(0f, -188f));
+        Button playButton = CreateSpriteButton("PlayButton", buttonGroup, menuAssets.PlayButton, new Vector2(640f, 138f), new Vector2(0f, 128f));
+        Button settingsButton = CreateSpriteButton("SettingsButton", buttonGroup, menuAssets.SettingsButton, new Vector2(570f, 124f), new Vector2(0f, 0f));
+        Button quitButton = CreateSpriteButton("QuitButton", buttonGroup, menuAssets.QuitButton, new Vector2(540f, 116f), new Vector2(0f, -120f));
         SetButtonListener(playButton, menuUi.Play);
+        SetButtonListener(settingsButton, settingsUi.OpenSettings);
         SetButtonListener(quitButton, menuUi.Quit);
+
+        GameObject settingsPanel = CreateSettingsPanel(canvasObject.transform, settingsUi);
+        SetObjectReference(settingsUi, "settingsPanel", settingsPanel);
+        settingsPanel.SetActive(false);
+
+        Text version = CreateLabel("VersionText", safeArea, new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(140f, 44f), new Vector2(-36f, 28f), "v1.0", 28);
+        version.alignment = TextAnchor.LowerRight;
+        version.color = new Color(1f, 0.95f, 0.82f, 1f);
 
         GameObject cameraObject = FindInScene(scene, "Main Camera");
         if (cameraObject != null)
@@ -543,13 +627,225 @@ public static class PixelVillageSetup
             if (camera != null)
             {
                 camera.clearFlags = CameraClearFlags.SolidColor;
-                camera.backgroundColor = new Color(0.09f, 0.12f, 0.17f, 1f);
+                camera.backgroundColor = new Color(0.19f, 0.55f, 0.82f, 1f);
             }
         }
 
         EnsureSingleEventSystem(scene);
         EditorSceneManager.MarkSceneDirty(scene);
         EditorSceneManager.SaveScene(scene);
+    }
+
+    private static MainMenuVisualAssets LoadMainMenuVisualAssets()
+    {
+        return new MainMenuVisualAssets
+        {
+            Background = LoadMenuSprite("BackgroundMenu"),
+            Pixel = LoadMenuSpriteStrip("PIXEL"),
+            Village = LoadMenuSpriteStrip("VILLAGE"),
+            Adventure = LoadMenuSpriteStrip("ADVENTURE"),
+            PlayButton = LoadMenuSprite("PlayButton"),
+            SettingsButton = LoadMenuSprite("SettingsButton"),
+            QuitButton = LoadMenuSprite("QuitButton")
+        };
+    }
+
+    private static Sprite LoadMenuSprite(string assetName)
+    {
+        return LoadFirstSpriteAtPath($"{MenuAssetsFolder}/{assetName}.png");
+    }
+
+    private static Sprite[] LoadMenuSpriteStrip(string assetName)
+    {
+        return LoadSpritesAtPath($"{MenuAssetsFolder}/{assetName}.png");
+    }
+
+    private static Sprite LoadFirstSpriteAtPath(string assetPath)
+    {
+        Sprite[] sprites = LoadSpritesAtPath(assetPath);
+        return sprites.Length > 0 ? sprites[0] : null;
+    }
+
+    private static Sprite[] LoadSpritesAtPath(string assetPath)
+    {
+        List<Sprite> sprites = new List<Sprite>();
+        Sprite directSprite = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
+        if (directSprite != null)
+        {
+            sprites.Add(directSprite);
+        }
+
+        Object[] assets = AssetDatabase.LoadAllAssetsAtPath(assetPath);
+        foreach (Object asset in assets)
+        {
+            if (asset is Sprite sprite && !sprites.Contains(sprite))
+            {
+                sprites.Add(sprite);
+            }
+        }
+
+        sprites.Sort(CompareSpritesByTexturePosition);
+
+        if (sprites.Count == 0)
+        {
+            Debug.LogWarning($"No Sprite assets were found at {assetPath}.");
+        }
+
+        return sprites.ToArray();
+    }
+
+    private static int CompareSpritesByTexturePosition(Sprite left, Sprite right)
+    {
+        int yComparison = right.rect.y.CompareTo(left.rect.y);
+        if (yComparison != 0)
+        {
+            return yComparison;
+        }
+
+        int xComparison = left.rect.x.CompareTo(right.rect.x);
+        if (xComparison != 0)
+        {
+            return xComparison;
+        }
+
+        return string.CompareOrdinal(left.name, right.name);
+    }
+
+    private static GameObject CreateSettingsPanel(Transform parent, MainMenuSettingsUI settingsUi)
+    {
+        RectTransform overlay = CreateRect("SettingsPanel", parent, Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero);
+        Image overlayImage = GetOrAdd<Image>(overlay.gameObject);
+        overlayImage.color = new Color(0f, 0f, 0f, 0.62f);
+        overlayImage.raycastTarget = true;
+
+        RectTransform panel = CreateRect("SettingsCard", overlay, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(640f, 500f), Vector2.zero);
+        Image panelImage = GetOrAdd<Image>(panel.gameObject);
+        panelImage.color = new Color(0.14f, 0.11f, 0.08f, 0.94f);
+        Outline panelOutline = GetOrAdd<Outline>(panel.gameObject);
+        panelOutline.effectColor = new Color(1f, 0.82f, 0.45f, 0.65f);
+        panelOutline.effectDistance = new Vector2(4f, -4f);
+
+        CreateLabel("Title", panel, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(520f, 72f), new Vector2(0f, -42f), "SETTINGS", 44);
+
+        Button musicButton = CreateButton("MusicToggleButton", panel, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(420f, 88f), new Vector2(0f, 74f), "MUSIC ON", 30);
+        Button soundButton = CreateButton("SoundToggleButton", panel, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(420f, 88f), new Vector2(0f, -34f), "SOUND ON", 30);
+        Button closeButton = CreateButton("CloseButton", panel, new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(0.5f, 0f), new Vector2(320f, 78f), new Vector2(0f, 46f), "CLOSE", 28);
+
+        SetButtonListener(musicButton, settingsUi.ToggleMusic);
+        SetButtonListener(soundButton, settingsUi.ToggleSound);
+        SetButtonListener(closeButton, settingsUi.CloseSettings);
+
+        SetObjectReference(settingsUi, "musicButtonText", musicButton.GetComponentInChildren<Text>(true));
+        SetObjectReference(settingsUi, "soundButtonText", soundButton.GetComponentInChildren<Text>(true));
+
+        return overlay.gameObject;
+    }
+
+    private static Button CreateSpriteButton(string name, Transform parent, Sprite sprite, Vector2 maxSize, Vector2 position)
+    {
+        Vector2 fittedSize = GetFittedSpriteSize(sprite, maxSize);
+        RectTransform rect = CreateRect(name, parent, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), fittedSize, position);
+
+        Image image = GetOrAdd<Image>(rect.gameObject);
+        image.sprite = sprite;
+        image.type = Image.Type.Simple;
+        image.preserveAspect = true;
+        image.color = sprite != null ? Color.white : ButtonColor;
+
+        Button button = GetOrAdd<Button>(rect.gameObject);
+        button.targetGraphic = image;
+        button.transition = Selectable.Transition.ColorTint;
+        ConfigureSpriteButtonColors(button);
+        GetOrAdd<UIButtonPressScale>(rect.gameObject);
+
+        if (sprite == null)
+        {
+            string fallbackLabel = name.Replace("Button", string.Empty).ToUpperInvariant();
+            Text label = CreateLabel("Label", rect, Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero, fallbackLabel, 30);
+            label.raycastTarget = false;
+        }
+
+        return button;
+    }
+
+    private static RectTransform CreateSpriteStrip(string name, Transform parent, Sprite[] sprites, Vector2 position, float maxWidth, float maxHeight)
+    {
+        RectTransform strip = CreateRect(name, parent, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(maxWidth, maxHeight), position);
+        if (sprites == null || sprites.Length == 0)
+        {
+            CreateLabel("FallbackLabel", strip, Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero, name, 46);
+            return strip;
+        }
+
+        float minX = sprites[0].rect.x;
+        float minY = sprites[0].rect.y;
+        float maxX = sprites[0].rect.xMax;
+        float maxY = sprites[0].rect.yMax;
+        for (int i = 1; i < sprites.Length; i++)
+        {
+            Rect rect = sprites[i].rect;
+            minX = Mathf.Min(minX, rect.x);
+            minY = Mathf.Min(minY, rect.y);
+            maxX = Mathf.Max(maxX, rect.xMax);
+            maxY = Mathf.Max(maxY, rect.yMax);
+        }
+
+        float sourceWidth = Mathf.Max(1f, maxX - minX);
+        float sourceHeight = Mathf.Max(1f, maxY - minY);
+        float scale = Mathf.Min(maxWidth / sourceWidth, maxHeight / sourceHeight);
+        Vector2 stripSize = new Vector2(sourceWidth * scale, sourceHeight * scale);
+        strip.sizeDelta = stripSize;
+
+        Vector2 sourceCenter = new Vector2(minX + sourceWidth * 0.5f, minY + sourceHeight * 0.5f);
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            Sprite sprite = sprites[i];
+            Vector2 spriteSize = new Vector2(sprite.rect.width * scale, sprite.rect.height * scale);
+            Vector2 spriteCenter = new Vector2(sprite.rect.x + sprite.rect.width * 0.5f, sprite.rect.y + sprite.rect.height * 0.5f);
+            Vector2 anchoredPosition = (spriteCenter - sourceCenter) * scale;
+            RectTransform letter = CreateRect(sprite.name, strip, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), spriteSize, anchoredPosition);
+            Image image = GetOrAdd<Image>(letter.gameObject);
+            image.sprite = sprite;
+            image.type = Image.Type.Simple;
+            image.preserveAspect = true;
+            image.color = Color.white;
+            image.raycastTarget = false;
+        }
+
+        return strip;
+    }
+
+    private static Vector2 GetFittedSpriteSize(Sprite sprite, Vector2 maxSize)
+    {
+        if (sprite == null || sprite.rect.width <= 0f || sprite.rect.height <= 0f)
+        {
+            return maxSize;
+        }
+
+        float scale = Mathf.Min(maxSize.x / sprite.rect.width, maxSize.y / sprite.rect.height);
+        return new Vector2(sprite.rect.width * scale, sprite.rect.height * scale);
+    }
+
+    private static float GetSpriteAspect(Sprite sprite, float fallback)
+    {
+        if (sprite == null || sprite.rect.height <= 0f)
+        {
+            return fallback;
+        }
+
+        return sprite.rect.width / sprite.rect.height;
+    }
+
+    private static void ConfigureSpriteButtonColors(Button button)
+    {
+        ColorBlock colors = button.colors;
+        colors.normalColor = Color.white;
+        colors.highlightedColor = new Color(1f, 0.96f, 0.84f, 1f);
+        colors.pressedColor = new Color(0.82f, 0.75f, 0.62f, 1f);
+        colors.selectedColor = new Color(1f, 0.96f, 0.84f, 1f);
+        colors.disabledColor = new Color(1f, 1f, 1f, 0.45f);
+        colors.fadeDuration = 0.08f;
+        button.colors = colors;
     }
 
     private static void EnsureSingleEventSystem(Scene scene)
@@ -977,6 +1273,17 @@ public static class PixelVillageSetup
         public Sprite[] Air;
         public Sprite[] Death;
         public Sprite FirstIdleSprite;
+    }
+
+    private struct MainMenuVisualAssets
+    {
+        public Sprite Background;
+        public Sprite[] Pixel;
+        public Sprite[] Village;
+        public Sprite[] Adventure;
+        public Sprite PlayButton;
+        public Sprite SettingsButton;
+        public Sprite QuitButton;
     }
 }
 #endif

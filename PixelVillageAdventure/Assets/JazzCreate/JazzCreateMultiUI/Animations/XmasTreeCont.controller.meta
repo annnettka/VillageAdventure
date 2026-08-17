@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b9f4c1d363dfb744a8b5d8687ee571bf
+timeCreated: 1470506021
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 46591
+  packageName: JazzCreate Pixel Multi-Purpose UI
+  packageVersion: 1.1
+  assetPath: Assets/JazzCreate/JazzCreateMultiUI/Animations/XmasTreeCont.controller
+  uploadId: 838716

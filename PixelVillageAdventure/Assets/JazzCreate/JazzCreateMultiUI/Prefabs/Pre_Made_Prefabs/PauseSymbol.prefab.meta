@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3e8ea77cca231b94bac6c2e57add457a
+timeCreated: 1471013507
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 46591
+  packageName: JazzCreate Pixel Multi-Purpose UI
+  packageVersion: 1.1
+  assetPath: Assets/JazzCreate/JazzCreateMultiUI/Prefabs/Pre_Made_Prefabs/PauseSymbol.prefab
+  uploadId: 838716

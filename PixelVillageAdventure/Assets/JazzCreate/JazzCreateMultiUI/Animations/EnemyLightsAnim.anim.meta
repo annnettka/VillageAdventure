@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d20f6651f032b8d4889a7f15ca9a2541
+timeCreated: 1470266231
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 46591
+  packageName: JazzCreate Pixel Multi-Purpose UI
+  packageVersion: 1.1
+  assetPath: Assets/JazzCreate/JazzCreateMultiUI/Animations/EnemyLightsAnim.anim
+  uploadId: 838716

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: eb5722e3f33dd2e499d86056d0b0b601
+timeCreated: 1443043294
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 46591
+  packageName: JazzCreate Pixel Multi-Purpose UI
+  packageVersion: 1.1
+  assetPath: Assets/JazzCreate/JazzCreateMultiUI/Prefabs/EventSystem.prefab
+  uploadId: 838716

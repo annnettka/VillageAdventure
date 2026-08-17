@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 8ee396cd6ab1b3e458d3e47e077583b5
+timeCreated: 1443020775
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 46591
+  packageName: JazzCreate Pixel Multi-Purpose UI
+  packageVersion: 1.1
+  assetPath: Assets/JazzCreate/JazzCreateMultiUI/DemoScripts/BulletDestroy.cs
+  uploadId: 838716

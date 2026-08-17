@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e972a2a744abf1c48b9127f57df6cadc
+timeCreated: 1443020329
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 46591
+  packageName: JazzCreate Pixel Multi-Purpose UI
+  packageVersion: 1.1
+  assetPath: Assets/JazzCreate/JazzCreateMultiUI/Prefabs/Bullet.prefab
+  uploadId: 838716

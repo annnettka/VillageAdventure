@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 266f8017220d41e4591a019684300c13
+timeCreated: 1443029714
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 46591
+  packageName: JazzCreate Pixel Multi-Purpose UI
+  packageVersion: 1.1
+  assetPath: Assets/JazzCreate/JazzCreateMultiUI/Prefabs/EnemyLauncher.prefab
+  uploadId: 838716

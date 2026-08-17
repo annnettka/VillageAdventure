@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 165619c2e7c51e04e9c311f4d339d718
+timeCreated: 1470825942
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 46591
+  packageName: JazzCreate Pixel Multi-Purpose UI
+  packageVersion: 1.1
+  assetPath: Assets/JazzCreate/JazzCreateMultiUI/Animations/CarWheelsAnim.anim
+  uploadId: 838716

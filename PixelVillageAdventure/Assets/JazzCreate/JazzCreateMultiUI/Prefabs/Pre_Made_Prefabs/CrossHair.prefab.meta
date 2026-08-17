@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c635a35c84256df45907f37f77de1b8b
+timeCreated: 1470921180
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 46591
+  packageName: JazzCreate Pixel Multi-Purpose UI
+  packageVersion: 1.1
+  assetPath: Assets/JazzCreate/JazzCreateMultiUI/Prefabs/Pre_Made_Prefabs/CrossHair.prefab
+  uploadId: 838716

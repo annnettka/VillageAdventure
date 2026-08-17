@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 06d1e9a8c50eca14684c880ca0bba2a3
+timeCreated: 1470825897
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 46591
+  packageName: JazzCreate Pixel Multi-Purpose UI
+  packageVersion: 1.1
+  assetPath: Assets/JazzCreate/JazzCreateMultiUI/Animations/CarAnimCont.controller
+  uploadId: 838716

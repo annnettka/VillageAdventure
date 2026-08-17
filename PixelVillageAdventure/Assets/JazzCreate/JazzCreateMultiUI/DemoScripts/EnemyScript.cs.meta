@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: a56bf8a7d08d494418869e0fb542ac1c
+timeCreated: 1443023481
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 46591
+  packageName: JazzCreate Pixel Multi-Purpose UI
+  packageVersion: 1.1
+  assetPath: Assets/JazzCreate/JazzCreateMultiUI/DemoScripts/EnemyScript.cs
+  uploadId: 838716

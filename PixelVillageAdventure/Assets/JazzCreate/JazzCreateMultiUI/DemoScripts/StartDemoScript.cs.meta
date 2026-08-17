@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: fb22eede585e668499f3cfa253f0d4c9
+timeCreated: 1443014516
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 46591
+  packageName: JazzCreate Pixel Multi-Purpose UI
+  packageVersion: 1.1
+  assetPath: Assets/JazzCreate/JazzCreateMultiUI/DemoScripts/StartDemoScript.cs
+  uploadId: 838716

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e379b4f803da48b47946dcf5e763e09c
+timeCreated: 1471005413
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 46591
+  packageName: JazzCreate Pixel Multi-Purpose UI
+  packageVersion: 1.1
+  assetPath: Assets/JazzCreate/JazzCreateMultiUI/Prefabs/Pre_Made_Prefabs/HealthCross.prefab
+  uploadId: 838716

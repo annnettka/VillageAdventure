@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2f5dd25cec3a81145b835b18ced24be2
+timeCreated: 1443021203
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 46591
+  packageName: JazzCreate Pixel Multi-Purpose UI
+  packageVersion: 1.1
+  assetPath: Assets/JazzCreate/JazzCreateMultiUI/Prefabs/PlayerShip.prefab
+  uploadId: 838716

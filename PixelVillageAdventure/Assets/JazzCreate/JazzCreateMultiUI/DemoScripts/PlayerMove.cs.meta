@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 5f6c4c61eabd5fd4abd84faf79460d2d
+timeCreated: 1470177741
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 46591
+  packageName: JazzCreate Pixel Multi-Purpose UI
+  packageVersion: 1.1
+  assetPath: Assets/JazzCreate/JazzCreateMultiUI/DemoScripts/PlayerMove.cs
+  uploadId: 838716

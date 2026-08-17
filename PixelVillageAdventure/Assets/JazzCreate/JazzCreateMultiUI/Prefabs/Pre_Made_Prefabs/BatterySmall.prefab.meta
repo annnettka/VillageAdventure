@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0f682d7f624dace40959d49b8be6b4fb
+timeCreated: 1471005857
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 46591
+  packageName: JazzCreate Pixel Multi-Purpose UI
+  packageVersion: 1.1
+  assetPath: Assets/JazzCreate/JazzCreateMultiUI/Prefabs/Pre_Made_Prefabs/BatterySmall.prefab
+  uploadId: 838716

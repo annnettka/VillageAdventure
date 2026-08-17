@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 6da0fd15111332a49aefc4e820148519
+timeCreated: 1470952104
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 46591
+  packageName: JazzCreate Pixel Multi-Purpose UI
+  packageVersion: 1.1
+  assetPath: Assets/JazzCreate/JazzCreateMultiUI/Animations/StickManAnim.anim
+  uploadId: 838716

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d566aee80f7d72a4997ef85573ec3c05
+timeCreated: 1470920027
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 46591
+  packageName: JazzCreate Pixel Multi-Purpose UI
+  packageVersion: 1.1
+  assetPath: Assets/JazzCreate/JazzCreateMultiUI/Prefabs/Pre_Made_Prefabs/D_Pad_One.prefab
+  uploadId: 838716

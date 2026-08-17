@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7eb66f0639b31e4438d92728a3f35076
+timeCreated: 1470842102
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 46591
+  packageName: JazzCreate Pixel Multi-Purpose UI
+  packageVersion: 1.1
+  assetPath: Assets/JazzCreate/JazzCreateMultiUI/Prefabs/Pre_Made_Prefabs/SpaceShip.prefab
+  uploadId: 838716

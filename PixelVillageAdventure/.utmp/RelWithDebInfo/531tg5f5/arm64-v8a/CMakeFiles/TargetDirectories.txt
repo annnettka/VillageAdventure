@@ -1,0 +1,8 @@
+E:/unitygames/TEST/Rep/VillageAdventure/PixelVillageAdventure/.utmp/RelWithDebInfo/531tg5f5/arm64-v8a/CMakeFiles/edit_cache.dir
+E:/unitygames/TEST/Rep/VillageAdventure/PixelVillageAdventure/.utmp/RelWithDebInfo/531tg5f5/arm64-v8a/CMakeFiles/rebuild_cache.dir
+E:/unitygames/TEST/Rep/VillageAdventure/PixelVillageAdventure/.utmp/RelWithDebInfo/531tg5f5/arm64-v8a/GameActivity/CMakeFiles/game.dir
+E:/unitygames/TEST/Rep/VillageAdventure/PixelVillageAdventure/.utmp/RelWithDebInfo/531tg5f5/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+E:/unitygames/TEST/Rep/VillageAdventure/PixelVillageAdventure/.utmp/RelWithDebInfo/531tg5f5/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
+E:/unitygames/TEST/Rep/VillageAdventure/PixelVillageAdventure/.utmp/RelWithDebInfo/531tg5f5/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
+E:/unitygames/TEST/Rep/VillageAdventure/PixelVillageAdventure/.utmp/RelWithDebInfo/531tg5f5/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
+E:/unitygames/TEST/Rep/VillageAdventure/PixelVillageAdventure/.utmp/RelWithDebInfo/531tg5f5/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir

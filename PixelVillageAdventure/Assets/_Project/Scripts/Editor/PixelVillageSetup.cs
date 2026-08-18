@@ -666,6 +666,7 @@ public static class PixelVillageSetup
 
         List<CharacterDefinition> definitions = new List<CharacterDefinition>();
         HashSet<string> usedIds = new HashSet<string>();
+        int createdDefinitionCount = 0;
         string[] guids = AssetDatabase.FindAssets("t:Prefab", new[] { CharacterSourceFolder });
         List<string> prefabPaths = new List<string>();
         foreach (string guid in guids)
@@ -702,6 +703,7 @@ public static class PixelVillageSetup
             {
                 definition = ScriptableObject.CreateInstance<CharacterDefinition>();
                 AssetDatabase.CreateAsset(definition, assetPath);
+                createdDefinitionCount++;
             }
 
             string id = GetSerializedString(definition, "id");
@@ -740,6 +742,14 @@ public static class PixelVillageSetup
         }
 
         definitions.Sort((left, right) => string.Compare(left.DisplayName, right.DisplayName, System.StringComparison.OrdinalIgnoreCase));
+        if (definitions.Count == 0)
+        {
+            Debug.LogWarning($"Found 0 playable character prefabs. Searched '{CharacterSourceFolder}' recursively and excluded '{EnemySourceFolder}'.");
+        }
+        else
+        {
+            Debug.Log($"Found {definitions.Count} playable character prefabs under {CharacterSourceFolder}. Created {createdDefinitionCount} character definitions.");
+        }
 
         CharacterDatabase database = AssetDatabase.LoadAssetAtPath<CharacterDatabase>(CharacterDatabasePath);
         if (database == null)
@@ -751,6 +761,7 @@ public static class PixelVillageSetup
         SetObjectArray(database, "characters", definitions.ToArray());
         EditorUtility.SetDirty(database);
         CharacterProgress.EnsureDefaults(database);
+        Debug.Log($"CharacterDatabase contains {definitions.Count} entries: {CharacterDatabasePath}");
         return database;
     }
 
@@ -1331,100 +1342,91 @@ public static class PixelVillageSetup
     private static void SetupMainMenuScene(CharacterDatabase characterDatabase)
     {
         Scene scene = EditorSceneManager.OpenScene(MainMenuScenePath, OpenSceneMode.Single);
-        MainMenuVisualAssets menuAssets = LoadMainMenuVisualAssets();
-
-        GameObject canvasObject = FindInScene(scene, "MainMenuCanvas");
-        if (canvasObject == null)
-        {
-            canvasObject = new GameObject("MainMenuCanvas", typeof(RectTransform));
-            SceneManager.MoveGameObjectToScene(canvasObject, scene);
-            MarkCreated(canvasObject);
-        }
-
-        RemoveChildren(canvasObject.transform);
-
-        Canvas canvas = GetOrAdd<Canvas>(canvasObject);
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        canvas.sortingOrder = 0;
-
-        CanvasScaler scaler = GetOrAdd<CanvasScaler>(canvasObject);
-        scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-        scaler.referenceResolution = new Vector2(1920f, 1080f);
-        scaler.matchWidthOrHeight = 0.5f;
-
-        GetOrAdd<GraphicRaycaster>(canvasObject);
-        MainMenuUI menuUi = GetOrAdd<MainMenuUI>(canvasObject);
-        SetString(menuUi, "gameSceneName", "Game");
-        MainMenuSettingsUI settingsUi = GetOrAdd<MainMenuSettingsUI>(canvasObject);
-        CharacterShopUI shopUi = GetOrAdd<CharacterShopUI>(canvasObject);
-        SetObjectReference(shopUi, "characterDatabase", characterDatabase);
-
-        RectTransform safeArea = CreateRect("SafeArea", canvasObject.transform, Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero);
-        GetOrAdd<SafeArea>(safeArea.gameObject);
-
-        RectTransform backgroundRect = CreateRect("Background", safeArea, Vector2.zero, Vector2.one, new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero);
-        Image background = GetOrAdd<Image>(backgroundRect.gameObject);
-        background.sprite = menuAssets.Background;
-        background.type = Image.Type.Simple;
-        background.preserveAspect = true;
-        background.color = menuAssets.Background != null ? Color.white : new Color(0.19f, 0.55f, 0.82f, 1f);
-        background.raycastTarget = false;
-        AspectRatioFitter backgroundFitter = GetOrAdd<AspectRatioFitter>(backgroundRect.gameObject);
-        backgroundFitter.aspectMode = AspectRatioFitter.AspectMode.EnvelopeParent;
-        backgroundFitter.aspectRatio = GetSpriteAspect(menuAssets.Background, 16f / 9f);
-        backgroundRect.SetAsFirstSibling();
-
-        RectTransform logoContainer = CreateRect("LogoContainer", safeArea, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(1080f, 380f), new Vector2(0f, -34f));
-        CreateSpriteStrip("PIXEL", logoContainer, menuAssets.Pixel, new Vector2(0f, -4f), 520f, 130f);
-        CreateSpriteStrip("VILLAGE", logoContainer, menuAssets.Village, new Vector2(0f, -114f), 960f, 170f);
-        CreateSpriteStrip("ADVENTURE", logoContainer, menuAssets.Adventure, new Vector2(0f, -264f), 700f, 86f);
-
-        Text subtitle = CreateLabel("Subtitle", safeArea, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(620f, 58f), new Vector2(0f, -438f), "Reach the chest!", 34);
-        subtitle.color = new Color(1f, 0.95f, 0.72f, 1f);
-        Outline subtitleOutline = GetOrAdd<Outline>(subtitle.gameObject);
-        subtitleOutline.effectColor = new Color(0.22f, 0.12f, 0.05f, 0.9f);
-        subtitleOutline.effectDistance = new Vector2(3f, -3f);
-
-        RectTransform buttonGroup = CreateRect("MenuButtons", safeArea, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(700f, 520f), new Vector2(0f, -188f));
-        Button playButton = CreateSpriteButton("PlayButton", buttonGroup, menuAssets.PlayButton, new Vector2(640f, 138f), new Vector2(0f, 182f));
-        Button charactersButton = CreateButton("CharactersButton", buttonGroup, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(570f, 96f), new Vector2(0f, 48f), "CHARACTERS", 34);
-        Button settingsButton = CreateSpriteButton("SettingsButton", buttonGroup, menuAssets.SettingsButton, new Vector2(570f, 124f), new Vector2(0f, -80f));
-        Button quitButton = CreateSpriteButton("QuitButton", buttonGroup, menuAssets.QuitButton, new Vector2(540f, 116f), new Vector2(0f, -204f));
-        SetButtonListener(playButton, menuUi.Play);
-        SetButtonListener(charactersButton, shopUi.OpenCharacters);
-        SetButtonListener(settingsButton, settingsUi.OpenSettings);
-        SetButtonListener(quitButton, menuUi.Quit);
-
-        GameObject settingsPanel = CreateSettingsPanel(canvasObject.transform, settingsUi);
-        SetObjectReference(settingsUi, "settingsPanel", settingsPanel);
-        settingsPanel.SetActive(false);
-
-        CharacterShopPanelRefs shopRefs = CreateCharactersPanel(canvasObject.transform, shopUi, GetFlowerSourceSprite(FindFlowerSourcePrefab()));
-        SetObjectReference(shopUi, "panel", shopRefs.Panel);
-        SetObjectReference(shopUi, "gridRoot", shopRefs.GridRoot);
-        SetObjectReference(shopUi, "cardTemplate", shopRefs.CardTemplate);
-        SetObjectReference(shopUi, "currencyText", shopRefs.CurrencyText);
-        SetObjectReference(shopUi, "feedbackText", shopRefs.FeedbackText);
-        shopRefs.Panel.SetActive(false);
-
-        Text version = CreateLabel("VersionText", safeArea, new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(1f, 0f), new Vector2(140f, 44f), new Vector2(-36f, 28f), "v1.0", 28);
-        version.alignment = TextAnchor.LowerRight;
-        version.color = new Color(1f, 0.95f, 0.82f, 1f);
-
-        GameObject cameraObject = FindInScene(scene, "Main Camera");
-        if (cameraObject != null)
-        {
-            Camera camera = cameraObject.GetComponent<Camera>();
-            if (camera != null)
-            {
-                camera.clearFlags = CameraClearFlags.SolidColor;
-                camera.backgroundColor = new Color(0.19f, 0.55f, 0.82f, 1f);
-            }
-        }
-
+        RepairCharacterShopDataReferences(scene, characterDatabase);
         EnsureSingleEventSystem(scene);
         EditorSceneManager.MarkSceneDirty(scene);
         EditorSceneManager.SaveScene(scene);
+    }
+
+    private static void RepairCharacterShopDataReferences(Scene scene, CharacterDatabase characterDatabase)
+    {
+        int validCharacterCount = CountValidCharacters(characterDatabase);
+        if (characterDatabase == null)
+        {
+            Debug.LogWarning($"CharacterDatabase was not available at {CharacterDatabasePath}; Characters panel will remain unavailable.");
+        }
+
+        List<CharacterShopUI> shopUis = FindComponentsInScene<CharacterShopUI>(scene);
+        if (shopUis.Count == 0)
+        {
+            Debug.LogWarning("No CharacterShopUI component was found in MainMenu. Setup did not rebuild the menu layout.");
+            return;
+        }
+
+        foreach (CharacterShopUI shopUi in shopUis)
+        {
+            SetObjectReference(shopUi, "characterDatabase", characterDatabase);
+
+            GameObject panel = FindChild(shopUi.transform, "CharactersPanel") ?? FindInScene(scene, "CharactersPanel");
+            if (panel != null)
+            {
+                SetObjectReference(shopUi, "panel", panel);
+
+                GameObject content = FindChild(panel.transform, "Content");
+                if (content != null)
+                {
+                    SetObjectReference(shopUi, "gridRoot", content.transform);
+                }
+
+                CharacterShopCard cardTemplate = FindComponentByName<CharacterShopCard>(panel.transform, "CharacterCardTemplate");
+                if (cardTemplate != null)
+                {
+                    cardTemplate.gameObject.SetActive(false);
+                    SetObjectReference(shopUi, "cardTemplate", cardTemplate);
+                }
+
+                TMP_Text currencyText = FindComponentByName<TMP_Text>(panel.transform, "CurrencyText");
+                if (currencyText != null)
+                {
+                    SetObjectReference(shopUi, "currencyText", currencyText);
+                }
+
+                TMP_Text feedbackText = FindComponentByName<TMP_Text>(panel.transform, "FeedbackText");
+                if (feedbackText != null)
+                {
+                    feedbackText.text = string.Empty;
+                    SetObjectReference(shopUi, "feedbackText", feedbackText);
+                }
+            }
+
+            EditorUtility.SetDirty(shopUi);
+            Debug.Log($"Assigned CharacterDatabase with {validCharacterCount} valid entries to CharacterShopUI on '{shopUi.gameObject.name}'.");
+        }
+    }
+
+    private static int CountValidCharacters(CharacterDatabase characterDatabase)
+    {
+        if (characterDatabase == null)
+        {
+            return 0;
+        }
+
+        int count = 0;
+        foreach (CharacterDefinition character in characterDatabase.Characters)
+        {
+            if (character != null && !string.IsNullOrEmpty(character.Id) && character.CharacterPrefab != null)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    private static T FindComponentByName<T>(Transform root, string objectName) where T : Component
+    {
+        GameObject child = FindChild(root, objectName);
+        return child != null ? child.GetComponent<T>() : null;
     }
 
     private static MainMenuVisualAssets LoadMainMenuVisualAssets()

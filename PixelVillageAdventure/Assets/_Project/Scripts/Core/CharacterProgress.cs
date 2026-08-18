@@ -97,7 +97,9 @@ public static class CharacterProgress
         }
 
         Unlock(fallback);
-        if (string.IsNullOrEmpty(PlayerPrefs.GetString(SelectedCharacterIdKey, string.Empty)))
+        string selectedId = PlayerPrefs.GetString(SelectedCharacterIdKey, string.Empty);
+        CharacterDefinition selected = database.GetById(selectedId);
+        if (selected == null || !IsUnlocked(selected))
         {
             Select(fallback);
         }

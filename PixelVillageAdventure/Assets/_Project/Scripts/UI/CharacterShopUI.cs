@@ -62,9 +62,10 @@ public sealed class CharacterShopUI : MonoBehaviour
             return;
         }
 
+        int visibleCharacterCount = 0;
         foreach (CharacterDefinition character in characterDatabase.Characters)
         {
-            if (character == null)
+            if (!IsUsableCharacter(character))
             {
                 continue;
             }
@@ -72,6 +73,16 @@ public sealed class CharacterShopUI : MonoBehaviour
             CharacterShopCard card = Instantiate(cardTemplate, gridRoot);
             card.gameObject.SetActive(true);
             card.Setup(this, character, characterDatabase);
+            visibleCharacterCount++;
+        }
+
+        if (visibleCharacterCount == 0)
+        {
+            ShowFeedback("Characters unavailable");
+        }
+        else
+        {
+            ClearFeedback();
         }
     }
 
@@ -145,6 +156,27 @@ public sealed class CharacterShopUI : MonoBehaviour
         }
 
         feedbackRoutine = StartCoroutine(FeedbackRoutine(message));
+    }
+
+    private void ClearFeedback()
+    {
+        if (feedbackRoutine != null)
+        {
+            StopCoroutine(feedbackRoutine);
+            feedbackRoutine = null;
+        }
+
+        if (feedbackText != null)
+        {
+            feedbackText.text = string.Empty;
+        }
+    }
+
+    private static bool IsUsableCharacter(CharacterDefinition character)
+    {
+        return character != null
+            && !string.IsNullOrEmpty(character.Id)
+            && character.CharacterPrefab != null;
     }
 
     private IEnumerator FeedbackRoutine(string message)

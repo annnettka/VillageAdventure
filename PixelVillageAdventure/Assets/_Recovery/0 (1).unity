@@ -2793,7 +2793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f24c7e67cc914a149a603004d6f5a1d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterShopUI
-  characterDatabase: {fileID: 11400000, guid: c9ce2907a64c55e48975aebc3e54c14e, type: 2}
+  characterDatabase: {fileID: 0}
   panel: {fileID: 976412111}
   gridRoot: {fileID: 752300266}
   cardTemplate: {fileID: 1016907455}

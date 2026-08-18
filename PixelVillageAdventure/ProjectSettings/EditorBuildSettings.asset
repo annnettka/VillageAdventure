@@ -11,6 +11,216 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/Scenes/Game.unity
     guid: 1a1bf560bde45b04b87733b04905133f
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 1.unity
+    guid: d5f535279569e594bbbf353dfccdaceb
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 2.unity
+    guid: ed3f4d3c3d7b98449930c71272bc938a
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 3.unity
+    guid: 368c9dc2e3b64cd4e93033639d279159
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 4.unity
+    guid: c2bb0cf810236924dabb67b80126ff1d
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 5.unity
+    guid: 9d1885af8da5dcb4bb59fb6cbc828c22
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 6.unity
+    guid: 2022e1a1d748c234e9ff12a4a8e38a3e
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 7.unity
+    guid: 51353644624cb7c4eac73a281b8892c3
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 8.unity
+    guid: 386c05a2a465225498b17189af43023f
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 9.unity
+    guid: 218e6c0833f6b2e408f6c2b6bc54205f
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 10.unity
+    guid: 9ae18a39633bea744b74deb05bf9e270
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 11.unity
+    guid: ae528893f947a124ebb3b78436549ce6
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 12.unity
+    guid: 8d4d933d9e820e446b732f8087a79196
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 13.unity
+    guid: 9d6e6ff5fc9e5e24db63fa8b92319bf5
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 14.unity
+    guid: 0a48adfc93c910342be313c6cb118969
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 15.unity
+    guid: 206af2de738e75b4a8baff61f39477b0
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 16.unity
+    guid: 82c1ffac71a15834cb7ac5f4b4481c7c
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 17.unity
+    guid: e57766cf0df0bd4488076892bb1d6160
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 18.unity
+    guid: 58b3e3f03dd9bb64fa5eebaea50769d5
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 19.unity
+    guid: fed0e6fcf8b017b4ab561b4f864ff766
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 20.unity
+    guid: c9ee65278776cb2449ead4554bd657c4
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 21.unity
+    guid: 3bb6058e6d79d4742867cede233203d5
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 22.unity
+    guid: 3e12df510e6d8024cb227ca560759552
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 23.unity
+    guid: 36a01dace8a8b4e45bfccbe1d59b89be
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 24.unity
+    guid: 57c0d4621a1453a40b3b0755d5f90d6e
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 25.unity
+    guid: b41db4a76b44ec241b16e906f0aefa9e
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 26.unity
+    guid: 3d65ffc8477c0d2419346e4735ec6483
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 27.unity
+    guid: 46041d3c3efc7dd41b04d800b72a91d4
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 28.unity
+    guid: a034faef80a74ae4cb7b52a5badfe95f
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 29.unity
+    guid: c97e8b5581522c34dada0d6af821726a
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 30.unity
+    guid: 584b0a27f43446848ae023356ef51187
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 31.unity
+    guid: a65d78738975a534685f016469c6ebd1
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 32.unity
+    guid: 95e97ac9d58a9b34ba420b2dcaea8368
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 33.unity
+    guid: 643a2f13cb7870b4490e58bb74720171
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 34.unity
+    guid: 88062f968ec65e74b886f431c1e51177
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 35.unity
+    guid: fbfc8bece3be98345a7f3364f180f109
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 36.unity
+    guid: b9ec39f37bc9fae42a76adf32ea708ba
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 37.unity
+    guid: 082e8e07962c11448b95a405b51bd4bd
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 38.unity
+    guid: 000b318b0c5c3ef41ac8dd2a5ed5532d
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 39.unity
+    guid: 293668cecb9b09f438304ce1ad0d87bb
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 40.unity
+    guid: 24be398c8b14de849a44c3f5e7f7b954
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 41.unity
+    guid: 04fbfe625e284944aae0503a639dfe09
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 42.unity
+    guid: 16ecb4dda86ff394da52fa95ba5348cd
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 43.unity
+    guid: 69724b20f5f84f64e8051c62f49c1c99
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 44.unity
+    guid: 84811a496e7e44e43b24c91830955155
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 45.unity
+    guid: fabed16c79fe4cf44bd654037599943f
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 46.unity
+    guid: 2264f363c7df97945a8df49033217417
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 47.unity
+    guid: ed22d8638c2fd39429dfe2c0373eb2af
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 48.unity
+    guid: 3b418a3b623de7046a1f867cd71de490
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 49.unity
+    guid: bf90eb95c7c750d4bb9a40ac3e073dbb
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 50.unity
+    guid: 2f26957fa334f734a8f61d3a6ecee63d
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 51.unity
+    guid: bb66ee8d43e61784ba8731d20603410b
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 52.unity
+    guid: c48d1c036e1697a459220451735fecd5
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 53.unity
+    guid: 270c084788b47204fa6eaf51bebc1010
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 54.unity
+    guid: 4fe053cc9632e694f953eb5037a108f3
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 55.unity
+    guid: a4fdf19b49963fa4aaa4d1b6c50d85ce
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 56.unity
+    guid: 4f65e504f894cdf449c184dbf5adbc3c
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 57.unity
+    guid: 1c2cdc0f484a96447a8b0bb5f550f744
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 58.unity
+    guid: e56c707f19fc66a4f9025e1e1d5778e2
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 59.unity
+    guid: de2b2af8bbea4574ea6281954651d9ba
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 60.unity
+    guid: fbf6f9751eaa74a4d842d0c16d4e4236
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 61.unity
+    guid: f5af184f617fd0342aa9f14935ade787
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 62.unity
+    guid: 5795bf4077fbf13439288f2c282616dc
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 63.unity
+    guid: e38a235af7a5b224bb304d9bc5b7c461
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 64.unity
+    guid: 5af1b3ff5079cfc4d8b102af2305d197
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 65.unity
+    guid: 56bc3e7c6291fe442bf194aa28b74602
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 66.unity
+    guid: 56f0af8a3f49d074781bd85a1cfe9873
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 67.unity
+    guid: 75c8904a88b4cb542ab0aa054ecc921a
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 68.unity
+    guid: d79b5842d1578e24eaa07ad3e84f15dd
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 69.unity
+    guid: bb18672ee917f3546a587ee3d58cab03
+  - enabled: 1
+    path: Assets/_Project/Scenes/Game 70.unity
+    guid: a38e13116022bc54da650c772db72913
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

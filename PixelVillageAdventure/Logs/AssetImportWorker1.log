@@ -360,3 +360,7 @@ Received Import Request.
 Start importing Assets/_Project/Scenes/Game 33.unity using Guid(643a2f13cb7870b4490e58bb74720171) Importer(2089858483,b0f066a214c2f5e87bad3c948f4d605d) (ScriptedImporter) -> (artifact id: '0035c995f506b45eb967ab3fa5cb51fd') in 0.0792775 seconds
 Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

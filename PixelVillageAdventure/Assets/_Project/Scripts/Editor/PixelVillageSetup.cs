@@ -20,6 +20,7 @@ public static class PixelVillageSetup
 {
     private const string GameScenePath = "Assets/_Project/Scenes/Game.unity";
     private const string MainMenuScenePath = "Assets/_Project/Scenes/MainMenu.unity";
+    private const string ScenesFolder = "Assets/_Project/Scenes";
     private const string MenuAssetsFolder = "Assets/_Project/MenuAssets";
     private const string GameBackgroundPath = "Assets/_Project/Scenes/backgroundGAME.png";
     private const string FlowerCollectiblePrefabPath = "Assets/_Project/Prefabs/Gameplay/FlowerCollectible.prefab";
@@ -68,6 +69,25 @@ public static class PixelVillageSetup
         CharacterDatabase characterDatabase = AssetDatabase.LoadAssetAtPath<CharacterDatabase>(CharacterDatabasePath);
         CharacterProgress.ResetCharacterShop(characterDatabase);
         Debug.Log("Character shop PlayerPrefs were reset. Default character remains unlocked.");
+    }
+
+    [MenuItem("Tools/Pixel Village/Setup Level Progression")]
+    public static void SetupLevelProgression()
+    {
+        List<GameplaySceneInfo> gameplayScenes = FindGameplayScenes();
+        ValidateGameplaySceneSequence(gameplayScenes);
+        ConfigureBuildSettings(gameplayScenes);
+        ConfigureMainMenuForLevelProgression();
+
+        foreach (GameplaySceneInfo gameplayScene in gameplayScenes)
+        {
+            ConfigureGameplaySceneForLevelProgression(gameplayScene, gameplayScenes.Count);
+        }
+
+        ConfigureAndroidSettings();
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
+        Debug.Log($"Level progression setup complete. Found {gameplayScenes.Count} gameplay levels.");
     }
 
     private static PlayerAnimationFrames LoadPlayerAnimationFrames()
@@ -201,12 +221,18 @@ public static class PixelVillageSetup
         SetObjectReference(gameManager, "player", player);
         SetObjectReference(gameManager, "playerRespawn", playerObject.GetComponent<PlayerRespawn>());
         SetObjectReference(gameManager, "playerSpawn", playerSpawn);
+        SetObjectReference(gameManager, "levelProgression", GetOrAdd<LevelProgression>(gameManagerObject));
         SetObjectReference(gameManager, "gameHUD", hudRefs.GameHUD);
         SetObjectReference(gameManager, "timerText", hudRefs.TimerText);
+        SetObjectReference(gameManager, "levelText", hudRefs.LevelText);
         SetObjectReference(gameManager, "pausePanel", hudRefs.PausePanel);
         SetObjectReference(gameManager, "winPanel", hudRefs.WinPanel);
+        SetObjectReference(gameManager, "winTitleText", hudRefs.WinTitleText);
+        SetObjectReference(gameManager, "winMessageText", hudRefs.WinMessageText);
         SetObjectReference(gameManager, "winTimeText", hudRefs.WinTimeText);
         SetObjectReference(gameManager, "winBestTimeText", hudRefs.WinBestTimeText);
+        SetObjectReference(gameManager, "winPrimaryButton", hudRefs.WinPrimaryButton);
+        SetObjectReference(gameManager, "winPrimaryButtonText", hudRefs.WinPrimaryButtonText);
         SetObjectReference(gameManager, "gameOverPanel", hudRefs.GameOverPanel);
         SetString(gameManager, "gameSceneName", "Game");
         SetString(gameManager, "mainMenuSceneName", "MainMenu");
@@ -488,6 +514,8 @@ public static class PixelVillageSetup
 
         Text timerText = CreateLabel("TimerText", header, new Vector2(1f, 1f), new Vector2(1f, 1f), new Vector2(1f, 1f), new Vector2(250f, 74f), new Vector2(-38f, -38f), "Time: 00:00", 34);
         timerText.alignment = TextAnchor.MiddleRight;
+        Text levelText = CreateLabel("LevelText", header, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(300f, 46f), new Vector2(0f, -42f), "LEVEL 1 / 71", 24);
+        levelText.color = new Color(1f, 0.95f, 0.82f, 0.9f);
 
         RectTransform moveGroup = CreateRect("MoveControls", safeArea, Vector2.zero, Vector2.zero, Vector2.zero, new Vector2(430f, 170f), new Vector2(52f, 52f));
         Button leftButton = CreateButton("LeftButton", moveGroup, new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(0f, 0f), new Vector2(180f, 150f), new Vector2(0f, 0f), "LEFT", 30);
@@ -511,9 +539,9 @@ public static class PixelVillageSetup
         GameObject winPanel = CreateOverlayPanel("WinPanel", safeArea, "LEVEL COMPLETE");
         Text winTimeText = CreateLabel("WinTimeText", winPanel.transform, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(520f, 58f), new Vector2(0f, 58f), "Time: 00.00", 28);
         Text winBestText = CreateLabel("WinBestTimeText", winPanel.transform, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(520f, 58f), new Vector2(0f, 12f), "Best: 00.00", 28);
-        Button playAgainButton = CreateButton("PlayAgainButton", winPanel.transform, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(360f, 88f), new Vector2(0f, -86f), "PLAY AGAIN", 28);
+        Button playAgainButton = CreateButton("PlayAgainButton", winPanel.transform, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(360f, 88f), new Vector2(0f, -86f), "NEXT LEVEL", 28);
         Button winMenuButton = CreateButton("WinMainMenuButton", winPanel.transform, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(360f, 88f), new Vector2(0f, -196f), "MAIN MENU", 28);
-        SetButtonListener(playAgainButton, gameManager.RestartLevel);
+        SetButtonListener(playAgainButton, gameManager.ContinueAfterWin);
         SetButtonListener(winMenuButton, gameManager.GoToMainMenu);
         winPanel.SetActive(false);
 
@@ -528,10 +556,15 @@ public static class PixelVillageSetup
         {
             GameHUD = gameHud,
             TimerText = timerText,
+            LevelText = levelText,
             PausePanel = pausePanel,
             WinPanel = winPanel,
+            WinTitleText = FindChild(winPanel.transform, "Title")?.GetComponent<Text>(),
+            WinMessageText = EnsureWinMessageText(winPanel.transform),
             WinTimeText = winTimeText,
             WinBestTimeText = winBestText,
+            WinPrimaryButton = playAgainButton,
+            WinPrimaryButtonText = playAgainButton.GetComponentInChildren<Text>(true),
             GameOverPanel = gameOverPanel
         };
     }
@@ -1791,6 +1824,38 @@ public static class PixelVillageSetup
         return panel.gameObject;
     }
 
+    private static Text EnsureWinMessageText(Transform winPanel)
+    {
+        GameObject existing = FindChild(winPanel, "WinMessageText");
+        Text messageText = existing != null ? existing.GetComponent<Text>() : null;
+        if (messageText == null)
+        {
+            messageText = CreateLabel("WinMessageText", winPanel, new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), new Vector2(720f, 52f), new Vector2(0f, 106f), "Level complete", 26);
+        }
+
+        messageText.alignment = TextAnchor.MiddleCenter;
+        messageText.color = TextColor;
+        return messageText;
+    }
+
+    private static Text EnsureLevelText(Transform hudRoot, int levelIndex, int totalLevels)
+    {
+        GameObject existing = FindChild(hudRoot, "LevelText");
+        Text levelText = existing != null ? existing.GetComponent<Text>() : null;
+        if (levelText == null)
+        {
+            Transform parent = FindChild(hudRoot, "HUD")?.transform
+                ?? FindChild(hudRoot, "SafeArea")?.transform
+                ?? hudRoot;
+            levelText = CreateLabel("LevelText", parent, new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), new Vector2(300f, 46f), new Vector2(0f, -42f), string.Empty, 24);
+        }
+
+        levelText.text = $"LEVEL {levelIndex + 1} / {totalLevels}";
+        levelText.alignment = TextAnchor.MiddleCenter;
+        levelText.color = new Color(1f, 0.95f, 0.82f, 0.9f);
+        return levelText;
+    }
+
     private static Button CreateButton(string name, Transform parent, Vector2 anchorMin, Vector2 anchorMax, Vector2 pivot, Vector2 size, Vector2 position, string label, int fontSize)
     {
         RectTransform rect = CreateRect(name, parent, anchorMin, anchorMax, pivot, size, position);
@@ -1867,11 +1932,234 @@ public static class PixelVillageSetup
 
     private static void ConfigureBuildSettings()
     {
-        EditorBuildSettings.scenes = new[]
+        List<GameplaySceneInfo> gameplayScenes = FindGameplayScenes();
+        ValidateGameplaySceneSequence(gameplayScenes);
+        ConfigureBuildSettings(gameplayScenes);
+    }
+
+    private static void ConfigureBuildSettings(List<GameplaySceneInfo> gameplayScenes)
+    {
+        List<EditorBuildSettingsScene> buildScenes = new List<EditorBuildSettingsScene>
         {
-            new EditorBuildSettingsScene(MainMenuScenePath, true),
-            new EditorBuildSettingsScene(GameScenePath, true)
+            new EditorBuildSettingsScene(MainMenuScenePath, true)
         };
+
+        foreach (GameplaySceneInfo gameplayScene in gameplayScenes)
+        {
+            buildScenes.Add(new EditorBuildSettingsScene(gameplayScene.Path, true));
+        }
+
+        EditorBuildSettings.scenes = buildScenes.ToArray();
+        Debug.Log($"Configured build scene order: MainMenu plus {gameplayScenes.Count} gameplay scenes.");
+    }
+
+    private static List<GameplaySceneInfo> FindGameplayScenes()
+    {
+        List<GameplaySceneInfo> scenes = new List<GameplaySceneInfo>();
+        string[] guids = AssetDatabase.FindAssets("t:Scene", new[] { ScenesFolder });
+        foreach (string guid in guids)
+        {
+            string path = AssetDatabase.GUIDToAssetPath(guid);
+            if (TryParseGameplayScene(path, out int levelIndex, out string sceneName))
+            {
+                scenes.Add(new GameplaySceneInfo(path, sceneName, levelIndex));
+            }
+        }
+
+        scenes.Sort((left, right) => left.LevelIndex.CompareTo(right.LevelIndex));
+        return scenes;
+    }
+
+    private static bool TryParseGameplayScene(string path, out int levelIndex, out string sceneName)
+    {
+        levelIndex = -1;
+        sceneName = System.IO.Path.GetFileNameWithoutExtension(path);
+        if (sceneName == LevelProgression.FirstLevelSceneName)
+        {
+            levelIndex = 0;
+            return true;
+        }
+
+        string prefix = LevelProgression.FirstLevelSceneName + " ";
+        if (!sceneName.StartsWith(prefix, System.StringComparison.Ordinal))
+        {
+            return false;
+        }
+
+        string suffix = sceneName.Substring(prefix.Length);
+        return int.TryParse(suffix, out levelIndex) && levelIndex >= 1 && levelIndex < LevelProgression.TotalLevels;
+    }
+
+    private static void ValidateGameplaySceneSequence(List<GameplaySceneInfo> gameplayScenes)
+    {
+        bool[] found = new bool[LevelProgression.TotalLevels];
+        foreach (GameplaySceneInfo gameplayScene in gameplayScenes)
+        {
+            if (gameplayScene.LevelIndex >= 0 && gameplayScene.LevelIndex < found.Length)
+            {
+                found[gameplayScene.LevelIndex] = true;
+            }
+        }
+
+        bool missingAny = false;
+        for (int i = 0; i < found.Length; i++)
+        {
+            if (!found[i])
+            {
+                missingAny = true;
+                Debug.LogWarning($"Missing expected gameplay scene: {LevelProgression.GetSceneNameForLevelIndex(i)}");
+            }
+        }
+
+        if (!missingAny && gameplayScenes.Count == LevelProgression.TotalLevels)
+        {
+            Debug.Log($"Found {LevelProgression.TotalLevels} gameplay levels.");
+        }
+        else
+        {
+            Debug.LogWarning($"Found {gameplayScenes.Count} gameplay levels. Expected {LevelProgression.TotalLevels}.");
+        }
+    }
+
+    private static void ConfigureMainMenuForLevelProgression()
+    {
+        Scene scene = EditorSceneManager.OpenScene(MainMenuScenePath, OpenSceneMode.Single);
+        List<MainMenuUI> menuUis = FindComponentsInScene<MainMenuUI>(scene);
+        if (menuUis.Count == 0)
+        {
+            Debug.LogWarning("MainMenuUI was not found in MainMenu. PLAY button scene name was not updated.");
+        }
+
+        foreach (MainMenuUI menuUi in menuUis)
+        {
+            SetString(menuUi, "gameSceneName", LevelProgression.FirstLevelSceneName);
+            EditorUtility.SetDirty(menuUi);
+        }
+
+        EditorSceneManager.MarkSceneDirty(scene);
+        EditorSceneManager.SaveScene(scene);
+    }
+
+    private static void ConfigureGameplaySceneForLevelProgression(GameplaySceneInfo gameplayScene, int totalLevels)
+    {
+        Scene scene = EditorSceneManager.OpenScene(gameplayScene.Path, OpenSceneMode.Single);
+
+        GameObject gameManagerObject = FindInScene(scene, "GameManager");
+        if (gameManagerObject == null)
+        {
+            gameManagerObject = FindOrCreateRoot(scene, "GameManager");
+        }
+
+        GameManager gameManager = GetOrAdd<GameManager>(gameManagerObject);
+        LevelProgression levelProgression = GetOrAdd<LevelProgression>(gameManagerObject);
+        SetObjectReference(gameManager, "levelProgression", levelProgression);
+        SetString(gameManager, "gameSceneName", LevelProgression.FirstLevelSceneName);
+        SetString(gameManager, "mainMenuSceneName", LevelProgression.MainMenuSceneName);
+
+        ConfigureGameplayHudForLevelProgression(scene, gameManager, gameplayScene.LevelIndex, totalLevels);
+        ConfigureFinishTriggerForLevelProgression(scene, gameManager);
+        EnsureSingleEventSystem(scene);
+
+        EditorSceneManager.MarkSceneDirty(scene);
+        EditorSceneManager.SaveScene(scene);
+    }
+
+    private static void ConfigureGameplayHudForLevelProgression(Scene scene, GameManager gameManager, int levelIndex, int totalLevels)
+    {
+        GameObject hud = FindInScene(scene, "GameHUD");
+        if (hud == null)
+        {
+            Debug.LogWarning($"{scene.name}: GameHUD was not found. Level progression UI references were not fully configured.");
+            return;
+        }
+
+        GameHUD gameHud = hud.GetComponent<GameHUD>();
+        if (gameHud != null)
+        {
+            SetObjectReference(gameHud, "gameManager", gameManager);
+        }
+
+        SetObjectReference(gameManager, "gameHUD", gameHud);
+        SetObjectReference(gameManager, "timerText", FindText(hud.transform, "TimerText"));
+        SetObjectReference(gameManager, "levelText", EnsureLevelText(hud.transform, levelIndex, totalLevels));
+        SetObjectReference(gameManager, "pausePanel", FindChild(hud.transform, "PausePanel"));
+        SetObjectReference(gameManager, "gameOverPanel", FindChild(hud.transform, "GameOverPanel"));
+
+        GameObject winPanel = FindChild(hud.transform, "WinPanel");
+        SetObjectReference(gameManager, "winPanel", winPanel);
+        if (winPanel != null)
+        {
+            Text winTitleText = FindText(winPanel.transform, "Title");
+            Text winMessageText = EnsureWinMessageText(winPanel.transform);
+            Text winTimeText = FindText(winPanel.transform, "WinTimeText");
+            Text winBestText = FindText(winPanel.transform, "WinBestTimeText");
+            Button primaryButton = FindButton(winPanel.transform, "PlayAgainButton");
+            Button mainMenuButton = FindButton(winPanel.transform, "WinMainMenuButton");
+
+            if (winTitleText != null)
+            {
+                winTitleText.text = levelIndex == LevelProgression.TotalLevels - 1 ? "ADVENTURE COMPLETE!" : "LEVEL COMPLETE";
+            }
+
+            winMessageText.text = levelIndex == LevelProgression.TotalLevels - 1
+                ? $"You completed all {LevelProgression.TotalLevels} levels!"
+                : $"Level {levelIndex + 1} / {LevelProgression.TotalLevels} complete";
+
+            if (primaryButton != null)
+            {
+                Text primaryLabel = primaryButton.GetComponentInChildren<Text>(true);
+                if (primaryLabel != null)
+                {
+                    primaryLabel.text = levelIndex == LevelProgression.TotalLevels - 1 ? "PLAY AGAIN" : "NEXT LEVEL";
+                }
+                SetButtonListener(primaryButton, gameManager.ContinueAfterWin);
+                SetObjectReference(gameManager, "winPrimaryButton", primaryButton);
+                SetObjectReference(gameManager, "winPrimaryButtonText", primaryLabel);
+            }
+
+            if (mainMenuButton != null)
+            {
+                SetButtonListener(mainMenuButton, gameManager.GoToMainMenu);
+            }
+
+            SetObjectReference(gameManager, "winTitleText", winTitleText);
+            SetObjectReference(gameManager, "winMessageText", winMessageText);
+            SetObjectReference(gameManager, "winTimeText", winTimeText);
+            SetObjectReference(gameManager, "winBestTimeText", winBestText);
+        }
+
+        Button tryAgainButton = FindButton(hud.transform, "TryAgainButton");
+        if (tryAgainButton != null)
+        {
+            SetButtonListener(tryAgainButton, gameManager.RestartLevel);
+        }
+    }
+
+    private static void ConfigureFinishTriggerForLevelProgression(Scene scene, GameManager gameManager)
+    {
+        GameObject finishChest = FindInScene(scene, "FinishChest");
+        if (finishChest == null)
+        {
+            Debug.LogWarning($"{scene.name}: FinishChest was not found. Finish trigger was not configured.");
+            return;
+        }
+
+        FinishTrigger finishTrigger = GetOrAdd<FinishTrigger>(finishChest);
+        SetObjectReference(finishTrigger, "gameManager", gameManager);
+        SetObjectReference(finishTrigger, "chestAnimator", finishChest.GetComponentInChildren<Animator>(true));
+        SetBool(finishTrigger, "openChest", true);
+    }
+
+    private static Text FindText(Transform root, string objectName)
+    {
+        GameObject gameObject = FindChild(root, objectName);
+        return gameObject != null ? gameObject.GetComponent<Text>() : null;
+    }
+
+    private static Button FindButton(Transform root, string objectName)
+    {
+        GameObject gameObject = FindChild(root, objectName);
+        return gameObject != null ? gameObject.GetComponent<Button>() : null;
     }
 
     private static void ConfigureAndroidSettings()
@@ -2204,14 +2492,33 @@ public static class PixelVillageSetup
         return serializedObject.FindProperty(propertyName);
     }
 
+    private readonly struct GameplaySceneInfo
+    {
+        public readonly string Path;
+        public readonly string SceneName;
+        public readonly int LevelIndex;
+
+        public GameplaySceneInfo(string path, string sceneName, int levelIndex)
+        {
+            Path = path;
+            SceneName = sceneName;
+            LevelIndex = levelIndex;
+        }
+    }
+
     private struct GameHudRefs
     {
         public GameHUD GameHUD;
         public Text TimerText;
+        public Text LevelText;
         public GameObject PausePanel;
         public GameObject WinPanel;
+        public Text WinTitleText;
+        public Text WinMessageText;
         public Text WinTimeText;
         public Text WinBestTimeText;
+        public Button WinPrimaryButton;
+        public Text WinPrimaryButtonText;
         public GameObject GameOverPanel;
     }
 

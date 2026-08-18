@@ -18,14 +18,20 @@ public sealed class GameManager : MonoBehaviour
     [SerializeField] private PlayerController player;
     [SerializeField] private PlayerRespawn playerRespawn;
     [SerializeField] private Transform playerSpawn;
+    [SerializeField] private LevelProgression levelProgression;
 
     [Header("HUD")]
     [SerializeField] private GameHUD gameHUD;
     [SerializeField] private Text timerText;
+    [SerializeField] private Text levelText;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private GameObject winPanel;
+    [SerializeField] private Text winTitleText;
+    [SerializeField] private Text winMessageText;
     [SerializeField] private Text winTimeText;
     [SerializeField] private Text winBestTimeText;
+    [SerializeField] private Button winPrimaryButton;
+    [SerializeField] private Text winPrimaryButtonText;
     [SerializeField] private GameObject gameOverPanel;
 
     [Header("Timing")]
@@ -43,6 +49,7 @@ public sealed class GameManager : MonoBehaviour
     private int currentLives;
     private int collectedFlowers;
     private bool damageInvulnerable;
+    private bool sceneTransitioning;
 
     public GameState State => currentState;
     public bool IsPlaying => currentState == GameState.Playing;
@@ -50,6 +57,8 @@ public sealed class GameManager : MonoBehaviour
     public int MaxLives => maxLives;
     public int CurrentLives => currentLives;
     public int CollectedFlowers => collectedFlowers;
+    private string FirstLevelSceneToLoad => string.IsNullOrEmpty(gameSceneName) ? LevelProgression.FirstLevelSceneName : gameSceneName;
+    private string MainMenuSceneToLoad => string.IsNullOrEmpty(mainMenuSceneName) ? LevelProgression.MainMenuSceneName : mainMenuSceneName;
 
     public event Action<int, int> OnLivesChanged;
     public event Action<int> OnFlowerCountChanged;
@@ -80,6 +89,11 @@ public sealed class GameManager : MonoBehaviour
             gameHUD = FindFirstObjectByType<GameHUD>();
         }
 
+        if (levelProgression == null)
+        {
+            levelProgression = GetComponent<LevelProgression>();
+        }
+
         maxLives = Mathf.Max(1, maxLives);
         currentLives = maxLives;
         collectedFlowers = 0;
@@ -95,6 +109,7 @@ public sealed class GameManager : MonoBehaviour
         SetPanelActive(gameOverPanel, false);
         SetState(GameState.Playing);
         UpdateTimerText();
+        UpdateLevelText();
     }
 
     private void Start()
@@ -177,6 +192,7 @@ public sealed class GameManager : MonoBehaviour
             winBestTimeText.text = $"Best: {FormatSeconds(bestTime)}";
         }
 
+        ConfigureWinPanelForCurrentLevel();
         SetPanelActive(winPanel, true);
     }
 
@@ -262,15 +278,49 @@ public sealed class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        Time.timeScale = 1f;
-        string currentSceneName = SceneManager.GetActiveScene().name;
-        SceneManager.LoadScene(string.IsNullOrEmpty(currentSceneName) ? gameSceneName : currentSceneName);
+        if (sceneTransitioning)
+        {
+            return;
+        }
+
+        sceneTransitioning = true;
+        LevelProgression.RestartCurrentLevel();
     }
 
     public void GoToMainMenu()
     {
+        if (sceneTransitioning)
+        {
+            return;
+        }
+
+        sceneTransitioning = true;
         Time.timeScale = 1f;
-        SceneManager.LoadScene(mainMenuSceneName);
+        SceneManager.LoadScene(MainMenuSceneToLoad);
+    }
+
+    public void ContinueAfterWin()
+    {
+        if (sceneTransitioning)
+        {
+            return;
+        }
+
+        sceneTransitioning = true;
+        if (winPrimaryButton != null)
+        {
+            winPrimaryButton.interactable = false;
+        }
+
+        if (LevelProgression.IsFinalLevel)
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadScene(FirstLevelSceneToLoad);
+        }
+        else
+        {
+            LevelProgression.LoadNextLevel();
+        }
     }
 
     public void QuitGame()
@@ -366,6 +416,32 @@ public sealed class GameManager : MonoBehaviour
         OnFlowerCountChanged?.Invoke(collectedFlowers);
     }
 
+    private void ConfigureWinPanelForCurrentLevel()
+    {
+        bool finalLevel = LevelProgression.IsFinalLevel;
+        if (winTitleText != null)
+        {
+            winTitleText.text = finalLevel ? "ADVENTURE COMPLETE!" : "LEVEL COMPLETE";
+        }
+
+        if (winMessageText != null)
+        {
+            winMessageText.text = finalLevel
+                ? $"You completed all {LevelProgression.TotalLevels} levels!"
+                : $"Level {LevelProgression.CurrentLevelNumber} / {LevelProgression.TotalLevels} complete";
+        }
+
+        if (winPrimaryButtonText != null)
+        {
+            winPrimaryButtonText.text = finalLevel ? "PLAY AGAIN" : "NEXT LEVEL";
+        }
+
+        if (winPrimaryButton != null)
+        {
+            winPrimaryButton.interactable = true;
+        }
+    }
+
     private static void SetRenderersVisible(SpriteRenderer[] renderers, bool visible)
     {
         foreach (SpriteRenderer renderer in renderers)
@@ -385,6 +461,16 @@ public sealed class GameManager : MonoBehaviour
             int seconds = Mathf.FloorToInt(elapsedTime % 60f);
             timerText.text = $"Time: {minutes:00}:{seconds:00}";
         }
+    }
+
+    private void UpdateLevelText()
+    {
+        if (levelText == null || !LevelProgression.IsGameplayLevel)
+        {
+            return;
+        }
+
+        levelText.text = $"LEVEL {LevelProgression.CurrentLevelNumber} / {LevelProgression.TotalLevels}";
     }
 
     private static float SaveBestTime(float completedTime)
